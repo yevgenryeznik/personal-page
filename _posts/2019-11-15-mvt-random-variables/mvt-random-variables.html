@@ -115,7 +115,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["mvt-random-variables_files/figure-html5/correlation-1.png"]}
+  {"type":"character","attributes":{},"value":["mvt-random-variables_files/anchor-4.2.2/anchor.min.js","mvt-random-variables_files/bowser-1.9.3/bowser.min.js","mvt-random-variables_files/distill-2.2.21/template.v2.js","mvt-random-variables_files/figure-html5/correlation-1.png","mvt-random-variables_files/figure-latex/correlation-1.pdf","mvt-random-variables_files/header-attrs-2.5/header-attrs.js","mvt-random-variables_files/jquery-1.11.3/jquery.min.js","mvt-random-variables_files/kePrint-0.0.1/kePrint.js","mvt-random-variables_files/lightable-0.0.1/lightable.css","mvt-random-variables_files/webcomponents-2.0.0/webcomponents.js","mvt-random-variables.pdf"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1404,6 +1404,8 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 
   <!--/radix_placeholder_distill-->
   <script src="mvt-random-variables_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="mvt-random-variables_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="mvt-random-variables_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="mvt-random-variables_files/jquery-1.11.3/jquery.min.js"></script>
   <script src="mvt-random-variables_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="mvt-random-variables_files/bowser-1.9.3/bowser.min.js"></script>
@@ -1452,16 +1454,25 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="#bivariate-distributions-discrete-case.">Bivariate distributions: discrete case.</a></li>
 <li><a href="#bivariate-distributions-continuous-case">Bivariate distributions: continuous case</a></li>
-<li><a href="#conditional-distributions">Conditional Distributions</a></li>
-<li><a href="#a-bayes-formula-in-terms-of-distributions">A Bayes’ formula in terms of distributions</a></li>
 </ul></li>
-<li><a href="#covariance-and-correlation">Covariance and correlation</a></li>
+<li><a href="#conditional-distributions">Conditional Distributions</a>
+<ul>
+<li><a href="#discrete-case">Discrete Case</a></li>
+<li><a href="#continuous-case">Continuous Case</a></li>
+</ul></li>
+<li><a href="#a-bayes-formula-in-terms-of-distributions">A Bayes’ formula in terms of distributions</a></li>
+<li><a href="#covariance-and-correlation">Covariance and correlation</a>
+<ul>
+<li><a href="#covariance">Covariance</a></li>
+<li><a href="#correlation">Correlation</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
+<p><a href="mvt-random-variables.pdf"><strong>Download pdf</strong></a></p>
 <h2 id="multivariate-random-variables">Multivariate random variables</h2>
 <h3 id="bivariate-distributions-discrete-case.">Bivariate distributions: discrete case.</h3>
-<p>Let <span class="math inline">\(X\sim F_X (x)\)</span> and <span class="math inline">\(Y\sim F_Y (y)\)</span> be two random variables the values of which can be observed in a random experiment. The <em><strong>joint distribution function</strong></em> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as</p>
+<p>Let <span class="math inline">\(X\sim F_X (x)\)</span> and <span class="math inline">\(Y\sim F_Y (y)\)</span> be two random variables the values of which can be observed in a random experiment. The <em><strong>joint probability distribution function</strong></em> (joint c.d.f.)of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as</p>
 <p><span class="math display">\[
   F_{X,Y}(x,y) = \text{P}\left(X\leq x, Y\leq y\right).
 \]</span></p>
@@ -1469,9 +1480,10 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[
   F_{X,Y}(x,y) = \text{P}(X \leq x, Y \leq y) = \text{P}(X \leq x)\cdot\text{P}(Y\leq y) = F_{X}(x)\cdot F_{Y}(y).                                
 \]</span></p>
-<p>In a case of <em><strong>discrete random variables</strong></em>, a <em><strong>joint probability mass function</strong></em> (pmf) is used:</p>
+<p>In a case of <em><strong>discrete random variables</strong></em>, a <em><strong>joint probability mass function</strong></em> (joint p.m.f.) is used:</p>
 <p><span class="math display">\[
-  p_{X, Y}(x,y) = \text{P}(X = x, Y = y)                                                  \]</span></p>
+  p_{X, Y}(x,y) = \text{P}(X = x, Y = y)                                                  
+\]</span></p>
 <p><em><strong>Marginal pmf’s</strong></em> are defined as</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1483,22 +1495,102 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[
   p_{X,Y}(x,y) = \text{P}(X = x, Y = y) = \text{P}(X = x)\cdot\text{P}(Y = y) = p_X(x)\cdot p_Y(y).
 \]</span></p>
-<h4 id="example-clinical-trial">Example (Clinical trial)</h4>
-<p>Ina clinical trial, two types of adverse events (AEs) can be observed: <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
+<p><strong>Example</strong> (Clinical trial)</p>
+<p>In a clinical trial, two types of adverse events (AEs) can be observed: <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
 <ul>
 <li><span class="math inline">\(X\)</span> is decoded as “0 = no AE”, “1 = mild”, “2 = moderate”.</li>
 <li><span class="math inline">\(Y\)</span> is decoded as “0 = no AE”, “1 = mild”, “2 = moderate”, “3=severe”.</li>
 </ul>
 <p>The joint distribution of <span class="math inline">\((X,Y)\)</span> is given as follows:</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+<span class="math inline">\(p_{X, Y}(x, y)\)</span>
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+X/Y
+</th>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+1
+</th>
+<th style="text-align:right;">
+2
+</th>
+<th style="text-align:right;">
+3
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.84
+</td>
+<td style="text-align:right;">
+0.030
+</td>
+<td style="text-align:right;">
+0.020
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>What are the probabilities of</p>
 <ul>
 <li>no AEs in the trial?</li>
 <li>exact one “mild” AE in the trial?</li>
 </ul>
-<h4 id="solution">Solution</h4>
+<p><strong>Solution</strong>:</p>
 <p><span class="math display">\[
 \begin{aligned}
   A &amp;= \text{&quot;no AEs in the trial&quot;} \Leftrightarrow (X = 0, Y = 0) \Rightarrow \\
@@ -1507,13 +1599,76 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
       &amp;\Rightarrow \text{P}(B) = \text{P}\left((X=1,Y=0) + (X=0,Y=1)\right) = p_{X,Y}(1,0) + p_{X,Y}(0,1) = 0.06 + 0.03 = 0.09
 \end{aligned}
 \]</span></p>
-<h4 id="example">Example</h4>
-<p>Two random variable <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have the joint pmf <span class="math inline">\(p_{X, Y}(x, y) = \text{P}(X = x, Y = y)\)</span> is given by the following table:</p>
+<p><strong>Example</strong></p>
+<p>Two random variable <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have the joint pmf <span class="math inline">\(p_{X, Y}(x, y) = \text{P}(X = x, Y = y)\)</span>, which is represented by the following table:</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+<span class="math inline">\(p_{X, Y}(x, y)\)</span>
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+X/Y
+</th>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+1
+</th>
+<th style="text-align:right;">
+2
+</th>
+<th style="text-align:right;">
+3
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:right;">
+0.24
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+0.16
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>What is the value of <span class="math inline">\(\text{P}(Y &gt; 1)\)</span>?</p>
-<h4 id="solution-1">Solution</h4>
+<p><strong>Solution</strong>:</p>
 <p><span class="math display">\[
 \begin{aligned}
   \text{P}(Y &gt; 1) &amp;= \text{P}\left((Y=2) + (Y=3)\right) = \\
@@ -1524,7 +1679,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 \end{aligned}
 \]</span></p>
 <h3 id="bivariate-distributions-continuous-case">Bivariate distributions: continuous case</h3>
-<p>In a case of <em><strong>continuous random variables</strong></em>, a <em><strong>joint probability density function</strong></em> (pdf) <span class="math inline">\(f_{X, Y}(x,y)\)</span> is used, for which:</p>
+<p>In a case of <em><strong>continuous random variables</strong></em>, a <em><strong>joint probability density function</strong></em> (joint p.d.f.) <span class="math inline">\(f_{X, Y}(x,y)\)</span> is used, for which:</p>
 <p><span class="math display">\[
   F_{X,Y}(x,y)=\int\limits_{-\infty}^x\int\limits_{-\infty}^yf_{X, Y}(u, v)dudv
 \]</span></p>
@@ -1539,8 +1694,8 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[
   f_{X,Y}(x,y) = f_X(x)\cdot f_Y(y).
 \]</span></p>
-<h4 id="example-two-time-to-event-oucomes">Example (Two time-to-event oucomes)</h4>
-<p>Two electronic components of some device work in harmony for the success of the total system. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> denote the life in hours of respective component. The joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is</p>
+<p><strong>Example</strong> (Two time-to-event oucomes)</p>
+<p>Two electronic components of some device work in harmony for the success of the total system. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> denote the life-time (in hours) of a corresponding component. The joint p.d.f. of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by</p>
 <p><span class="math display">\[
 f_{X,Y}(x,y) = \left\{
 \begin{array}{cl}
@@ -1553,7 +1708,7 @@ f_{X,Y}(x,y) = \left\{
 <li>What are the marginal densities for both random variables?</li>
 <li>What is the probability that both components will exceed 2 hours?</li>
 </ol>
-<h4 id="solution-2">Solution</h4>
+<p><strong>Solution</strong></p>
 <ol type="a">
 <li></li>
 </ol>
@@ -1571,19 +1726,41 @@ f_{X,Y}(x,y) = \left\{
   \text{P}\left(X &gt; 2, Y &gt; 2\right) &amp;= 1-\left(\text{P}(X \leq 2) + \text{P}(Y \leq 2) - \text{P}(X \leq 2, Y \leq 2)\right) = \\
   &amp;= 1- \left(\int\limits_0^2f_X(x)dx + \int\limits_0^2f_Y(y)dy - \int\limits_0^2\int\limits_0^2f_{X, Y}(x, y)dxdy\right) = \\
   &amp;= 1- \left(\int\limits_0^2\frac{1}{(1+x)^2}dx + \int\limits_0^2e^{-y}dy - \int\limits_0^2\int\limits_0^2ye^{-y(1+x)}dxdy\right) \approx \\
-  &amp;\approx 0 0.0008262507
+  &amp;\approx 0.0008262507
 \end{aligned}
 \]</span>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># marginal pdf for X</span>
+<span class='va'>fx</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fl'>1</span><span class='op'>/</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>+</span><span class='va'>x</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span>
+
+<span class='co'># marginal pdf for Y</span>
+<span class='va'>fy</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>y</span><span class='op'>)</span>
+
+<span class='co'># joint pdf for (X, Y)</span>
+<span class='va'>fxy</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='va'>y</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>y</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>+</span> <span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># probability P(X &gt; 2, Y &gt; 2)</span>
+<span class='co'># Integrals</span>
+
+<span class='va'>Ifx</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/integrate.html'>integrate</a></span><span class='op'>(</span><span class='va'>fx</span>, <span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>$</span><span class='va'>value</span>
+<span class='va'>Ify</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/integrate.html'>integrate</a></span><span class='op'>(</span><span class='va'>fy</span>, <span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>$</span><span class='va'>value</span>
+<span class='va'>Ifxy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/integrate.html'>integrate</a></span><span class='op'>(</span>
+  <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>map_dbl</span><span class='op'>(</span><span class='va'>x</span>, <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/stats/integrate.html'>integrate</a></span><span class='op'>(</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='fu'>fxy</span><span class='op'>(</span><span class='va'>.x</span>, <span class='va'>y</span><span class='op'>)</span>, <span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>$</span><span class='va'>value</span><span class='op'>)</span>,
+  <span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>$</span><span class='va'>value</span>
+  
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'>str_glue</span><span class='op'>(</span><span class='st'>"The answer is {prob}"</span>, prob <span class='op'>=</span> <span class='fl'>1</span><span class='op'>-</span> <span class='op'>(</span><span class='va'>Ifx</span> <span class='op'>+</span> <span class='va'>Ify</span> <span class='op'>-</span> <span class='va'>Ifxy</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>The answer is 0.000826250725555422</code></pre>
 </div>
-<h3 id="conditional-distributions">Conditional Distributions</h3>
-<h4 id="discrete-case">Discrete Case</h4>
+<h2 id="conditional-distributions">Conditional Distributions</h2>
+<h3 id="discrete-case">Discrete Case</h3>
 <p><em><strong>Conditional p.m.f.</strong></em> (of <span class="math inline">\(X\)</span>)</p>
 <p><span class="math display">\[
   \text{P}(X = x_j|Y = y_k) = \frac{\text{P}(X = x_j,Y = y_k )}{\text{P}(Y=y_k)} = \frac{p_{X,Y}(x_j, y_k)}{p_Y(y_k)} = p_{X|Y}(x_j|y_k)           
 \]</span></p>
-<h4 id="continuous-case">Continuous Case</h4>
+<h3 id="continuous-case">Continuous Case</h3>
 <p><em><strong>Conditional p.d.f. (of <span class="math inline">\(X\)</span>)</strong></em></p>
 <p><span class="math display">\[
   f_{X|Y}(x|y) = \frac{f(x,y)}{f(y)}\quad(f(y) &gt; 0)
@@ -1592,30 +1769,31 @@ f_{X,Y}(x,y) = \left\{
 <p><span class="math display">\[
   F_{X|Y}(x|y) = \int\limits_{-\infty}^xf_{X|Y}(u|y)du \Rightarrow \text{P}(X \leq x) = F_X(x) = \int\limits_{-\infty}^{+\infty}F_{X|Y}(x|y)f_Y(y)dy
 \]</span></p>
-<h3 id="a-bayes-formula-in-terms-of-distributions">A Bayes’ formula in terms of distributions</h3>
-<p>Assume that for a random experiment it is known that <span class="math inline">\(B\)</span> is true.</p>
-<p>The conditional distribution of <span class="math inline">\(Y\)</span>, given B, is defined as</p>
+<h2 id="a-bayes-formula-in-terms-of-distributions">A Bayes’ formula in terms of distributions</h2>
+<p>Assume that, for a random experiment, it is known that <span class="math inline">\(B\)</span> is true.</p>
+<p>The conditional distribution of <span class="math inline">\(Y\)</span>, given <span class="math inline">\(B\)</span>, is defined as</p>
 <p><span class="math display">\[
   F_{Y|B} = \text{P}(Y\leq y|B).
 \]</span></p>
-<p>P.d.f. of this distribution, by Bayes’ formula is</p>
+<p>p.d.f. of this distribution, by the Bayes’ formula is</p>
 <p><span class="math display">\[
   f_{Y|B}(y) = cP(B|Y=y)f_Y(y),
-\]</span> where <span class="math display">\[
+\]</span> where</p>
+<p><span class="math display">\[
   \frac{1}{c}=\text{P}(B)\text{ and }\text{P}(B) = \int\limits_{-\infty}^{+\infty}P(B|Y=y) f_Y(y)dy 
-\]</span></p>
-<p>Here, <span class="math display">\[
+\]</span> Here,</p>
+<p><span class="math display">\[
   L(y) = \text{P}(B|Y=y)  
 \]</span></p>
 <p>could be called <em><strong>likelihood</strong></em>.</p>
 <h2 id="covariance-and-correlation">Covariance and correlation</h2>
 <p>In probability theory and statistics, both covariance and correlation describe the degree to which two random variables or sets of random variables tend to deviate from their expected values in similar ways.</p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables, with means (expected values) <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> and standard deviations <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span>, respectively, then their covariance and correlation are as follows:</p>
-<h4 id="covariance">covariance</h4>
+<h3 id="covariance">Covariance</h3>
 <p><span class="math display">\[
   \text{cov}\left[X, Y\right] =\sigma_{XY} = \text{E}\left[(X-\mu_X)(Y-\mu_Y)\right];
 \]</span></p>
-<h4 id="correlation">correlation</h4>
+<h3 id="correlation">Correlation</h3>
 <p><span class="math display">\[
   \text{corr}\left[X, Y\right] = \rho_{XY} = \frac{\text{E}\left[(X-\mu_X)(Y-\mu_Y)\right]}{\sigma_X\sigma_Y} = \frac{\text{cov}\left[X, Y\right]}{\sigma_X\sigma_Y}
 \]</span></p>
@@ -1626,7 +1804,7 @@ f_{X,Y}(x,y) = \left\{
 <p>The correlation allows to understand <em><strong>how strong is this relationship</strong></em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:correlation"></span>
-<img src="mvt-random-variables_files/figure-html5/correlation-1.png" alt="Bivariate normal distribution" width="576" />
+<img src="mvt-random-variables_files/figure-html5/correlation-1.png" alt="Bivariate normal distribution" width="768" />
 <p class="caption">
 Figure 1: Bivariate normal distribution
 </p>

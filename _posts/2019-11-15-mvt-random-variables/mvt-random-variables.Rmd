@@ -53,11 +53,13 @@ add_theme <- function()
   )
 ```
 
+[**Download pdf**](mvt-random-variables.pdf)
+
 ## Multivariate random variables
 
 ### Bivariate distributions: discrete case.
 
-Let $X\sim F_X (x)$ and $Y\sim F_Y (y)$ be two random variables the values of which can be observed in a random experiment. The _**joint distribution function**_ of $X$ and $Y$ is defined as
+Let $X\sim F_X (x)$ and $Y\sim F_Y (y)$ be two random variables the values of which can be observed in a random experiment. The _**joint probability distribution function**_ (joint c.d.f.)of $X$ and $Y$ is defined as
 
 $$
   F_{X,Y}(x,y) = \text{P}\left(X\leq x, Y\leq y\right).
@@ -69,10 +71,11 @@ $$
   F_{X,Y}(x,y) = \text{P}(X \leq x, Y \leq y) = \text{P}(X \leq x)\cdot\text{P}(Y\leq y) = F_{X}(x)\cdot F_{Y}(y).                                
 $$
 
-In a case of _**discrete random variables**_, a _**joint probability mass function**_ (pmf) is used:
+In a case of _**discrete random variables**_, a _**joint probability mass function**_ (joint p.m.f.) is used:
 
 $$
-  p_{X, Y}(x,y) = \text{P}(X = x, Y = y)                                                  $$
+  p_{X, Y}(x,y) = \text{P}(X = x, Y = y)                                                  
+$$
   
 _**Marginal pmf's**_ are defined as
 
@@ -89,9 +92,9 @@ $$
   p_{X,Y}(x,y) = \text{P}(X = x, Y = y) = \text{P}(X = x)\cdot\text{P}(Y = y) = p_X(x)\cdot p_Y(y).
 $$
 
-#### Example (Clinical trial)
+**Example** (Clinical trial)
 
-Ina clinical trial, two types of adverse events (AEs) can be observed: $X$ and $Y$:
+In a clinical trial, two types of adverse events (AEs) can be observed: $X$ and $Y$:
 
 - $X$	is decoded as "0 = no AE", "1 = mild", "2 = moderate".
 - $Y$	is decoded as "0 = no AE", "1 = mild", "2 = moderate", "3=severe".
@@ -106,10 +109,9 @@ tribble(
   1,	0.060,	0.010,	0.008,	0.002,
   2, 	0.010,	0.005,	0.004,	0.001
 ) %>% 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE, 
-        align = "r") %>%
-  kable_styling(latex_options = "striped") %>% 
-  add_header_above(c("$p_{X, Y}(x, y)$" = 5), escape = FALSE)
+  kableExtra::kable(booktabs = TRUE, escape = FALSE, align = "r") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped") %>% 
+  kableExtra::add_header_above(c("$p_{X, Y}(x, y)$" = 5), escape = FALSE)
 ```
 
 What are the probabilities of 
@@ -117,7 +119,7 @@ What are the probabilities of
 - no AEs in the trial?
 - exact one "mild" AE in the trial?
 
-#### Solution
+**Solution**: 
 
 $$
 \begin{aligned}
@@ -128,9 +130,9 @@ $$
 \end{aligned}
 $$
 
-#### Example
+**Example**
 
-Two random variable $X$ and $Y$ have the joint pmf $p_{X, Y}(x, y) = \text{P}(X = x, Y = y)$ is given by the following table:
+Two random variable $X$ and $Y$ have the joint pmf $p_{X, Y}(x, y) = \text{P}(X = x, Y = y)$, which is represented by the following table:
 
 ```{r discrete-joint-pmf2, echo=FALSE}
 tribble(
@@ -138,14 +140,13 @@ tribble(
   0,	0.06,	0.18,	0.24,	0.12,
   1,	0.04,	0.12,	0.16,	0.08
 ) %>% 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE, 
-        align = "r") %>%
-  kable_styling(latex_options = "striped") %>% 
-  add_header_above(c("$p_{X, Y}(x, y)$" = 5), escape = FALSE)
+  kableExtra::kable(booktabs = TRUE, escape = FALSE, align = "r") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped") %>% 
+  kableExtra::add_header_above(c("$p_{X, Y}(x, y)$" = 5), escape = FALSE)
 ```
 What is the value of $\text{P}(Y > 1)$?
 
-#### Solution
+**Solution**:
 
 $$
 \begin{aligned}
@@ -159,7 +160,7 @@ $$
 
 ### Bivariate distributions: continuous case
 
-In a case of _**continuous random variables**_, a _**joint probability density function**_ (pdf) $f_{X, Y}(x,y)$ is used, for which:
+In a case of _**continuous random variables**_, a _**joint probability density function**_ (joint p.d.f.) $f_{X, Y}(x,y)$ is used, for which:
 
 $$
   F_{X,Y}(x,y)=\int\limits_{-\infty}^x\int\limits_{-\infty}^yf_{X, Y}(u, v)dudv
@@ -180,9 +181,9 @@ $$
   f_{X,Y}(x,y) = f_X(x)\cdot f_Y(y).
 $$
   
-#### Example (Two time-to-event oucomes)
+**Example** (Two time-to-event oucomes)
 
-Two electronic components of some device work in harmony for the success of the total system. Let $X$ and $Y$ denote the life in hours of respective component. The joint density of $X$ and $Y$ is
+Two electronic components of some device work in harmony for the success of the total system. Let $X$ and $Y$ denote the life-time (in hours) of a corresponding component. The joint p.d.f. of $X$ and $Y$ is given by
 
 $$
 f_{X,Y}(x,y) = \left\{
@@ -196,7 +197,7 @@ $$
 (a) What are the marginal densities for both random variables?
 (b) What is the probability that both components will exceed 2 hours?
 
-#### Solution
+**Solution**
 
 (a) 
 
@@ -214,10 +215,10 @@ $$
   \text{P}\left(X > 2, Y > 2\right) &= 1-\left(\text{P}(X \leq 2) + \text{P}(Y \leq 2) - \text{P}(X \leq 2, Y \leq 2)\right) = \\
   &= 1- \left(\int\limits_0^2f_X(x)dx + \int\limits_0^2f_Y(y)dy - \int\limits_0^2\int\limits_0^2f_{X, Y}(x, y)dxdy\right) = \\
   &= 1- \left(\int\limits_0^2\frac{1}{(1+x)^2}dx + \int\limits_0^2e^{-y}dy - \int\limits_0^2\int\limits_0^2ye^{-y(1+x)}dxdy\right) \approx \\
-  &\approx 0 0.0008262507
+  &\approx 0.0008262507
 \end{aligned}
 $$
-```{r marginal-pdfs-example}
+```{r marginal-pdfs-example, echo=TRUE}
 
 # marginal pdf for X
 fx <- function(x) 1/(1+x)^2
@@ -238,13 +239,12 @@ Ifxy <- integrate(
   0, 2)$value
   
 cat(str_glue("The answer is {prob}", prob = 1- (Ifx + Ify - Ifxy)))
-
 ```
 
 
-### Conditional Distributions
+## Conditional Distributions
 
-#### Discrete Case
+### Discrete Case
 
 _**Conditional p.m.f.**_ (of $X$)
 
@@ -252,7 +252,7 @@ $$
   \text{P}(X = x_j|Y = y_k) = \frac{\text{P}(X = x_j,Y = y_k )}{\text{P}(Y=y_k)} = \frac{p_{X,Y}(x_j, y_k)}{p_Y(y_k)} = p_{X|Y}(x_j|y_k)           
 $$
 
-#### Continuous Case
+### Continuous Case
 
 _**Conditional p.d.f. (of $X$)**_
 
@@ -266,27 +266,28 @@ $$
   F_{X|Y}(x|y) = \int\limits_{-\infty}^xf_{X|Y}(u|y)du \Rightarrow \text{P}(X \leq x) = F_X(x) = \int\limits_{-\infty}^{+\infty}F_{X|Y}(x|y)f_Y(y)dy
 $$
 
-### A Bayes' formula in terms of distributions
+## A Bayes' formula in terms of distributions
 
-Assume that for a random experiment it is known that $B$ is true.
+Assume that, for a random experiment, it is known that $B$ is true.
 
-The conditional distribution of $Y$, given B, is defined as
+The conditional distribution of $Y$, given $B$, is defined as
 
 $$
   F_{Y|B} = \text{P}(Y\leq y|B).
 $$
 
-P.d.f. of this distribution, by Bayes' formula is
+p.d.f. of this distribution, by the Bayes' formula is
 
 $$
   f_{Y|B}(y) = cP(B|Y=y)f_Y(y),
 $$
-where 
+where
+
 $$
   \frac{1}{c}=\text{P}(B)\text{ and }\text{P}(B) = \int\limits_{-\infty}^{+\infty}P(B|Y=y) f_Y(y)dy 
 $$
-
 Here,
+
 $$
   L(y) = \text{P}(B|Y=y)  
 $$
@@ -299,14 +300,13 @@ In probability theory and statistics, both covariance and correlation describe t
 
 If $X$ and $Y$ are two random variables, with means (expected values) $\mu_X$ and $\mu_Y$ and standard deviations $\sigma_X$ and $\sigma_Y$, respectively, then their covariance and correlation are as follows:
 
-#### covariance	
+### Covariance	
 
 $$
   \text{cov}\left[X, Y\right] =\sigma_{XY} = \text{E}\left[(X-\mu_X)(Y-\mu_Y)\right];
 $$
 
-
-#### correlation	
+### Correlation	
 
 $$
   \text{corr}\left[X, Y\right] = \rho_{XY} = \frac{\text{E}\left[(X-\mu_X)(Y-\mu_Y)\right]}{\sigma_X\sigma_Y} = \frac{\text{cov}\left[X, Y\right]}{\sigma_X\sigma_Y}
@@ -318,31 +318,40 @@ If $Y$ always takes on the same values as $X$, we have the covariance of a varia
 
 The correlation of a variable with itself is always 1. More generally, the correlation between two variables is 1 (or –1) if one of them always takes on a value that is given exactly by a linear function of the other with respectively a positive (or negative) slope.
 
-
 The covariance shows _**if there exists a relationship**_ between two random variables $X$ and $Y$.
 
 The correlation allows to understand _**how strong is this relationship**_.
 
-```{r correlation, echo=FALSE, warning=FALSE, fig.cap="Bivariate normal distribution"}
+```{r correlation, echo=FALSE, warning=FALSE, fig.width=8, fig.cap="Bivariate normal distribution"}
 means <- list(c(0, 1), c(0, 1), c(0, 1), c(0, 1))
-sigma <- list(matrix(c(1, 0, 0, 1), 2), matrix(c(1, -0.2, -0.2, 1), 2), matrix(c(1, -0.5, -0.5, 1), 2), matrix(c(1, 0.9, 0.9, 1), 2))
-label <- list("no~~correlation", "rho == -0.2", "rho == -0.5", "rho == -0.9")
+sigma <- list(
+  matrix(c(1.0,  0.0,  0.0, 1.0), 2), 
+  matrix(c(1.0, -0.2, -0.2, 1.0), 2), 
+  matrix(c(1.0, -0.5, -0.5, 1.0), 2), 
+  matrix(c(1.0,  0.9,  0.9, 1.0), 2)
+)
+label <- list(
+  "no~~correlation", 
+  "rho == -0.2", 
+  "rho == -0.5", 
+  "rho ==  0.9"
+)
+
 smp <- map2(means, sigma, ~ {
   mvtnorm::rmvnorm(10000, .x, .y) %>% 
   as_tibble() %>% 
   set_names(c("X", "Y")) 
 })
 
-df <- map2_df(smp, label, ~ {
-    .x %>% 
-      add_column(Z = .y)
-  })
-
-ggplot(df, aes(x = X, y = Y)) +
-  geom_point(alpha = .5) +
-  geom_density_2d()+
-  facet_wrap(~ Z, labeller = label_parsed, scales = "free_y")
-
+map2_df(smp, label, ~ {
+  .x %>% 
+    add_column(Z = as.factor(.y))
+}) %>% 
+  ggplot(aes(x = X, y = Y)) +
+    geom_point(alpha = .5) +
+    geom_density_2d()+
+    facet_grid(~ Z, labeller = label_parsed)+
+    add_theme()
 ```
 
 
