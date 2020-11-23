@@ -1,0 +1,173 @@
+---
+title: "Monte Carlo approximation of π"
+description: |
+  A short description of the post.
+author:
+  - name: Yevgen Ryeznik
+date: 02-16-2019
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+categories:
+  - R
+  - Scientific computing
+  - Monte Carlo
+  - Statistical simulations  
+---
+
+
+```{r setup, include=FALSE}
+
+# setting chunk options
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+knitr::opts_chunk$set(fig.align = "center", fig.width = 6, fig.height = 4)
+
+# loading libraries
+library(tidyverse)
+
+# auxiliary functions
+add_theme <- function(){
+  theme_bw()+
+  theme(
+    axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+    axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+    strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+    title = element_text(family="Helvetica", face = "bold", size = 14),
+    #legend.position = "right",
+    legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+  )
+}
+```
+
+## Approximation of $\pi$ by geometric probabilities
+
+Let us consider a quarter of a circle inscribed in a square with a side length equal to 1 (Fig. \@ref(fig:geometry))
+
+```{r geometry, echo=FALSE, fig.cap="Geometry of the problem."}
+
+square <- tibble(
+  x = c(0, 0, 1, 1, 0),
+  y = c(0, 1, 1, 0, 0)
+)
+
+circle <- tibble(
+  t = seq(0, 0.5, length = 100)*pi,
+  x = cos(t),
+  y = sin(t)
+)
+
+ggplot()+
+  geom_path(data = square, aes(x, y))+
+  geom_line(data = circle, aes(x, y))+
+  add_theme()
+```
+
+A point is dropped inside the square. The question is: _what is the probability that a point will be **inside** the circle?_
+
+The answer to this question is given by the formula of geometric probabilities:
+
+$$
+  \text{Pr}\left(\text{point belongs to the circle}\right) = \frac{\text{area of the quarter of the circle}}{\text{area of the square}} = \frac{\frac{\pi}{4}}{1} = \frac{\pi}{4}.
+$$
+At the same time, if we drop a large number ($n$) of points inside the square, there will be some number of points ($m$ ($m \leq n$) inside the quarter of the circle. And the probability above can be calculated by the classical probability formula: 
+
+$$
+  \text{Pr}\left(\text{point belongs to the circle}\right) = \frac{\pi}{4} \approx \frac{\text{number of points inside the quarter of the circle}}{\text{total number of points}}  = \frac{m}{n},
+$$
+Thus, we obtain an approximation for $\pi$ as
+
+$$
+  \pi \approx 4\frac{m}{n}
+$$
+
+
+## Implementation in R
+
+The following code performs the approximation. The code is taken from [Bruno Rodrigues' blog](https://www.brodrigues.co/blog/2018-12-21-tidyverse_pi/)
+
+```{r approximation, message=FALSE}
+set.seed(12345)
+
+# number of simulations
+n <- 100000
+
+# approximation table
+approx <- tibble(
+  x = runif(n),
+  y = runif(n),
+  inside = as.integer(x^2 + y^2 < 1)
+) %>%
+  rowid_to_column("n") %>% 
+  mutate(pi = 4*cumsum(inside)/n)
+```
+
+Let us take a look at the last 20 rows in the approximation table (Tab. \@ref(tab:approx-tab)):
+
+```{r approx-tab, echo=FALSE}
+approx[(n-19):n, ] %>% 
+  knitr::kable(caption = "Last 20 approximate values of $\\pi$ in the simulation.")
+```
+
+Now, let us visualize the experiment for $n = 100, 500, 1000, 10000$ (Fig. \@ref(fig:visualization)).
+
+```{r visualization, fig.cap="Visualization of experiments for $n \\in \\{100, 500, 1000, 10000\\}$.", preview=TRUE}
+# visualization
+square <- tibble(
+  x = c(0, 0, 1, 1, 0),
+  y = c(0, 1, 1, 0, 0)
+)
+
+circle <- tibble(
+  t = seq(0, 0.5, length = 100)*pi,
+  x = cos(t),
+  y = sin(t)
+)
+
+n_ <- c(100, 500, 1000, 10000)
+label <- map_chr(n_, ~ str_glue("n == {.x}: pi %~~% {approx_val}", approx_val = approx$pi[.x]))
+
+map_df(n_, ~ {
+  filter(approx, n <= .x) %>% 
+    add_column(title = .x)
+}) %>% 
+  mutate(title = factor(title, labels = label)) %>% 
+  ggplot() +
+    geom_point(aes(x, y, color = factor(inside)))+
+    geom_path(data = square, aes(x, y))+
+    geom_line(data = circle, aes(x, y))+
+    scale_color_manual(values = c("darkblue", "red"))+
+    facet_wrap(~ title, labeller = label_parsed)+
+    theme_bw()+
+    theme(
+      axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+      axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+      strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+      title = element_text(family="Helvetica", face = "bold", size = 14),
+      legend.position = "none"
+  )
+```
+
+Finally, let us take look at the convergence plot (Fig. \@ref(fig:convergence)).
+
+```{r convergence, fig.cap = "Convergence of the Monte Carlo Approach"}
+ggplot(approx, aes(n, pi))+
+  geom_line(aes(n, pi), color = "red")+
+  geom_hline(yintercept = pi)+
+  scale_x_log10()+
+  labs(
+    x = "number of samples",
+    y = "approximate value"
+  )+
+  theme_bw()+
+  theme(
+    axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+    axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+    strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+    title = element_text(family="Helvetica", face = "bold", size = 14)
+  )
+```
+
+
+

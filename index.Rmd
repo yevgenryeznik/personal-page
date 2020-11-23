@@ -1,8 +1,14 @@
 ---
-title: "Yevgen Ryeznik"
+title: ""
 description: |
-  Welcome to the website. I hope you enjoy it!
+  Welcome to my page!
 site: distill::distill_website
+listing: 
+  posts:
+    - 2020-11-20-calling-julia-from-r-via-juliacall
+    - 2020-02-29-pythagorean-theorem-day
+    - 2020-02-24-sampling-from-wischart
+    - 2019-02-16-pi-approximation
 ---
 
 ```{r setup, include=FALSE}

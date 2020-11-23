@@ -1,0 +1,849 @@
+---
+title: "Lecture 3: Random variables -- Part 2"
+description: |
+  The lecture deals with continuous random variables. Several continuous random variables, which are commonly used in practice, are considered.
+author: Yevgen Ryeznik
+institute: Department of Pharmaceutical Biosciences, Uppsala University.
+date: 2019-10-24
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+header-includes:
+  - \usepackage{amsthm}
+  - \usepackage{amsfonts}
+  - \usepackage{hyperref}
+  - \usepackage{url}
+  - \usepackage{xcolor}
+  - \usepackage{array}
+  - \usepackage{booktabs}
+  - \usepackage{colortbl}
+  - \usepackage{float}
+  - \usepackage{longtable}
+  - \usepackage{makecell}
+  - \usepackage{multirow}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage{wrapfig}
+  - \usepackage[normalem]{ulem}
+---
+
+
+```{r,setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, message = FALSE, echo=FALSE)
+knitr::opts_chunk$set(fig.align = "center", fig.width = 6, fig.height = 4)
+options(knitr.table.format = "html")
+options(kableExtra.latex.load_packages = FALSE)
+
+library(tidyverse)
+library(kableExtra)
+
+add_theme <- function()
+  theme_bw()+
+  theme(
+    axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+    axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+    strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+    title = element_text(family="Helvetica", face = "bold", size = 14),
+    legend.position = "bottom",
+    legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+  )
+```
+
+[**Download pdf**](continuous-random-variables.pdf)
+
+## Continuous random variables
+
+_Random variables which values belong to some interval_ (_uncountable set_).
+
+- $[a, b]$, $[a, b)$, $(a, b]$, $(a, b)$. $a$ and $b$ are some finite numbers.
+- $[a, +\infty)$, $(a, +\infty)$, $(-\infty, a]$, $(-\infty, a)$.
+- $(-\infty, +\infty)$.
+
+## Probability distribution function of a continuous random variable
+
+_**Probability distribution function**_ (_**cumulative distribution function**_, _**c.d.f**_) $F(x)$ of a random variable $X$ is defined as
+
+$$
+  F(x) = \text{P}\left(X\leq x\right), \text{ }x \in \mathcal{X},
+$$
+where $\mathcal{X}$ is an interval containing all possible values of $X$.
+
+### Properties of $F(x)$
+
+- $F(x)\rightarrow 1$ as $x \rightarrow +\infty$.
+- $F(x)\rightarrow 0$ as $x \rightarrow -\infty$.
+
+### Calculating probabilities
+
+$$
+  \text{P}\left(a \leq X \leq b\right) = F(b)-F(a)
+$$
+
+$$
+  \text{P}\left(-\infty \leq X \leq +\infty\right) = F(+\infty)-F(-\infty) = 1-0 = 1
+$$
+
+## Probability density function
+
+_**Probability density function**_ (_**p.d.f**_), $f(x)$ of a random variable $X$ is a function which, at any two given sample points from the sample space, provides a _**relative likelihood**_ that explains how likely it is that a value of the random variable would equal one sample point compared to another.
+
+In a more precise sense, the p.d.f. is used to specify the probability of the random variable falling within a particular range of values
+
+$$
+  \text{P}\left(a \leq X \leq b\right) = \int\limits_a^b{f(x)dx}.
+$$
+
+Also, since $\text{P}\left(a \leq X \leq b\right) = F(b)-F(a)$, there exists a connection between c.d.f. $F(x)$ and p.d.f. $f(x)$:
+
+$$
+  f(x) = \frac{d}{dx}F(x)\Leftrightarrow F(x) = \int\limits_{-\infty}^xf(t)dt.
+$$
+
+### Properties
+
+- $f(x) > 0$ for any $x\in \mathcal{X}$.
+- $\int\limits_{-\infty}^{+\infty}f(x)dx = 1$
+
+## Numerical characteristics of continuous random variables
+
+### Expected value
+
+The _**expected value**_ $\mu$ of a continuous random variable with a p.d.f. $f(x)$ is defined as:
+
+$$
+  \mu=\text{E}\left[X\right] = \int\limits_{-\infty}^{+\infty}{xf(x)dx}.
+$$
+
+The expected value of a random variable $Y = g(X)$, where $g(x)$ is some (continuous) function, is defined as:
+
+$$
+  \text{E}\left[g(X)\right] = \int\limits_{-\infty}^{+\infty}{g(x)f(x)dx}.
+$$
+
+For any two random variables $X, Y$, and for any two real numbers $a, b$,
+
+$$
+  \text{E}\left[aX\pm bY\right] = a\text{E}\left[X\right] \pm b\text{E}\left[Y\right].
+$$
+
+### Variance
+
+_**Variance**_ ($\sigma^2$) is the expectation of the squared deviation of a random variable from its expected value:
+
+$$
+\sigma^2 = \text{V}\left[X\right] = \text{E}\left[\left(X-\text{E}\left[X\right]\right)^2\right] = \int\limits_{-\infty}^{+\infty}{(x-\mu)^2f(x)dx} = \int\limits_{-\infty}^{+\infty}{x^2f(x)dx} - \mu^2 =  \text{E}\left[X^2\right]-\left(\text{E}\left[X\right]\right)^2. 
+$$
+For any two random variables $X, Y$, and for any two real numbers $a, b$,
+
+$$
+  \text{V}\left[aX\pm bY\right] = a^2\text{V}\left[X\right] + b^2\text{V}\left[Y\right].
+$$
+
+### Standard deviation
+
+$$
+  \sigma = D\left[X\right] = \sqrt{V\left[X\right]}
+$$
+
+(the same as in a discrete case)
+
+### Coefficient of variation
+
+$$
+  CV = \frac{\sigma}{\mu}.
+$$
+
+(the same as in a discrete case)
+
+### Skewness
+
+$$
+  \gamma_1 = \text{E}\left[\left(\frac{X-\mu}{\sigma}\right)^3\right] = \frac{\text{E}\left[\left(X-\mu\right)^3\right]}{\sigma^3} = \frac{\mu_3}{\sigma^3},
+$$
+
+where a _**third central moment**_ $\mu_3$ is calculated as 
+
+$$
+  \mu_3 = \text{E}\left[\left(X-\mu\right)^3\right] = \int\limits_{-\infty}^{+\infty}{(x-\mu)^3f(x)dx}
+$$
+
+### Kurtosis
+
+$$
+  \text{Kurt}\left[X\right] = \text{E}\left[\left(\frac{X-\mu}{\sigma}\right)^4\right] = \frac{\text{E}\left[\left(X-\mu\right)^4\right]}{\sigma^4} = \frac{\mu_4}{\sigma^4},
+$$
+
+where a _**fourth central moment**_ $\mu_4$ is calculated as 
+
+$$
+  \mu_4 = \text{E}\left[\left(X-\mu\right)^4\right] = \int\limits_{-\infty}^{+\infty}{(x-\mu)^4f(x)dx}
+$$
+
+## Quantile function 
+
+The _**quantile function**_ $Q(p)$ associated with a c.d.f. $F(x)$ of a random variable $X$, specifies the value of the random variable such that the probability of the variable being less than or equal to that value equals the given probability. It is also called the _**percent-point function**_ or _**inverse cumulative distribution function**_.
+
+Thus, for a given probability $p$,
+
+$$
+  p = \text{P}\left(X\leq q\right) = F(q) \Rightarrow q = F^{-1}(p) = Q(p)
+$$
+
+### Calculation
+
+There are few distributions where a closed-form expression of a quantile function can be found. In most of the cases, the evaluation of quantile functions requires numerical methods.
+
+When the c.d.f. itself has a closed-form expression, one can always use a _**numerical root-finding algorithm**_ such as the _**bisection method**_ to invert the c.d.f. Algorithms for common distributions are built into many statistical software packages.
+
+Quantile functions may also be characterized as solutions of non-linear ordinary (ODE) and partial differential (PDE) equations. For some particular cases, ODEs have been given and solved (Steinbecher G. and Shaw W.T., "Quantile mechanics", _Euro Journal of Applied Mathematics_, vol. 19, pp. 87-112. Cambridge University Press. doi:10.1017/S0956792508007341)
+
+
+## Chebyshev's Inequality
+
+_**Chebyshev's inequality**_ guarantees that, for a wide class of probability distributions, no more than a certain fraction of values can be more than a certain distance from the mean. Specifically, no more than $\frac{1}{k^2}$ of the distribution's values can be more than $k$ standard deviations away from the mean (or equivalently, at least $1-\frac{1}{k^2}$ of the distribution's values are within $k$ standard deviations of the mean). 
+
+The inequality has great utility because _**it can be applied to any probability distribution**_, for which the mean and variance are defined.
+
+### Formulation
+
+Let $X$ be a random variable with finite expected value $\mu$ and finite non-zero variance $\sigma^2$. Then, for any real number $k > 0$,
+
+$$
+\text{P}\left(|X-\mu|\geq k\sigma \right)\leq \frac{1}{k^2}.
+$$
+
+```{r chebyshev-tab, echo=FALSE}
+tibble(
+  k = seq_len(5),
+  Min = round(1-1/k^2, 4)*100,
+  Max = round(1/k^2, 4)*100
+) %>% 
+  set_names(c("$k$", "min \\% of $X$ within [$\\mu$-k$\\sigma$, $\\mu$+k$\\sigma$]", "max \\% of $X$ beyond [$\\mu$-k$\\sigma$, $\\mu$+k$\\sigma$]")) %>%
+  kableExtra::kable(escape = FALSE) %>%
+  kableExtra::kable_styling(full_width = FALSE, bootstrap_options = "striped") %>%
+  column_spec(1, bold = TRUE, border_right = TRUE)
+```
+
+Only the case $k>1$ is useful. When $k\leq 1$ the right-hand side $\frac{1}{k^2}\geq 1$ and the inequality is trivial as all probabilities are $\leq 1$.
+
+## The law of large numbers
+
+The _**law of large numbers**_ (LLN) is a theorem that describes the result of performing the same experiment a large number of times. According to the law, the average of the results obtained from a large number of trials should be close to the expected value, and will tend to become closer as more trials are performed.
+
+### Formulation
+
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. random variables with $\text{E}\left[X_i\right] = \mu$ (for any $i$). Then
+
+$$
+  \overline{X} = \frac{1}{n}\left(X_1 + X_2 + \ldots + X_n\right) \rightarrow \mu\text{ as }n\rightarrow +\infty.
+$$
+
+## "Popular" continuous random variables
+
+### Uniform RV
+
+- A random variable is defined over bounded interval $[a, b]$.
+- If the interval $[a, b]$ is split into $n$ equal intervals, i.e.
+
+$$
+  [a = x_0, x_1], [x_1, x_2], \ldots, [x_{n-1}, x_n = b], \text{ where for any }i = 1, 2, \ldots, n: x_{i}-x_{i-1} = \frac{b-a}{n},
+$$
+then 
+
+$$
+\text{P}\left(x_{i-1} \leq X \leq x_i\right) = \frac{1}{n}.
+$$
+Such a random variable follows _**uniform distribution**_: $X\sim Uniform(a, b)$ with 
+
+- p.d.f. 
+
+$$
+  f(x) = \left\{\begin{array}{rl} \frac{1}{b-a}, & x\in [a, b] \\ 0, & \text{otherwise}\end{array}\right.
+$$
+- c.d.f.
+
+$$
+  F(x) = \left\{\begin{array}{rl} 0, & x < a \\ \frac{x-a}{b-a}, & x\in [a, b] \\ 1, & x > b\end{array}\right.
+$$
+```{r uniform-pdf, echo=FALSE, fig.width=8}
+a <- seq_len(4)
+left_pdf <- map_df(a, ~ tibble(
+  a = paste("italic(a) == ", .x), 
+  x = seq(-5, -.x), 
+  y = 0)
+)
+
+middle_pdf <- map_df(a, ~ tibble(
+  a = paste("italic(a) == ", .x), 
+  x = seq(-.x, .x), 
+  y = dunif(x, -.x, .x))
+)
+
+right_pdf <- map_df(a, ~ tibble(
+  a = paste("italic(a) == ", .x), 
+  x = seq(.x, 5), 
+  y = 0)
+)
+
+lwt <- 1.25
+ggplot()+
+  geom_line(data = left_pdf, aes(x, y), size = lwt)+
+  geom_line(data = middle_pdf, aes(x, y), size = lwt)+
+  geom_line(data = right_pdf, aes(x, y), size = lwt)+
+  scale_y_continuous(limits = c(0, 1))+
+  facet_grid( ~a, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("p.d.f. ", italic(f(x)))))+
+  ggtitle(expression(paste("p.d.f.'s of ", italic(X) %~% italic(Uniform)(-italic(a), italic(a)))))+
+  add_theme()
+```
+
+```{r uniform-cdf, echo=FALSE, fig.width=8}
+a <- seq_len(4)
+cdf_tbl <- map_df(a, ~ tibble(
+  a = paste("italic(a) == ", .x), 
+  x = seq(-5, 5), 
+  y = punif(x, -.x, .x))
+)
+
+lwt <- 1.25
+ggplot()+
+  geom_line(data = cdf_tbl, aes(x, y), size = lwt)+
+  scale_y_continuous(limits = c(0, 1))+
+  facet_grid( ~a, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("c.d.f. ", italic(F(x)))))+
+  ggtitle(expression(paste("c.d.f.'s of ", italic(X) %~% italic(Uniform)(-italic(a), italic(a)))))+
+  add_theme()
+```
+
+- $\text{E}\left[X\right] = \mu = \frac{a+b}{2}$ 
+- $\text{V}\left[X\right] = \sigma^2 = \frac{(b-a)^2}{12}$
+
+### Normal (Gaussian) RV
+
+- A random variable is defined on $(-\infty, +\infty)$.
+- The possible values are centered around some predefined value $\mu$.
+
+Such a random variable follows _**normal distribution**_: $X\sim N(\mu, \sigma^2)$ with 
+
+- p.d.f. 
+
+$$
+  f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
+$$
+
+- c.d.f.
+
+$$
+  F(x) = \frac{1}{\sigma\sqrt{2\pi}}\int\limits_{-\infty}^x{e^{-\frac{(t-\mu)^2}{2\sigma^2}}dt}.
+$$
+
+```{r normal-pdf, echo=FALSE, fig.width=8}
+sigma <- c(0.25, 0.5, 1, 2, 4, 8)
+map_df(sigma, ~ {
+  sg <- .x
+  map_df(c(-2, 0, 2), ~ {
+    tibble(
+      s = as.factor(paste("italic(sigma)^2 == ", sg)), 
+      mu = paste("italic(mu) == ", .x), 
+      x = seq(-10, 10, by = 0.1), 
+      y = dnorm(x, .x, sqrt(sg)))
+  })
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = mu), size = 1.25)+
+  facet_wrap( ~ s, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("p.d.f. ", italic(f(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen"), 
+    labels = expression(mu == -2, mu == 0, mu == 2)
+  )+
+  ggtitle(expression(paste("p.d.f.'s of ", italic(X) %~% italic(N)(mu, italic(sigma)^2))))+
+  add_theme()
+
+```
+
+```{r normal-cdf, echo=FALSE, fig.width=8}
+sigma <- c(0.25, 0.5, 1, 2, 4, 8)
+map_df(sigma, ~ {
+  sg <- .x
+  map_df(c(-2, 0, 2), ~ {
+    tibble(
+      s = as.factor(paste("italic(sigma)^2 == ", sg)), 
+      mu = paste("italic(mu) == ", .x), 
+      x = seq(-10, 10, by = 0.1), 
+      y = pnorm(x, .x, sqrt(sg)))
+  })
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = mu), size = 1.25)+
+  facet_wrap( ~ s, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("c.d.f. ", italic(F(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen"), 
+    labels = expression(mu == -2, mu == 0, mu == 2)
+  )+
+  ggtitle(expression(paste("c.d.f.'s of ", italic(X) %~% italic(N)(mu, italic(sigma)^2))))+
+  add_theme()
+
+```
+
+- $\text{E}\left[X\right] = \mu$ 
+- $\text{V}\left[X\right] = \sigma^2$
+
+A special case of $N(\mu, \sigma^2)$ is a _**standard normal distribution**_ $N(0, 1)$. 
+
+- p.d.f. 
+
+$$
+  \varphi(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}, \qquad\varphi(-x) = \text{ }\varphi(x).
+$$
+
+- c.d.f. 
+
+$$
+  \Phi(x) = \frac{1}{\sqrt{2\pi}}\int\limits_{-\infty}^xe^{-\frac{t^2}{2}}dt, \qquad \Phi(-x) = 1-\Phi(x).
+$$
+
+If $Z\sim N(0, 1)$ then 
+
+$$
+  X = \mu + \sigma Z \sim N(\mu, \sigma^2).
+$$
+
+### Connection between $f(x)$ and $\varphi(x)$
+
+$$
+  f(x) = \frac{1}{\sigma}\varphi\left(\frac{x-\mu}{\sigma}\right)
+$$
+
+### Connection between $F(x)$ and $\Phi(x)$
+
+$$
+  F(x) = \Phi\left(\frac{x-\mu}{\sigma}\right)
+$$
+### 3$\sigma$-rule
+
+$$
+\begin{aligned}
+  \text{P}\left(|X-\mu| \leq 3\sigma \right) &= \text{P}\left(\mu-3\sigma\leq X\leq \mu+3\sigma \right) = \\
+  &= F(\mu+3\sigma) - F(\mu-3\sigma) = \\
+  &= \Phi\left(\frac{\mu+3\sigma-\mu}{\sigma}\right)-\Phi\left(\frac{\mu-3\sigma-\mu}{\sigma}\right) = \\
+  &= \Phi\left(3\right)-\Phi\left(-3\right) = \\
+  &= \Phi\left(3\right)-(1 - \Phi\left(3\right)) = \\
+  &= 2\Phi\left(3\right)-1 \approx `r round(2*pnorm(3)-1, 4)`
+\end{aligned}
+$$
+
+_**99,7% of all possible observations of a normal random variable belong to the interval $[\mu-3\sigma, \mu+3\sigma]$**_.
+
+**Q**: what are the values of the following probabilities $\text{P}\left(|X-\mu| \leq \sigma \right)$, $\text{P}\left(|X-\mu| \leq 2\sigma \right)$?
+
+### Central Limit Theorem
+
+- Let $X_1, X_2, \ldots, X_n$ be i.i.d. from some distribution:
+
+  + $\text{E}\left[X_i\right] = \mu$, $i = 1, 2, \ldots, n$.
+  + $\text{V}\left[X_i\right] = \sigma^2 < +\infty$, $i = 1, 2, \ldots, n$.
+
+- Let $S_n = \frac{X_1 + X_2 + \ldots + X_n}{n}$.
+- Then, 
+
+$$
+  \text{Distribution of }\sqrt{n}\left(S_n - \mu\right)\rightarrow N(0, \sigma^2) \text{ as }n \rightarrow +\infty.
+$$
+Let us demonstrate how CLT works by doing some simulations. 
+
+1. Let us take $X_1, \ldots, X_n$ from binomial distribution $Bin(n = 5, p = 0.1)$.
+
+```{r binomial-clt, fig.width=8}
+n <- c(10, 20, 50, 500)
+nsim <- 1000
+# let us sample binomial random numbers Bin(n = 5, p = 0.1)
+# mu = n*p = 0.5
+# sigma^2 = n*p*(1-p) = 0.45 
+mu <- 0.5
+sigma2 <- 0.45
+x <- seq(-3*sqrt(sigma2), 3*sqrt(sigma2), length = nsim)
+lwt = 1.25
+
+map_df(n, ~ {
+  N <- .x
+  S <- map_dbl(seq_along(x), ~ {
+    set.seed(314159 + .x)
+    X <- rbinom(N, 5, 0.1)
+    sqrt(N)*(mean(X)-mu)
+  })
+  tibble(n = paste("n == ", .x), x, S)
+}) %>% 
+  ggplot()+
+  stat_density(aes(x = S, color = "D"), geom="line", size = lwt)+
+  geom_line(
+    data = tibble(x, y = dnorm(x, sd = sqrt(sigma2))), 
+    aes(x, y, color = "N"),
+    size = lwt
+  )+
+  labs(
+    x = expression(italic(x)), #expression(sqrt(italic(n))(italic(S[n])-italic(mu))),
+    y = expression(paste("p.d.f., ", italic(f(x)))),
+    color = ""
+  )+
+  scale_color_manual(
+    values = c("D" = "black", "N" = "red"),
+    labels = c("D" = expression(sqrt(italic(n))(italic(S[n])-italic(mu))), 
+               "N" = expression(italic(N)(0, italic(sigma)^2))))+
+  facet_grid( ~n, labeller = label_parsed)+
+  add_theme()
+```
+
+
+2. Let us take $X_1, \ldots, X_n$ from uniform distribution $Uniform(4, 10)$.
+
+```{r uniform-clt, fig.width=8}
+n <- c(10, 20, 50, 500)
+nsim <- 1000
+# let us sample uniform random numbers Uniform(a = 4, b = 10)
+# mu = (a + b)/2 = 7
+# sigma^2 = (b-a)^2/12 = 3 
+mu <- 7
+sigma2 <-3
+x <- seq(-3*sqrt(sigma2), 3*sqrt(sigma2), length = nsim)
+lwt = 1.25
+
+map_df(n, ~ {
+  N <- .x
+  S <- map_dbl(seq_along(x), ~ {
+    X <- runif(N, 4, 10)
+    sqrt(N)*(mean(X)-mu)
+  })
+  tibble(n = paste("n == ", .x), x, S)
+}) %>% 
+  ggplot()+
+  stat_density(aes(x = S, color = "D"), geom="line", size = lwt)+
+  geom_line(
+    data = tibble(x, y = dnorm(x, sd = sqrt(sigma2))), 
+    aes(x, y, color = "N"),
+    size = lwt
+  )+
+  labs(
+    x = expression(italic(x)), #expression(sqrt(italic(n))(italic(S[n])-italic(mu))),
+    y = expression(paste("p.d.f., ", italic(f(x)))),
+    color = ""
+  )+
+  scale_color_manual(
+    values = c("D" = "black", "N" = "red"),
+    labels = c("D" = expression(sqrt(italic(n))(italic(S[n])-italic(mu))), 
+               "N" = expression(italic(N)(0, italic(sigma)^2))))+
+  facet_grid( ~n, labeller = label_parsed)+
+  add_theme()
+```
+
+### Log-Normal RV
+
+- A random variable $X$ is defined on $(0, +\infty)$.
+- $Y = \log(X) \sim N(\mu, \sigma^2)$.
+
+Such a random variable follows _**log-normal distribution**_: $X\sim LN(\mu, \sigma^2)$ with 
+
+- p.d.f. 
+
+$$
+  f(x) = \frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{(\log(x)-\mu)^2}{2\sigma^2}}.
+$$
+
+- c.d.f.
+
+$$
+  F(x) = \frac{1}{\sigma\sqrt{2\pi}}\int\limits_{-\infty}^x{e^{-\frac{(\log(t)-\mu)^2}{2\sigma^2}}dt}.
+$$
+```{r log-normal-pdf, echo=FALSE, fig.width=8}
+sigma <- c(0.25, 0.5, 1, 2, 4, 8)
+map_df(sigma, ~ {
+  sg <- .x
+  map_df(c(0, 1, 2), ~ {
+    tibble(
+      s = paste("italic(sigma)^2 == ", sg), 
+      mu = paste("italic(mu) == ", .x), 
+      x = seq(0, 3, by = 0.1), 
+      y = dlnorm(x, .x, sqrt(sg)))
+  })
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = mu), size = 1.25)+
+  facet_wrap( ~ s, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("p.d.f. ", italic(f(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen"), 
+    labels = expression(mu == 0, mu == 1, mu == 2)
+  )+
+  ggtitle(expression(paste("p.d.f.'s of ", italic(X) %~% italic(LN)(mu, italic(sigma)^2))))+
+  add_theme()
+
+```
+
+```{r log-normal-cdf, echo=FALSE, fig.width=8}
+sigma <- c(0.25, 0.5, 1, 2, 4, 8)
+map_df(sigma, ~ {
+  sg <- .x
+  map_df(c(0, 1, 2), ~ {
+    tibble(
+      s = paste("italic(sigma)^2 == ", sg), 
+      mu = paste("italic(mu) == ", .x), 
+      x = seq(0, 3, by = 0.1), 
+      y = plnorm(x, .x, sqrt(sg)))
+  })
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = mu), size = 1.25)+
+  facet_wrap( ~ s, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("c.d.f. ", italic(F(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen"), 
+    labels = expression(mu == 0, mu == 1, mu == 2)
+  )+
+  ggtitle(expression(paste("c.d.f.'s of ", italic(X) %~% italic(LN)(mu, italic(sigma)^2))))+
+  add_theme()
+
+```
+
+- $\text{E}\left[X\right] = e^{\mu+\frac{\sigma^2}{2}}$ 
+- $\text{V}\left[X\right] = (e^{\sigma^2}-1)e^{2\mu +\sigma^2}$
+
+### Truncated Normal RV
+
+- A random variable $X \sim N(\mu, \sigma^2)$.
+- Only $X > a$ are values of interest.
+
+Such a random variable follows _**truncated-normal distribution**_: $X\sim TN(\mu, \sigma^2, a)$ with 
+
+- p.d.f. 
+
+$$
+  f(x) = \frac{1}{\sigma}\left(1-\Phi\left(\frac{a-\mu}{\sigma}\right)\right)^{-1}\varphi\left(\frac{x-\mu}{\sigma}\right).
+$$
+
+- c.d.f.
+
+$$
+  F(x) = \frac{\Phi\left(\frac{x-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right)}{1-\Phi\left(\frac{a-\mu}{\sigma}\right)}.
+$$
+
+```{r truncated-normal-pdf, echo=FALSE, fig.width=8}
+tn_pdf <- function(x, mu, sigma, a) 1/sigma*(1-pnorm(a, mu, sigma))^(-1)*dnorm(x, mu, sigma)
+a <- -2.5
+sigma <- c(0.25, 0.5, 1, 2, 4, 8)
+map_df(sigma, ~ {
+  sg <- .x
+  map_df(c(-2, 0, 2), ~ {
+    tibble(
+      s = paste("italic(sigma)^2 == ", sg), 
+      mu = paste("italic(mu) == ", .x), 
+      x = seq(a, 10, by = 0.1), 
+      y = tn_pdf(x, .x, sqrt(sg), a))
+  })
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = mu))+
+  facet_wrap( ~ s, labeller = label_parsed, scales = "free_y")+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("p.d.f. ", italic(f(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen"), 
+    labels = expression(mu == -2, mu == 0, mu == 2)
+  )+
+  ggtitle(expression(paste("p.d.f.'s of ", italic(X) %~% italic(TN)(mu, italic(sigma)^2, a == -2.5))))+
+  add_theme()
+```
+
+```{r truncated-normal-cdf, echo=FALSE, fig.width=8}
+tn_cdf <- function(x, mu, sigma, a) (pnorm(x, mu, sigma)-pnorm(a, mu, sigma))/(1-pnorm(a, mu, sigma))
+a <- -2.5
+sigma <- c(0.25, 0.5, 1, 2, 4, 8)
+map_df(sigma, ~ {
+  sg <- .x
+  map_df(c(-2, 0, 2), ~ {
+    tibble(
+      s = paste("italic(sigma)^2 == ", sg), 
+      mu = paste("italic(mu) == ", .x), 
+      x = seq(a, 10, by = 0.1), 
+      y = tn_cdf(x, .x, sqrt(sg), a))
+  })
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = mu))+
+  facet_wrap( ~ s, labeller = label_parsed)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("c.d.f. ", italic(F(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen"), 
+    labels = expression(mu == -2, mu == 0, mu == 2)
+  )+
+  ggtitle(expression(paste("c.d.f.'s of ", italic(X) %~% italic(TN)(mu, italic(sigma)^2, a == -2.5))))+
+  add_theme()
+```
+
+- $\text{E}\left[X\right] = \mu + \sigma\frac{\varphi\left(\frac{a-\mu}{\sigma}\right)}{1-\Phi\left(\frac{a-\mu}{\sigma}\right)}$ 
+- $\text{V}\left[X\right] = \sigma^2\left[1+ \frac{\frac{a-\mu}{\sigma}\Phi\left(\frac{a-\mu}{\sigma}\right)}{1-\Phi\left(\frac{a-\mu}{\sigma}\right)} + \left(\frac{\Phi\left(\frac{a-\mu}{\sigma}\right)}{1-\Phi\left(\frac{a-\mu}{\sigma}\right)}\right)^2\right]$
+
+### Exponential RV
+
+- A random variable is defined on $(0, +\infty)$.
+- Usually, it is used to describe the time between events in a _**Poisson point process**_, i.e., a process in which events occur continuously and independently at a constant average rate ($\lambda$).
+
+Such a random variable follows _**exponential distribution**_: $X\sim Exp(\lambda)$ with 
+
+- p.d.f. 
+
+$$
+  f(x) = \lambda e^{-\lambda x}, \quad x \geq 0.
+$$
+- c.d.f.
+
+$$
+  F(x) = 1- e^{-\lambda x}, \quad x \geq 0.
+$$
+
+```{r exp-pdf, echo=FALSE, fig.width=8}
+lambda <- c(0.25, 0.5, 1, 2)
+map_df(lambda, ~ {
+  lmb <- .x
+  x <- seq(0, 3, by = 0.1) 
+  y <- dexp(x, lmb)
+  tibble(
+    lmb = paste("italic(lambda) == ", lmb), 
+    x, y
+  )
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = lmb), size = 1.25)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("p.d.f. ", italic(f(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen", "black"), 
+    labels = expression(lambda == 0.25, lambda == 0.5, lambda == 1, lambda == 2)
+  )+  
+  ggtitle(expression(paste("p.d.f.'s of ", italic(X) %~% italic(Exp)(italic(lambda)))))+
+  add_theme()
+```
+
+```{r exp-cdf, echo=FALSE, fig.width=8}
+lambda <- c(0.25, 0.5, 1, 2)
+map_df(lambda, ~ {
+  lmb <- .x
+  x <- seq(0, 3, by = 0.1) 
+  y <- pexp(x, lmb)
+  tibble(
+    lmb = paste("italic(lambda) == ", lmb), 
+    x, y
+  )
+}) %>% 
+ggplot()+
+  geom_line(aes(x, y, color = lmb), size = 1.25)+
+  xlab(expression(italic(x)))+
+  ylab(expression(paste("c.d.f. ", italic(F(x)))))+
+  scale_color_manual(
+    name = "", 
+    values = c("darkblue", "red", "darkgreen", "black"), 
+    labels = expression(lambda == 0.25, lambda == 0.5, lambda == 1, lambda == 2)
+  )+  
+  ggtitle(expression(paste("c.d.f.'s of ", italic(X) %~% italic(Exp)(italic(lambda)))))+
+  add_theme()
+
+```
+
+- $\text{E}\left[X\right] = \frac{1}{\lambda}$ 
+- $\text{V}\left[X\right] = \frac{1}{\lambda^2}$
+
+It is worth to note that exponential and log-normal distributions are used in _survival analysis_ to model _**time-to-event**_ random variables.  Other distributions used are _**Weibull**_, _**Log-logistics**_, _**Gamma**_. We will consider them in the topic on survival analysis.
+
+## Exercises
+
+1. The average height in a population equals to 180 cm, and the coefficient of variation equals to 10%. 
+
+- What is maximal height of top 5% lowest persons in the population?
+- What is minimal height of top 5% highest persons in the population?
+
+**Solution**:
+
+- Let $HT \sim N(\mu, \sigma^2)$ be a random variable describing the height in the population.
+- $\mu = 180$ (cm)
+- $CV = \frac{\sigma}{\mu}\cdot 100\% = 10\% \Rightarrow \sigma = \frac{\mu}{10} = 18$ (cm)
+- Let $x_1$ be a maximal heigth of top 5% lowest persons in the population. Then,
+
+$$
+  \text{P}\left(X \leq x_1\right) = 0.05 \Leftrightarrow F(x_1) = 0.05 \Rightarrow x_1 = F^{-1}(0.05) = \text{qnorm(0.05, 180, 18)} \approx `r round(qnorm(0.05, 180, 18), 1)`
+$$
+
+- Let $x_2$ be a minimal height of top 5% highest persons in the population. Then,
+
+$$
+\begin{aligned}
+  \text{P}\left(X \geq x_2\right) &= 0.05 \Leftrightarrow 1 - F(x_2) = 0.05 \Leftrightarrow F(x_2) = 0.95 \Rightarrow x_1 = F^{-1}(0.95) = \\ &= \text{qnorm(0.95, 180, 18)} \approx `r round(qnorm(0.95, 180, 18), 1)`
+\end{aligned}
+$$
+
+2. Let $T_{max}$ be a time at which maximal concentration of a substance is achieved under some experiment. The average value of $T_{max}$, $\text{E}\left[T_{max}\right] = 0.5$ (h). 
+
+- What is the probability that $T_{max}$ exceeds 1 hour?
+
+**Solution**:
+
+- Let us consider $T_{max}$ as time-to-event random variable, where "event" = "maximal concentration is achieved".
+- Also, let us assume that $T_{max} \sim Exp(\lambda)$.
+- $\text{E}\left[T_{max}\right] = \frac{1}{\lambda} = 0.5 \Leftrightarrow \lambda = 2$.
+- We are interested in 
+
+$$
+  \text{P}\left(T_{max} > 1\right) = 1-\text{P}\left(T_{max} \leq 1\right) = 1-F(1) = 1-(1-e^{-\lambda}) = e^{-2} \approx `r exp(-2)`
+$$
+3. A normal resting heart rate for adults ranges from 60 to 100 beats per minute. 
+
+- What is the average heart rate in the population of people with normal heart rate?
+- What is the variance?
+- What is the range that contains the heart rates around the average of 75% of the population?
+
+**Solution**:
+
+Let $HR$ be a random variable that follows uniform distribution, i.e. $HR\sim Uniform(60, 100)$. Then, we have that $a = 60$, $b = 100$.
+
+$$
+  \begin{aligned}
+    \text{E}\left[HR\right] &= \frac{a+b}{2} = \frac{60+100}{2} = 80 = \mu \\
+    \text{V}\left[HR\right] &= \frac{(b-a)^2}{12} = \frac{(100-60)^2}{12} = \frac{1600}{12} \approx `r round(1600/12, 2)` = \sigma^2 \\
+    \text{D}\left[HR\right] &= \sqrt{\text{V}\left[HR\right]} = \sqrt{\frac{1600}{12}} \approx `r round(sqrt(1600/12), 2)`
+  \end{aligned}
+$$
+
+The range that contains the heart rates around the average of 75% of the population is defined as
+
+$$
+\begin{aligned}
+  \text{P}\left(|HR-\mu| \leq x\right) = 0.75 &\Leftrightarrow \text{P}\left(\mu-x \leq HR \leq \mu + x\right) = 0.75 \Leftrightarrow \\
+  &\Leftrightarrow \text{P}\left(80-x \leq HR \leq 80 + x\right) = 0.75 \Leftrightarrow \\
+  &\Leftrightarrow F(80+x) - F(80-x) = \frac{80+x-60}{100-60} -\frac{80-x-60}{100-60} = 0.75 \Leftrightarrow \\
+  &\Leftrightarrow \frac{2x}{40} = \frac{3}{4} \Leftrightarrow x = 15.
+\end{aligned}
+$$
+
+The range is 
+
+$$
+  65 \leq HR \leq 95.
+$$
+

@@ -1,0 +1,15 @@
+---
+title: "Probability and statistics"
+description: |
+    A series of lectures on selected topics of “Probability and Statistics” taught for Master/Ph.D. Students and Researchers at the Department of Pharmaceutical Biosciences, Uppsala University.
+date: 09-30-2019
+output:
+  distill::distill_article:
+    self_contained: false
+listing:
+  posts:
+    - 2019-09-30-basics-of-probabilities
+    - 2019-10-10-discrete-random-variables
+    - 2019-10-24-continuous-random-variables
+    - 2019-11-15-mvt-random-variables
+---

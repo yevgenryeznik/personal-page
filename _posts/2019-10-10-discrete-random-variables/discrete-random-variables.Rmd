@@ -1,0 +1,719 @@
+---
+title: "Lecture 2: Random variables -- Part 1"
+description: |
+  The lecture introduces a concept of a random variable. Numerical characteristics of a random variable are addressed. Examples of several discrete random variables are considered.
+author: Yevgen Ryeznik
+institute: Department of Pharmaceutical Biosciences, Uppsala University.
+date: 2019-10-10
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+header-includes:
+  - \usepackage{amsthm}
+  - \usepackage{amsfonts}
+  - \usepackage{hyperref}
+  - \usepackage{url}
+  - \usepackage{xcolor}
+  - \usepackage{array}
+  - \usepackage{booktabs}
+  - \usepackage{colortbl}
+  - \usepackage{float}
+  - \usepackage{longtable}
+  - \usepackage{makecell}
+  - \usepackage{multirow}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage{wrapfig}
+  - \usepackage[normalem]{ulem}
+---
+
+```{r,setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, message = FALSE, echo=FALSE)
+knitr::opts_chunk$set(fig.align = "center", fig.width = 6, fig.height = 4)
+options(knitr.table.format = "html")
+options(kableExtra.latex.load_packages = FALSE)
+
+library(tidyverse)
+library(kableExtra)
+```
+
+[**Download pdf**](discrete-random-variables.pdf)
+
+## Random Variables
+
+### Definition
+
+_A **random variable** (RV) is a real-valued function defined on a sample space_.
+
+There are
+
+- _**discrete**_ random variables -- accept values from _**countable finite or infinite**_ set.
+- _**continuous**_ random variables -- accept values from _**non-countable**_ set (finite, semi-infinite, or infinite interval).
+
+## Discrete random variables
+
+### Countable finite
+
+```{r discrete-rv-tab1, echo=FALSE}
+tribble(
+  ~"$X$", ~"$x_1$", ~"$x_2$", ~"$\\ldots$", ~"$x_n$", 
+  "$p$", "$p_1$", "$p_2$", "$\\ldots$", "$p_n$" 
+) %>% 
+  kableExtra::kable(escape = FALSE) %>% 
+  kableExtra::kable_styling(full_width = FALSE, bootstrap_options = "striped") %>%
+  kableExtra::column_spec(1, bold = TRUE, border_right = TRUE)
+```
+
+
+$$
+  \sum_{i=1}^n{p_i} = 1.
+$$
+
+### Countable infinite
+
+```{r discrete-rv-tab2, echo=FALSE}
+tribble(
+  ~"$X$", ~"$x_1$", ~"$x_2$", ~"$\\ldots$", ~"$x_n$", ~"$\\ldots$", 
+  "$p$", "$p_1$", "$p_2$", "$\\ldots$", "$p_n$", "$\\ldots$" 
+) %>% 
+  kableExtra::kable(escape = FALSE) %>% 
+  kableExtra::kable_styling(full_width = FALSE, bootstrap_options = "striped") %>%
+  kableExtra::column_spec(1, bold = TRUE, border_right = TRUE)
+```
+
+
+$$
+\sum_{i=1}^{+\infty}{p_i} = 1.
+$$
+
+The tables above are examples of a _**distribution of a random variable $X$**_. Also, they define a _**probability mass function**_ 
+
+$$
+  p_i = \text{P}\left(X = x_i\right), \text{ }i = 1, 2, \ldots .
+$$
+
+## Numerical characteristics of discrete random variables
+
+### Expected value
+
+An _**expected value**_ ($\mu$) of a random variable represents the average of a large number of independent realizations of the random variable. 
+
+The _**expected value**_ of a discrete random variable is the probability-weighted average of all its possible values:
+
+$$
+  \mu=\text{E}\left[X\right] = \sum_{i}{x_ip_i}.
+$$
+
+The expected value is also known as the _**expectation**_, _**mathematical expectation**_, _**mean**_, or _**first moment**_.
+
+For example, the expected value of rolling a six-sided die is 3.5, because the average of all the numbers that come up converges to 3.5 as the number of rolls approaches infinity. 
+
+Let us perform a small simulation on rolling a die:
+
+```{r rolling-a-die-example, fig.cap="An example of the average die value behavior when number of rolls increases."}
+roll_die <- function(die, times = 1, p = rep(1, length(die))/length(die), seed = 314159) {
+  set.seed(seed)
+  sample(die, times, TRUE, prob = p) 
+}
+
+die <- c(1, 2 ,3, 4, 5, 6)
+map_df(seq_len(1000), ~ {
+  n <- .
+  tibble(`number of rolls` = n, `die value` = roll_die(die, n, seed = 314159 + .x))
+}) %>% 
+  group_by(`number of rolls`) %>% 
+  summarise(`average dice value` = mean(`die value`)) %>% 
+  ggplot(aes(`number of rolls`, `average dice value`))+
+  geom_line(aes(color = "average"))+
+  geom_hline(aes(color = "expected", yintercept = 3.5), size = 1.25)+
+  scale_color_manual(name = "", values = c("average" = "darkblue", "expected" = "red"))+
+  scale_y_continuous(limits = c(1, 6), breaks = 1:6)+
+  theme_bw()+
+  theme(
+    axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+    axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+    strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+    title = element_text(family="Helvetica", face = "bold", size = 14),
+    legend.position = "bottom",
+    legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+  )
+```
+
+As we can see, the larger the number of trials, the closer the average value to the expected value.
+
+For any two random variables $X, Y$, and for any two real numbers $a, b$,
+
+$$
+  \text{E}\left[aX\pm bY\right] = a\text{E}\left[X\right] \pm b\text{E}\left[Y\right].
+$$
+
+### Variance
+
+_**Variance**_ ($\sigma^2$) is the expectation of the squared deviation of a random variable from its expected value:
+
+$$
+\sigma^2 = \text{V}\left[X\right] =         \text{E}\left[\left(X-\text{E}\left[X\right]\right)^2\right] = \text{E}\left[X^2\right]-\left(\text{E}\left[X\right]\right)^2. 
+$$
+Informally, it measures how far a set of (random) numbers are spread out from their average value. 
+
+The variance is also known as the _**second central moment**_ ($\mu_2$).
+
+For discrete random variable $X$,
+
+$$
+  \sigma^2=\text{V}\left[X\right] = \sum_{i}{(x_i-\mu)^2p_i} = \sum_{i}{x^2_ip_i}-\mu^2.
+$$
+
+For any two random variables $X, Y$, and for any two real numbers $a, b$,
+
+$$
+  \text{V}\left[aX\pm bY\right] = a^2\text{V}\left[X\right] + b^2\text{V}\left[Y\right].
+$$
+
+
+### Standard deviation
+
+_**Standard deviation**_ ($\sigma$) is a measure of the amount of variation of a random variable. A low standard deviation indicates that values of a random variable tend to be close to the expected value ($\mu$), while a high standard deviation indicates that the values are spread out over a wider range.
+
+The standard deviation is calculated as the square root of the variance:
+
+$$
+  \sigma = \text{D}\left[X\right] = \sqrt{\text{V}\left[X\right]} = \sqrt{\sum_{i}{(x_i-\mu)^2p_i}} = \sqrt{\sum_{i}{x^2_ip_i}-\mu^2}.
+$$
+
+A useful property of the standard deviation is that, unlike the variance, it is expressed in the same units as the data.
+
+```{r rolling-different-dice-example, fig.cap = "An example of the standard deviation impact on the data spread around the mean for 3 types of fair dice."}
+
+die06 <- seq(1, 6)
+die08 <- seq(1, 8)
+die12 <- seq(1, 12)
+
+dice <- list(
+  `6-sided die` = die06,
+  `8-sided die` = die08,
+  `12-sided die` = die12
+)
+dice_names <- names(dice)
+
+map_df(seq_along(dice), ~ {
+  die <- dice[[.x]]
+  name <- dice_names[.x]
+  tibble(
+    name = as.factor(name), 
+    value = roll_die(die, 150, seed = 314159 + .x), 
+    average = mean(die)
+  )
+}) %>% 
+  ggplot()+
+  geom_dotplot(aes(x = name, y = value, fill = name),
+               alpha = 0.75, 
+               binaxis = "y",
+               binwidth = 0.2, 
+               stackdir = "center")+
+  stat_summary(aes(x = name, y = average, color = name), 
+               fun = mean, 
+               fun.min = mean, 
+               fun.max = mean,
+               geom = "crossbar", 
+               width = 1,
+               size = 1)+
+  scale_x_discrete(
+    labels = stringr::str_glue("{dice_names}\n(sigma={round(map_dbl(dice, sd), 2)})"))+
+  scale_y_continuous(
+    limits = c(0, 13), 
+    breaks = seq(1, 12))+
+  labs(
+    x = "",
+    y = "die value",
+    color = ""
+  )+
+  theme_bw()+
+  theme(
+    axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+    axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+    strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+    title = element_text(family="Helvetica", face = "bold", size = 14),
+    legend.position = "none",
+    legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+  )
+```
+
+
+### Coefficient of variation
+
+_**Coefficient of variation**_ ($CV$), also known as relative standard deviation (RSD), is a standardized measure of dispersion of a random variable. It is often expressed as a percentage, and is defined as the ratio of the standard deviation $\sigma$  to the expected value $\mu$  (or its absolute value, $|\mu|$): 
+
+$$
+  CV = \frac{\sigma}{\mu}.
+$$
+
+### Skewness
+
+_**Skewness**_ is a measure of the asymmetry of random variable about its mean. The skewness value can be positive or negative, or undefined.
+
+For a _unimodal_ random variable, negative skew commonly indicates that the _tail_ is on the left side of the distribution, and positive skew indicates that the _tail_ is on the right. 
+
+The skewness of a random variable $X$ is the third standardized moment $\gamma_1$, defined as
+
+$$
+  \gamma_1 = \text{E}\left[\left(\frac{X-\mu}{\sigma}\right)^3\right] = \frac{\text{E}\left[\left(X-\mu\right)^3\right]}{\sigma^3} = \frac{\mu_3}{\sigma^3},
+$$
+where $\mu_3 = \text{E}\left[\left(X-\mu\right)^3\right]$ is called a _**third central moment**_.
+
+### Kurtosis
+
+_**Kurtosis**_ (from Greek: kyrtos or kurtos, meaning "curved, arching") is a measure of the "tailedness" of a random variable.
+
+The kurtosis of a random variable $X$ is the fourth standardized moment defined as
+
+$$
+  \text{Kurt}\left[X\right] = \text{E}\left[\left(\frac{X-\mu}{\sigma}\right)^4\right] = \frac{\text{E}\left[\left(X-\mu\right)^4\right]}{\sigma^4} = \frac{\mu_4}{\sigma^4},
+$$
+where $\mu_4 = \text{E}\left[\left(X-\mu\right)^4\right]$ is called a _**fourth central moment**_.
+
+## "Popular" discrete random variables
+
+### Bernoulli (binary) RV
+
+- A random trial has two possible outcomes $\{\omega_1 = \text{"success"}, \omega_2 = \text{"fail"}\}$.
+- We may consider a RV $X(\omega):\left\{\begin{array}{l}X(\omega_1 = \text{"success"}) = 1 \\ X(\omega_2 = \text{"fail"}) = 0\end{array}\right.$
+
+If probability of "success" is $p$, then probability of "fail" is $1-p$. Then a _**Bernoulli random variable**_ $X$ is defined as
+
+$$
+  X \sim \text{Ber}(p),\text{ }X = \left\{\begin{array}{rl}1, & \text{with probability }p  \\ 0, & \text{with probability }1-p\end{array}\right.
+$$
+
+- $\text{E}\left[X\right] = \mu = 1\cdot p + 0\cdot (1-p) = p$ 
+- $\text{V}\left[X\right] = \sigma^2 = 1^2\cdot p + 0^2\cdot (1-p) - p^2 = p - p^2 = p(1-p)$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \sqrt{p(1-p)}$
+
+### Discrete uniform RV
+
+- A random trial has $n$ possible outcomes $\left\{1, 2, \ldots, n\right\}$.
+- Probabilities of each outcome are the same and equal to $\frac{1}{n}$.
+
+Then, a _**Discrete uniform random variable**_ $X$ is defined as
+
+$$
+  X \sim DU(n), \text{ }\text{P}(X = k) = \frac{1}{n}, \text{ }k = 1, 2, \ldots, n.
+$$
+
+- $\text{E}\left[X\right] = \mu = \sum_{k=1}^n{k\cdot\frac{1}{n}} = \frac{1}{n}\left(1+2+\ldots+n\right) = \frac{1}{n}\frac{(1+n)n}{2} = \frac{n+1}{2}$ 
+- $\text{V}\left[X\right] = \sigma^2 = \sum_{k=1}^n{k^2\cdot\frac{1}{n}} = \frac{1}{n}\left(1^2+2^2+\ldots+n^2\right) = \frac{1}{n}\frac{n(n+1)(2n+1)}{6} = \frac{(n+1)(2n+1)}{6}$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \sqrt{\frac{(n+1)(2n+1)}{6}}$
+
+## Counting random variables
+
+### Definition
+
+_**Counting random variables** are the special types of random variables, and they describe the number of occurrences of a particular event_.
+
+The commonly used types of counting random variables are:
+
+- _**Binomial**_.
+- _**Negative binomial**_.
+- _**Poisson**_.
+- _**Hyper geometric**_.
+- _**Geometric**_.
+
+### Binomial RV
+
+- An experiment is performed $n$ times.
+- In each experiment, an event $A$ ("success") may occur. It is an event of interest.
+- The probability $\text{P}\left(A\right)$ of observing $A$ in one experiment equals to $p$.
+- One is interested in a random variable $X = \text{"number of success out of }n\text{"}$ ($0 \leq X \leq n$).
+
+Then, $X \sim \text{Bin}\left(n, p\right)$, and
+
+$$
+  \text{P}\left(X = k\right) = {n\choose{k}}p^k(1-p)^{n-k}, \text{ }k = 0, 1, \ldots, n.
+$$
+
+Here, ${n\choose{k}} = \frac{n!}{k!(n-k)!}$ is a _binomial coefficient_, and $n! = 1\cdot 2\cdot\ldots\cdot n$, $0! = 1$. 
+
+If $X_1, X_2, \ldots, X_n$ are _independent_ Bernoulli (binomial) random variables, i.e. $X_i\sim Ber(p), \text{ }i = 1, 2, \ldots, n$, then 
+
+$$
+  X = X_1 + X_2 + \ldots + X_n \sim Bin(n, p).
+$$
+
+- $\text{E}\left[X\right] = \mu = np$ 
+- $\text{V}\left[X\right] = \sigma^2 = np(1-p)$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \sqrt{np(1-p)}$
+
+```{r binomial-pmf, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8}
+k <- seq(0, 10)
+p <- c(0.1, 0.3, 0.5, 0.7, 0.9)
+n <- 10
+
+map_df(p, ~ {
+ tibble(
+   p = str_glue("p == {.x}"),
+   x = k,
+   y = dbinom(k, n, .x),
+ )
+}) %>% 
+  ggplot(aes(x = x, y = y, xend = x, yend = 0)) +
+    geom_point(size = 2.5)+
+    geom_segment(size = 1.25) +
+    xlab(expression(italic(k))) +
+    ylab(expression(P(italic(X == k)))) +
+    facet_grid( ~ p, labeller = label_parsed, scales = "free_y")+
+    labs(
+      title = "Binomial p.m.f. (n = 10)"
+    )+
+    scale_x_continuous(breaks = seq(0, 10, by = 2))+
+    theme_bw()+
+    theme(
+      axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+      axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+      strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+      title = element_text(family="Helvetica", face = "bold", size = 14),
+      legend.position = "none",
+      legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+    )
+```
+
+**Example** (Tossing a coin).
+
+One is tossing a \emph{"fair"} coin 5 times. What is the probability of getting exactly 3 \emph{"heads"}?
+
+**Solution**:
+
+- $\text{An experiment} = \text{"tossing a coin once"}$.
+- $n = 5$.
+- $A = \{\text{"head"}\}$.
+- $\text{P}\left(A\right) = p = \frac{1}{2}$.
+- A random variable $X = \text{"number of "heads" out of 5"}$.
+- The answer is
+$$
+  \text{P}\left(X = 3\right) = {5\choose 3}\left(\frac{1}{2}\right)^3\left(1-\frac{1}{2}\right)^{5-3} = \frac{5!}{3!2!}\left(\frac{1}{2}\right)^5 \approx `r dbinom(3, 5, 0.5)`.
+$$
+
+
+### Negative binomial RV
+
+- An experiment is performed _some number of_ times (it depends on the trial setup).
+- In each experiment, either an event $A$ ("success") or an event $B$ ("failure") may occur. $A$ is an event of interest.
+- The probability $\text{P}\left(A\right)$ of observing $A$ in one experiment equals to $p$, and the probability $\text{P}\left(B\right)$ of observing $B$ equals to $1-p$.
+- One is interested in a random variable $X = \text{"number of success until }r\text{ failures occur"}$ ($X = 0, 1, 2, \ldots$).
+
+Then, $X \sim \text{NegBin}\left(r, p\right)$, and
+
+$$
+  \text{P}\left(X = k\right) = {k+r-1\choose{k}}p^k(1-p)^{r}, \text{ }k = 0, 1, 2,  \ldots .
+$$
+
+- $\text{E}\left[X\right] = \mu = \frac{pr}{1-p}$ 
+- $\text{V}\left[X\right] = \sigma^2 = \frac{pr}{(1-p)^2}$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \frac{\sqrt{pr}}{1-p}$
+
+```{r neg-binomial-pmf, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8}
+neg_binomial_pmf <- function(k, r, p) { choose(k+r-1, k)*p^k*(1-p)^r }
+
+k <- seq(0, 10)
+p <- c(0.1, 0.3, 0.5, 0.7, 0.9)
+r <- 3
+map_df(p, ~ {
+ tibble(
+   p = str_glue("p == {.x}"),
+   x = k,
+   y = neg_binomial_pmf(k, r, .x),
+ )
+}) %>% 
+  ggplot(aes(x = x, y = y, xend = x, yend = 0)) +
+    geom_point(size = 2.5)+
+    geom_segment(size = 1.25) +
+    xlab(expression(italic(k))) +
+    ylab(expression(P(italic(X == k)))) +
+    facet_grid( ~ p, labeller = label_parsed, scales = "free_y")+
+    labs(
+      title = "Negative Binomial p.m.f. (r = 3)"
+    )+
+    scale_x_continuous(breaks = seq(0, 10, by = 2))+
+    theme_bw()+
+    theme(
+      axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+      axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+      strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+      title = element_text(family="Helvetica", face = "bold", size = 14),
+      legend.position = "none",
+      legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+    )
+```
+
+**Example** (tossing a coin)
+
+One is tossing a \emph{"fair"} coin 5 times. What is the probability of getting more than 2 \emph{"heads"} before 3 \emph{"tails"} occur?
+
+**Solution**:
+
+- $\text{An experiment} = \text{"tossing a coin once"}$.
+- $r = 3 = \text{number of "tails" ("failures" in this case)}$ .
+- $A = \{\text{"head"}\}$.
+- $\text{P}\left(A\right) = p = \frac{1}{2}$.
+- A random variable $X = \text{"number of "heads" before 3 "tails" "}$.
+- The answer is
+
+$$
+\begin{aligned}
+  \text{P}\left(X > 2\right) &= 1- \text{P}\left(X \leq 2\right) = 1 - \text{P}\left(X = 0\right)-\text{P}\left(X = 1\right)-\text{P}\left(X = 2\right) = \\  
+  & = 1 - {{0+3-1}\choose 0}\left(\frac{1}{2}\right)^0\left(1-\frac{1}{2}\right)^{3} - \\ &- {{1+3-1}\choose 1}\left(\frac{1}{2}\right)^1\left(1-\frac{1}{2}\right)^{3} - \\ &- {{2+3-1}\choose 2}\left(\frac{1}{2}\right)^2\left(1-\frac{1}{2}\right)^{3} = \\ &= 1- {{2}\choose 0}\left(\frac{1}{2}\right)^{3} - {{3}\choose 1}\left(\frac{1}{2}\right)^{4} - {{4}\choose 2}\left(\frac{1}{2}\right)^{5} = \\ &= 1 - \frac{2!}{0!2!}\frac{1}{8} - \frac{3!}{1!2!}\frac{1}{16} - \frac{4!}{2!2!}\frac{1}{32} \approx `r 1-1/8-3/16-6/32`.
+\end{aligned}
+$$
+
+
+### Poisson RV
+
+- An experiment is performed $n$ times (where $n$ is _**sufficiently large**_, $n\rightarrow +\infty$).
+- In each experiment, an event $A$ ("success") may occur. It is an event of  interest.
+- The probablity $\text{P}\left(A\right)$ of observing $A$ in one experiment equals to $p$, and it is _**sufficiently small**_, i.e. the _**event is rare**_.
+- One is interested in a random variable $X = \text{"number of success"}$.
+
+Then, $X \sim \text{Po}\left(m\right)$, and
+
+$$
+  \text{P}\left(X = k\right) = \frac{m^k}{k!}e^{-m}, \text{ }m = np; \text{ }k = 0, 1, \ldots .
+$$
+
+- $\text{E}\left[X\right] = \mu = m$ 
+- $\text{V}\left[X\right] = \sigma^2 = m$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \sqrt{m}$
+
+```{r poisson-pmf, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8}
+k <- seq(0, 20)
+p <- c(0.001, 0.005, 0.01, 0.05, 0.1)
+n <- 100
+m <- n*p
+
+map_df(m, ~ {
+ tibble(
+   m = as.factor(str_glue("m == {.x}")),
+   x = k,
+   y = dpois(k, .x),
+ )
+}) %>% 
+  ggplot(aes(x = x, y = y, xend = x, yend = 0)) +
+    geom_point(size = 2.5)+
+    geom_segment(size = 1.25) +
+    xlab(expression(italic(k))) +
+    ylab(expression(P(italic(X == k)))) +
+    facet_grid( ~ m, labeller = label_parsed, scales = "free_y")+
+    labs(
+      title = "Poisson p.m.f."
+    )+
+    scale_x_continuous(breaks = seq(0, 20, by = 4))+
+    theme_bw()+
+    theme(
+      axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+      axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+      strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+      title = element_text(family="Helvetica", face = "bold", size = 14),
+      legend.position = "none",
+      legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+    )
+```
+
+**Example** (number of left-handed people in a population)
+
+The probability of being left-handed equals to 0.1. What is the probability that there are at least 2 left-handed people in a group of 50?
+
+**Solution**:
+
+- $\text{An experiment} = \text{"select a person"}$.
+- $n = 50$ (can be considered as _**large**_).
+- $A = \{\text{"a person is left-handed"}\}$.
+- $\text{P}\left(A\right) = p = 0.1$ (can be considered as _**small**_).
+- A random variable $X = \text{"number of left-handed people out of 50"}$.
+- $m = np = `r 0.1*50`$.
+
+$$
+\begin{aligned}
+  \text{P}\left(X \geq 2\right) &= 1 - \text{P}\left(X = 0\right) - \text{P}\left(X = 1\right) \\
+  &= 1 - \frac{5^0}{0!}e^{-5}- \frac{5^1}{1!}e^{-5}\approx `r 1-exp(-5)*(1 + 5)`.
+\end{aligned}
+$$
+
+### Geometric RV
+
+- In each experiment, an event $A$ ("success") may occur. It is an event of  interest.
+- The probability $\text{P}\left(A\right)$ of observing $A$ in one experiment equals to $p$.
+- An experiment is performed until first "success" is observed.
+- One is interested in a random variable $X = \text{"number of "fails" before a "success" is observed"}$.
+
+Then, $X \sim \text{Ge}\left(p\right)$, and
+$$
+  \text{P}\left(X = k\right) = p\left(1-p\right)^k, \text{ }k = 0, 1, \ldots .
+$$
+
+
+- $\text{E}\left[X\right] = \mu = \frac{1}{p}$ 
+- $\text{V}\left[X\right] = \sigma^2 = \frac{1-p}{p^2}$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \frac{\sqrt{1-p}}{p}$
+
+```{r geometric-pmf, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8}
+k <- seq(0, 10)
+p <- c(0.1, 0.3, 0.5, 0.7, 0.9)
+
+map_df(p, ~ {
+ tibble(
+   p = str_glue("p == {.x}"),
+   x = k,
+   y = dgeom(k, .x),
+ )
+}) %>% 
+  ggplot(aes(x = x, y = y, xend = x, yend = 0)) +
+    geom_point(size = 2.5)+
+    geom_segment(size = 1.25) +
+    xlab(expression(italic(k))) +
+    ylab(expression(P(italic(X == k)))) +
+    facet_grid( ~ p, labeller = label_parsed, scales = "free_y")+
+    labs(
+      title = "Geometric p.m.f."
+    )+
+    scale_x_continuous(breaks = seq(0, 10, by = 2))+
+    theme_bw()+
+    theme(
+      axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+      axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+      strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+      title = element_text(family="Helvetica", face = "bold", size = 14),
+      legend.position = "none",
+      legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+    )
+```
+
+**Example**.
+
+Products produced by a machine have a 3% defective rate. What is the probability that the first defect occurs in the fifth item inspected?
+
+**Solution**:
+
+- $A = \{\text{"an item has a defect"}\}$.
+- $\text{P}\left(A\right) = p = 0.03$.
+- A random variable $X = \text{"number of "good" items investigated before the defective one"}$.
+- $k = 4$
+- The answer is
+
+$$
+\text{P}\left(X = 4\right) = 0.03\cdot \left(1-0.03\right)^4 \approx `r dgeom (4, prob = 0.03)`.
+$$
+
+
+### Hypergeometric RV
+
+- In each experiment, either an event $A$ ("success") or an event event $B = A^c$ ("fail") may occur.
+- The probability $\text{P}\left(A\right)$ of observing $A$ changes after each time the experiment is performed.
+- An experiment is performed $n$ times ($n \leq N$, $N$ is the population size).
+- $K$ is the number of all possible "successes" out of $N$ ($K\leq N$).
+- One is interested in a random variable $X = \text{"number of "successes" observed out of" }n\text{ experiments}$.
+
+Then, $X \sim \text{HGe}\left(N, K, n\right)$, and
+
+$$
+\begin{aligned}
+  \text{P}\left(X = k\right) &= \frac{\binom{K}{k} \binom{N-K }{n-k}}{\binom{N}{n}}, \\ 
+  N &= 0, 1, \ldots, \\ 
+  K &= 0, 1, \ldots, N, \\
+  n &= 0, 1, \ldots, N, \\
+  k &= 0, 1, \ldots, K .
+\end{aligned}
+$$
+
+
+- $\text{E}\left[X\right] = \mu = n\frac{K}{N}$ 
+- $\text{V}\left[X\right] = \sigma^2 = n\frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}$
+- $\text{D}\left[X\right] = \sigma = \sqrt{\sigma^2} = \sqrt{n\frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}}$
+
+```{r hypergeometric-pmf, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8}
+hypergeometric_pmf <- function(k, n, K, N) { dhyper(k, K, N-K, n)}
+
+k <- seq(0, 10)
+K <- 10
+N <- 25
+n <- c(5, 10, 15, 20, 25)
+
+map_df(n, ~ {
+ tibble(
+   n = as.factor(str_glue("n == {.x}")),
+   x = k,
+   y = hypergeometric_pmf(k, .x, K, N),
+ )
+}) %>% 
+  ggplot(aes(x = x, y = y, xend = x, yend = 0)) +
+    geom_point(size = 2.5)+
+    geom_segment(size = 1.25) +
+    xlab(expression(italic(k))) +
+    ylab(expression(P(italic(X == k)))) +
+    facet_grid( ~ n, labeller = label_parsed, scales = "free_y")+
+    labs(
+      title = str_glue("Hypergeometric p.m.f. (K = {K}, N = {N})")
+    )+
+    scale_x_continuous(breaks = seq(0, 10, by = 2))+
+    theme_bw()+
+    theme(
+      axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+      axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+      strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+      title = element_text(family="Helvetica", face = "bold", size = 14),
+      legend.position = "none",
+      legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+    )
+```
+
+**Example**.
+
+In a population of 20 subjects, 15 subjects are younger than 25 years. 7 subjects are selected at random to participate in a (whatever) test. What is the probability that there are exactly 5 subjects younger than 25 years?   
+
+**Solution**:
+
+- $A = \{\text{"a subject is younger than 25 years"}\}$.
+- A random variable $X = \text{"number of "young" subjects in a group of 7 selected from the population of size 20"}$.
+- $N = 20$
+- $K = 15$
+- $n = 7$
+- $k = 5$
+
+- The answer is
+
+$$
+\text{P}\left(X = 5\right) = \frac{\binom{15}{5}\binom{20-15}{7-5}}{\binom{20}{7}} \approx `r dhyper(5, 15, 20-15, 7)`.
+$$
+
+## Connections between distributions
+
+### Law of Small Numbers 
+
+**Reference**: L. Bortkiewicz, _Das Gesetz der kleinen Zahlen_, Leipzig: B.G. Teubner (1898).
+
+If an experiment is carried out by $n$ independent trials, and the probability for "success" in each trial equals to $p$, then the number of successes $X$ is given by the binomial distribution:
+
+$$
+  X \sim \text{Bin}\left(n, p\right).
+$$
+
+If $n \rightarrow +\infty$ and $p \rightarrow 0$ so that $m = n\cdot p$ is constant, we have approximately that
+
+$$
+  X \sim \text{Po}\left(m\right).
+$$
+
+
+### Negative binomial and Geometric RV's
+
+$$
+  \text{Ge}(p) = \text{NegBin}(1, 1-p)
+$$
+
+### Hypergeometric and Bernoulli RV's
+
+$$
+  \text{HGe}(N, K, 1) = \text{Ber}\left(\frac{K}{N}\right)
+$$
+

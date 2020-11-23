@@ -1,0 +1,10 @@
+---
+title: "Teaching"
+description: |
+    There is a list of university courses, which I taught at [Uppsala University](https://uu.se).
+site: distill::distill_website
+---
+
+- **Autumn 2019**: [_Probability and statistics_](probability-and-statistics.html) -- a series of lectures on selected topics of "Probability and Statistics" for Master/Ph.D. Students and researchers at the [Department of Pharmaceutical Biosciences](https://www.farmbio.uu.se), Uppsala University.
+- **Spring 2019**: [_Innovative clinical trials - Connecting theory and practice through adaptive designs and digital development_]() -- a Master/Ph.D. level course at the [Center for Interdisciplinary Mathematics – CIM](https://www.math.uu.se/research/cim/), Uppsala University.
+- **Spring 2018**: [_Optimal designs and randomization techniques for clinical trials_]() -- a Master/Ph.D. level course at the [Center for Interdisciplinary Mathematics – CIM](https://www.math.uu.se/research/cim/), Uppsala University.

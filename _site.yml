@@ -1,12 +1,30 @@
-name: "."
+name: "yevgen.github.io"
 title: "Yevgen Ryeznik"
+theme: theme.css 
 description: |
-  Yevgen Ryeznik
+  Math &amp; Stats
 output_dir: "docs"
+include: ["20200920-YR-CV.pdf"]
 navbar:
-  right:
+  left:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Blog"
+      href: blog.html
+    - text: "Teaching"
+      href: teaching.html
+    - text: "Publications"
+      href: publications.html
+  right:
+    - text: ""
+    - text: ""
+    - icon: fab fa-github
+      href: https://github.com/yevgenryeznik
+    - icon: fab fa-linkedin
+      href: https://www.linkedin.com/in/yevgen-ryeznik-3975b645/
+    - icon: ai ai-google-scholar-square
+      href: https://scholar.google.com/citations?user=9bSyqvMAAAAJ&hl=en&oi=ao
+  search: TRUE
 output: distill::distill_article

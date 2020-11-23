@@ -1,0 +1,38 @@
+---
+title: "Calling Julia from R via JuliaCall"
+description: |
+  In this blog post, we demonstrate how to use a code written in Julia programming language in an R script by using R package JuliaCall.
+author:
+  - name: Yevgen Ryeznik
+  - url: https://yevgen.github.io
+date: 2020-11-20
+categories:
+  - Julia
+  - R
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is distill?
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+## Observations with noise
+
+```{r scatter-plot}
+library(ggplot2)
+ds <- tibble::tibble(x = seq(1, 10, by = 0.1), y = cos(x) + rnorm(length(x), sd = 0.5))
+ggplot(ds, aes(x, y))+
+  geom_point()
+```
+

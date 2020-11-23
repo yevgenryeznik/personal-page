@@ -1,0 +1,12 @@
+---
+title: "Blog posts"
+site: distill::distill_website
+listing: 
+  posts:
+    - 2020-11-20-calling-julia-from-r-via-juliacall
+    - 2020-02-29-pythagorean-theorem-day
+    - 2020-02-24-sampling-from-wischart
+    - 2019-02-16-pi-approximation
+    - 2018-04-10-extending-r-with-julia
+    - 2015-11-05-galerkin-hsie
+---

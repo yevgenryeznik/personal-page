@@ -1,10 +1,22 @@
 ---
-title: "About this site"
-description: |
-  Some additional details about the website
+title: "Welcome!"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+Hi! My name is **Yevgen Ryeznik** _(Ukrainian🇺🇦: Євген Рєзнік)_.
+
+I work as a statistician at _AstraZeneca_ (Gothenburg, Sweden), where I provide statistical support for design and analysis of clinical trials.
+
+Before joining the _AstraZeneca_, I worked at [_Uppsala University_](https://uu.se) (Uppsala, Sweden), where I obtained a Ph.D. degree in Applied Mathematics and Statistics at the [Center for Interdisciplinary Mathematics (CIM)](https://www.math.uu.se/research/cim/) in 2019. My supervisors were professor [Warwick Tucker](https://katalog.uu.se/profile/?id=XX4412) from the [Department of Mathematics](https://math.uu.se) and professor [Andrew Hooker](https://katalog.uu.se/profile/?id=N4-631) from the [Department of Pharmaceutical Biosciences, Pharmacometrics Research Group](https://katalog.uu.se/organisation/?orgId=FF3:12).
+
+My detailed CV can be found [**here**](20200920-YR-CV.pdf).
+
+On this site, I [write](blog.html) about mathematical and statistical problems and their solutions, which I have found to be interesting to me. Most of the solutions come with code in one of the following languages: `R`/`Python`/`Julia`.
+
+Also, you can find here materials to several [courses](teaching.html), which I teach/taught.
+
+
 

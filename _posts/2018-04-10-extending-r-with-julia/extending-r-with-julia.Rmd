@@ -1,0 +1,224 @@
+---
+title: "Extending R with julia"
+description: |
+  In this post, we consider how to extend R with Julia programming language to improve the computation performance..
+author:
+  - name: Yevgen Ryeznik
+date: 04-10-2018
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+categories:
+  - R
+  - Julia
+  - Scientific computing
+  - Monte Carlo
+  - Statistical simulations  
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.align = "center", fig.width = 6, fig.height = 4)
+```
+
+## Why to extend `R`?
+
+`R` is a very powerful tool to perform statistical programming. It grows very fast and is highly supported by large community. According to [several surveys](http://makemeanalyst.com/most-popular-languages-for-data-science-and-analytics-2017/), `R` is among the top desired skills for data scientists.
+
+However, `R` is too slow. As it is said in [Hadley Wickham\'s](http://hadley.nz/) book \"[Advanced R](http://adv-r.had.co.nz/)\",
+
+> `R` is not a fast language. This is not an accident. `R` was purposely designed to make data analysis and statistics easier for you to do. It was not designed to make life easier for your computer. While `R` is slow compared to other programming languages, for most purposes, it\'s fast enough.
+>
+> -- <cite>Hadley Wickham, _"Advanced R"_</cite>
+
+But in many cases, we do need a good performance, which other languages can provide. One of such a language is [`Julia`](https://julialang.org/)
+
+
+## What is `Julia`?
+
+`Julia` is a high-level, high-performance dynamic language for numerical computing. The project was initiated in 2009. In 2012 the website as well as blog post with language\'s explanation were launched. The community started to grow very fast, and [over 1,800,000 downloads](https://juliacomputing.com/blog/2018/01/04/january-newsletter.html) have been done as of January 2018. 
+
+As it is said above, the language is dynamic but it uses JIT compiler. The latter allows to get a high performance of applications written on the \"pure\" `Julia`, i.e. without code vectorization and usage of low level libraries. 
+
+[Stefan Karpinski](https://en.wikipedia.org/wiki/Stefan_Karpinski), one of the creators of Julia language had an experience with both `MatLab` and `R`. But he was unsatisfied with their limitations. So, the aim of creating the new language was to create a `MatLab`-/`R`-like language, from one hand, and, from the other hand, to get rid of the issues they have.  
+
+To install `Julia` on the local machine one should download the distributive from https://julialang.org/downloads/. There are instructions how to make it work for different paltforms. 
+
+## XRJulia package
+
+A nice book [\"Extending R\"](https://www.crcpress.com/Extending-R/Chambers/p/book/9781498775717) on how to extend `R` by John M. Chambers was published in 2016 by _**Chapman and Hall/CRC**_. Chapter 15 deals with the `R` extension with `Julia` through the [`XRJulia`](https://github.com/johnmchambers/XRJulia) package
+
+
+To start working with it the following steps should be done:
+
+1. Install `XRJulia` package by running the `R` command
+
+```{r install-XRJulia, eval=FALSE}
+install.packages("XRJulia")
+```
+
+2. Once the package is installed, it is possible to test if it works by running the `R` commands:
+
+```{r load-XRJulia}
+library(XRJulia)
+findJulia(test=TRUE)
+```
+
+If the output of the command `findJulia(test=TRUE)` is **TRUE**, then everything is ready to start working. If there is an error, then some additional steps have to be done. In my case (MacOS High Sierra), I got an error
+
+
+```{r error-msg, eval=FALSE}
+## ERROR: could not load library
+## "/Applications/Julia-0.6.app/Contents/Resources/julia/../lib/julia/sys.dylib"
+## dlopen(/Applications/Julia-0.6.app/Contents/Resources/julia/../lib/julia/sys.dylib, 6): image not found
+```
+
+After adding the following system variables to _~/.Renviron_ file the problem disappeared.
+
+```{bash Renviron, eval=FALSE}
+JULIA_HOME="/Applications/Julia-0.6.app/Contents/Resources/julia"
+JULIA_CPPFLAGS="-I ${JULIA_HOME}/include/julia"
+JULIA_LD_LIBRARY_PATH="${JULIA_HOME}/lib:${JULIA_HOME}/lib/julia"
+DYLD_LIBRARY_PATH="${JULIA_HOME}/lib:${JULIA_HOME}/lib/julia"
+PATH="${JULIA_HOME}/bin:${PATH}"
+```
+
+There are many functions available in the package, which can be found in the package [documentation](https://cran.r-project.org/web/packages/XRJulia/XRJulia.pdf).
+
+
+## Example: integral evaluation with Monte Carlo (MC) approach
+
+Let us evaluate the following integral 
+
+$$
+  I = \int_0^{+\infty}{x^2e^{-\frac{x^2}{2}}}dx
+$$
+
+It can be rewritten as an expectation of the function 
+
+$$
+f(x)=\left\{
+  \begin{array}{lr}
+    \sqrt{2\pi}x^2, & x\geq 0 \\ 
+    0, & x < 0
+  \end{array}
+  \right.
+$$
+
+with respect to the normal distribution $N(0, 1)$ with p.d.f. 
+
+$$
+  p(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} 
+$$
+
+Then,
+
+$$
+  I = \text{E}\left[f(x)\right] \approx \frac{1}{n}\sum_{i = 1}^n{f(x_i)},
+$$
+
+where $x_1, x_2, \ldots, x_n$ are the sample points from the standard normal distribution $N(0, 1)$.
+
+Let us implement the latter formula by using both `R` and `R` extended with `Julia`.
+
+1. `R` implementation:
+
+```{r mc-R}
+
+# First, let us create a function to integrate on the R side
+fcnR <- function(x) {
+  dplyr::if_else(x >= 0, sqrt(2*pi)*x^2, 0)
+}
+
+# Second, we implement a MC procedure on the R side 
+integrate_mcR <- function(fcn, n) {
+  # sampling from N(0, 1)
+  set.seed(12345)
+  x <- rnorm(n)
+  
+  # mean of f(x)
+  mean(fcn(x))
+}
+
+# Finally, we evaluate the integral (with n=100,000)
+  IR <- integrate_mcR(fcnR, 100000)
+```
+
+2. `Julia` implementation:
+
+```{r mc-Julia}
+# First, let us create a function to integrate on the Julia side
+  juliaEval("
+    function fcn(x)
+      if (x >= 0)
+         return sqrt(2*pi)*x^2
+       else 
+         return 0
+       end
+    end
+  ")
+
+# Second, we implement a MC procedure on the Julia side
+juliaEval("using Distributions, Random")
+juliaEval("
+    function integrate_mc(fcn::Function, n::Int64)
+      Random.seed!(12345)
+      x = rand(Normal(0, 1), n)
+      fx = zeros(Float64, n)
+      for r = 1:length(fx)
+          fx[r] = fcn(x[r])
+      end
+      return mean(fx)
+    end
+  ")  
+
+# Finally, we calculate integral value (with N=100,000)
+  IJ <- juliaGet(juliaEval("integrate_mc(fcn, 100000)"))
+```
+
+The following table (Tab \@ref(tab:compare)) contains results of the integration. 
+
+```{r compare, echo=FALSE}
+tribble(
+  ~`Exact value`, ~`MC (R)`, ~`MC (Julia)`,
+  1.25331, round(IR, 5), round(IJ, 5)
+) %>% 
+  kable(caption = "Integration results.", aligne = 'center')
+```
+
+As we can see, numerical results are pretty close to the actual result. Let us compare relative performance (`R`/`Julia`) vs. number of samples taken $n$ (Fig. \@ref(fig:performance)).
+
+```{r performance, echo=FALSE, fig.width=6, fig.height=4, fig.cap="R vs. Julia performance."}
+purrr::map_df(c(100, 1000, 10000, 100000, 1000000), ~ {
+  n <- as.integer(.x)
+  out <- microbenchmark::microbenchmark(
+    "R" = integrate_mcR(fcnR, n), 
+    "Julia" = juliaGet(juliaEval(paste0("integrate_mc(fcn, ", n, ")")))
+  )
+  tibble::tibble(
+    "n" = n,
+    "R" = mean(out$time[out$expr == "R"]),
+    "Julia" = mean(out$time[out$expr == "Julia"]),
+    "R/Julia" = `R`/`Julia`
+  )
+}) %>%
+  ggplot(aes(x = n, y = `R/Julia`))+
+  geom_point(size = 2.25)+
+  geom_line(size = 0.75)+
+  ylab("Time (R)/Time (Julia)")+
+  scale_x_log10(breaks = c(100, 1000, 10000, 100000, 1000000))+
+  theme_bw()+
+  theme(
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12)
+  )
+```
+
+As one can see, `Julia` performs much better than `R` for a large sample size. 

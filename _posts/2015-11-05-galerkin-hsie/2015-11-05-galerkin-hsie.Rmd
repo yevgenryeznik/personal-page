@@ -1,0 +1,31 @@
+---
+title: "Galerkin method of solving the 1st kind hypersingular integral equation for 2D-scattering problem."
+description: |
+  Here, we present the Galerkin method of moments (GMoM) to solve an integral equation of the 1st kind with a hypersingular kernel. 
+author:
+  - name: Yevgen Ryeznik
+date: 11-05-2015
+categories:
+  - Galerkin method
+  - Integral equations
+  - Mathematical physiscs
+  - Python
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Problem formulation
+
+Let us consider a 2D-scattering problem.
+
+$$
+\nabla\boldsymbol{H}(\boldsymbol{r}, t)
+$$
