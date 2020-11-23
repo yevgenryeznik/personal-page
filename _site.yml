@@ -2,7 +2,7 @@ name: "."
 title: "Yevgen Ryeznik"
 description: |
   Yevgen Ryeznik
-output_dir: "yevgen.github.io"
+output_dir: "."
 navbar:
   right:
     - text: "Home"
