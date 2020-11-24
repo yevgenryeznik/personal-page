@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Lecture 5: Statistical inference -- Part 1</title>
+
+  <meta property="description" itemprop="description" content="In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2019-11-21"/>
+  <meta property="article:created" itemprop="dateCreated" content="2019-11-21"/>
+  <meta name="article:author" content="Yevgen Ryeznik"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Lecture 5: Statistical inference -- Part 1"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Lecture 5: Statistical inference -- Part 1"/>
+  <meta property="twitter:description" content="In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","institute","date","output","header-includes"]}},"value":[{"type":"character","attributes":{},"value":["Lecture 5: Statistical inference -- Part 1"]},{"type":"character","attributes":{},"value":["In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Yevgen Ryeznik"]}]}]},{"type":"character","attributes":{},"value":["Department of Pharmaceutical Biosciences, Uppsala University."]},{"type":"character","attributes":{},"value":["2019-11-21"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["\\usepackage{amsthm}","\\usepackage{amsfonts}","\\usepackage{hyperref}","\\usepackage{url}","\\usepackage{xcolor}","\\usepackage{array}","\\usepackage{booktabs}","\\usepackage{colortbl}","\\usepackage{float}","\\usepackage{longtable}","\\usepackage{makecell}","\\usepackage{multirow}","\\usepackage{pdflscape}","\\usepackage{tabu}","\\usepackage{threeparttable}","\\usepackage{threeparttablex}","\\usepackage{wrapfig}","\\usepackage[normalem]{ulem}"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["figures/topic03-iris-sepal-petal.png","figures/topic03-type-I-II-error.jpg","inference-part1_files/anchor-4.2.2/anchor.min.js","inference-part1_files/bowser-1.9.3/bowser.min.js","inference-part1_files/distill-2.2.21/template.v2.js","inference-part1_files/figure-html5/cumulative-plot-1.png","inference-part1_files/figure-html5/histogram-plot-1.png","inference-part1_files/figure-html5/random-error: averaging-1.png","inference-part1_files/figure-html5/random-error: measurements-1.png","inference-part1_files/figure-html5/sigma-influence-1.png","inference-part1_files/figure-html5/systematic error: measurements-1.png","inference-part1_files/figure-html5/systematic-error: averaging-1.png","inference-part1_files/figure-latex/cumulative-plot-1.pdf","inference-part1_files/figure-latex/histogram-plot-1.pdf","inference-part1_files/figure-latex/random-error: averaging-1.pdf","inference-part1_files/figure-latex/random-error: measurements-1.pdf","inference-part1_files/figure-latex/sigma-influence-1.pdf","inference-part1_files/figure-latex/systematic error: measurements-1.pdf","inference-part1_files/figure-latex/systematic-error: averaging-1.pdf","inference-part1_files/header-attrs-2.5/header-attrs.js","inference-part1_files/jquery-1.11.3/jquery.min.js","inference-part1_files/webcomponents-2.0.0/webcomponents.js","inference-part1.log","inference-part1.pdf"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: hidden;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="inference-part1_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="inference-part1_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="inference-part1_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="inference-part1_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="inference-part1_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="inference-part1_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Lecture 5: Statistical inference -- Part 1","description":"In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced.","authors":[{"author":"Yevgen Ryeznik","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-11-21T00:00:00.000+01:00","citationText":"Ryeznik, 2019"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Lecture 5: Statistical inference – Part 1</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced.</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Yevgen Ryeznik
+  
+<br/>2019-11-21
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#the-subject-of-statistics.">The subject of statistics.</a>
+<ul>
+<li><a href="#what-is-statistics">What is statistics?</a></li>
+<li><a href="#population">Population</a></li>
+<li><a href="#sample">Sample</a></li>
+<li><a href="#statistcal-problems">Statistcal problems</a></li>
+<li><a href="#random-error.">Random error.</a></li>
+<li><a href="#systematic-error-bias.">Systematic Error (Bias).</a></li>
+<li><a href="#example-of-a-bias.">Example of a bias.</a></li>
+</ul></li>
+<li><a href="#data-description.">Data description.</a>
+<ul>
+<li><a href="#iris-dataset">Iris dataset</a></li>
+<li><a href="#range-of-the-observations">Range of the observations</a></li>
+<li><a href="#mode">Mode</a></li>
+<li><a href="#median">Median</a></li>
+<li><a href="#quantiles">Quantiles</a></li>
+<li><a href="#sample-mean">Sample mean</a></li>
+<li><a href="#sample-variance-and-sample-standard-deviation">Sample variance and sample standard deviation</a></li>
+</ul></li>
+<li><a href="#statistical-plots.">Statistical plots.</a>
+<ul>
+<li><a href="#histogram">Histogram</a></li>
+<li><a href="#cumulative-plot">Cumulative plot</a></li>
+<li><a href="#standard-deviation-and-data-spreading">Standard deviation and data spreading</a></li>
+</ul></li>
+<li><a href="#estimation">Estimation</a></li>
+<li><a href="#point-estimation">Point estimation</a>
+<ul>
+<li><a href="#maximum-likelihood-estimation-mle">Maximum likelihood estimation (MLE)</a></li>
+<li><a href="#examples-of-mles">Examples of MLEs</a></li>
+</ul></li>
+<li><a href="#confidence-interval">Confidence interval</a>
+<ul>
+<li><a href="#confidence-interval-for-the-mean-when-variance-is-known.">Confidence interval for the mean (when variance is known).</a></li>
+<li><a href="#confidence-interval-for-the-mean-when-the-variance-is-unknown.">Confidence interval for the mean (when the variance is unknown).</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<p><a href="inference-part1.pdf"><strong>Download pdf</strong></a></p>
+<h2 id="the-subject-of-statistics.">The subject of statistics.</h2>
+<h3 id="what-is-statistics">What is statistics?</h3>
+<p><em><strong>Statistics</strong></em> is a study of the</p>
+<ul>
+<li>collection,</li>
+<li>analysis,</li>
+<li>interpretation,</li>
+<li>presentation,</li>
+<li>organization</li>
+</ul>
+<p>of data.</p>
+<p>The <em><strong>aim of statistics</strong></em> is to give an information about a population based on a sample from this population.</p>
+<h3 id="population">Population</h3>
+<p>A <em><strong>population</strong></em> is a complete set of items that share at least one property and have features that are of interest. For instance,</p>
+<ul>
+<li>all persons living in a country have <em><strong>weight</strong></em>, <em><strong>height</strong></em>, <em><strong>age</strong></em>, <em><strong>salary</strong></em>, etc.</li>
+<li>biological species that live in the same region at the same time and have unique attributes such as <em><strong>growth rate</strong></em>, <em><strong>age structure</strong></em>, <em><strong>sex ratio</strong></em>, <em><strong>mortality rate</strong></em>.</li>
+</ul>
+<h3 id="sample">Sample</h3>
+<p>A <em><strong>sample</strong></em> is a subset of population items collected and/or selected <em><strong>by a defined procedure</strong></em>. Elements of a sample are known as <em><strong>sample points</strong></em>, <em><strong>sampling units</strong></em> or <em><strong>observations</strong></em>.</p>
+<p><em><strong>Sampling</strong></em> is a procedure of data selection from a population. Having a sample from a population, one can solve two types of <em><strong>statistical problems</strong></em>:</p>
+<h3 id="statistcal-problems">Statistcal problems</h3>
+<ul>
+<li>a <em><strong>problem of descriptive statistics</strong></em> -– <em>summarizing</em> and <em>describing</em> a data sample in order to get an information about a population (e.g., <em><strong>sample mean</strong></em>, <em><strong>sample variance</strong></em>, <em><strong>minimum</strong></em> (<em><strong>maximum</strong></em>) <em><strong>sample value</strong></em>, etc.);</li>
+<li>a <em><strong>problem of inferential statistics</strong></em> -– making an inference about population properties. This includes <em><strong>hypotheses testing</strong></em> and <em><strong>deriving estimates</strong></em>.</li>
+</ul>
+<p>Making an inference about any population by analysing a sample can cause errors.</p>
+<p><span class="math display">\[\begin{equation*}
+  \varepsilon = X_{\text{true}} - X_{\text{observed}}.
+\end{equation*}\]</span></p>
+<p>There are two types of errors:</p>
+<ul>
+<li>a <em><strong>random error</strong></em>.</li>
+<li>a <em><strong>systematic error</strong></em> or a <em><strong>bias</strong></em>.</li>
+</ul>
+<h3 id="random-error.">Random error.</h3>
+<p><em><strong>Random error</strong></em> is also known as <em><strong>variability</strong></em>, <em><strong>random variation</strong></em>, or ``<em><strong>noise in a system</strong></em>’’.</p>
+<p>Random error has no <em>preferred direction</em>, so we expect that averaging over a large number of observations will yield an <em><strong>error effect of zero</strong></em>.</p>
+<p>In this case, an estimate <em><strong>may be imprecise</strong></em>, but <em><strong>not inaccurate</strong></em>. The impact of a random error, <em><strong>imprecision</strong></em>, can be minimized with a large sample sizes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/random-error:%20measurements-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<p>At this plot, black solid line repersents a <em><strong>true</strong></em> value of some parameter, and red dots are observed parameter values.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/random-error:%20averaging-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<p>Here we can see that the average of values observed approaches a true parameter value with the number of measurements increases.</p>
+<p><em><strong>Random error</strong></em> corresponds to <em><strong>imprecision</strong></em>.</p>
+<h3 id="systematic-error-bias.">Systematic Error (Bias).</h3>
+<p><em><strong>Systematic error</strong></em> (<em><strong>bias</strong></em>) refers to deviations that are not due to chance alone. <em><strong>Bias</strong></em> has a net direction and magnitude so that averaging over a large number of observations does not eliminate its effect.</p>
+<p>In fact, <em><strong>bias</strong></em> can be large enough to invalidate any conclusions. Increasing the sample size is not going to help.</p>
+<p>The simplest example occurs with a measuring device that is improperly calibrated so that it consistently overestimates (or underestimates) the measurements.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/systematic%20error:%20measurements-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<p>At this plot, black solid line reprsents a <em><strong>true</strong></em> value of some parameter, and red dots are observed parameter values.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/systematic-error:%20averaging-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<p>Here we see that the average of values observed is far away from a true parameter value for any sample size value.</p>
+<p><em><strong>Systematic error</strong></em> (<em><strong>bias</strong></em>) corresponds to <em><strong>inaccuracy</strong></em>.</p>
+<h3 id="example-of-a-bias.">Example of a bias.</h3>
+<p>The presidential election of 1936 pitted Alfred Landon, the Republican governor of Kansas, against the incumbent President, Franklin D. Roosevelt. The year 1936 marked the end of the <em><strong>Great Depression</strong></em>, and economic issues such as unemployment and government spending were the dominant themes of the campaign. The <em>Literary Digest</em> was one of the most respected magazines of the time and had a history of accurately predicting the winners of presidential elections that dated back to 1916. For the 1936 election, the Literary Digest prediction was that Landon would get 57% of the vote against Roosevelt’s 43% (these are the statistics that the poll measured). The actual results of the election were 62% for Roosevelt against 38% for Landon (these were the parameters the poll was trying to measure). The sampling error in the Literary Digest poll was a whopping 19%, the largest ever in a major public opinion poll. Practically all of the sampling error was the result of sample bias.</p>
+<p>The irony of the situation was that the <em>Literary Digest</em> poll was also one of the largest and most expensive polls ever conducted, with a <em><strong>sample size of around 2,4 million people</strong></em>! At the same time, the <em>Literary Digest</em> was making its fateful mistake, <em>George Gallup</em> was able to predict a victory for Roosevelt using a <em><strong>much smaller sample of about 50,000 people</strong></em>.</p>
+<p>This illustrates the fact that bad sampling methods cannot be cured by increasing a sample size, which in fact just compounds the mistakes. There were two basic causes of the <em>Literary Digest</em>’s downfall:</p>
+<ul>
+<li><em><strong>selection bias</strong></em>.</li>
+<li><em><strong>nonresponse bias</strong></em>.</li>
+</ul>
+<p><em><strong>The first major problem</strong></em> with the poll was in the selection process for the names on the mailing list, which were taken from</p>
+<ul>
+<li>telephone directories,</li>
+<li>club membership lists,</li>
+<li>lists of magazine subscibers,</li>
+<li>etc.</li>
+</ul>
+<p>Such a list is guaranteed to be slanted <em><strong>toward middle- and upper-class voters</strong></em>, and by default to <em><strong>exclude lower-income voters</strong></em>. One must remember that in 1936, telephones were much more of a luxury than they are today. Furthermore, at a time when there were still 9 million people unemployed, the names of a significant segment of the population would not show up on lists of club memberships and magazine subscribers. At least with regard to economic status, the <em>Literary Digest</em>’s mailing list was far from being a representative cross-seciton of the population.</p>
+<p><strong>This sort of sample bias is called</strong> <em><strong>selection bias</strong></em>.</p>
+<p><em><strong>The second problem</strong></em> with the <em>Literary Digest</em>’s poll was that out of the 10 million people whose names were on the original mailing list, only about 2.4 million responded to the survey. Thus, the size of the sample was about one-fourth of what was originally intended. People who respond to surveys are different from people who don’t, not only in the obvious way (their attitude toward surveys) but also in more subtle and significant ways. When the response rate is low (as it was in this case, 0.24), a survey is said to suffer from <em><strong>nonresponse bias</strong></em>.</p>
+<p>Two morals of the story:</p>
+<ul>
+<li>A badly chosen big sample is much worse than a well-chosen small sample.</li>
+<li>Watch out for <em><strong>selection bias</strong></em> and <em><strong>non-response bias</strong></em>.</li>
+</ul>
+<h2 id="data-description.">Data description.</h2>
+<p>Here, we show how to describe observed data using <code>Iris</code> dataset.</p>
+<h3 id="iris-dataset">Iris dataset</h3>
+<p><code>iris</code> is a dataset from <code>R</code> package <code>datasets</code>. It contains the following information</p>
+<ul>
+<li>Sepal length (cm)</li>
+<li>Sepal width (cm)</li>
+<li>Petal length (cm)</li>
+<li>Petal width (cm)</li>
+<li>Class:
+<ul>
+<li>Iris Setosa</li>
+<li>Iris Versicolour</li>
+<li>Virginica</li>
+</ul></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="figures/topic03-iris-sepal-petal.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<p>Let us analyze a <em>sepal length</em> of the <em>iris setosa</em>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>magrittr</span><span class='op'>)</span>                       <span class='co'># loading a "pipe" operator</span>
+<span class='va'>iris_setosa</span> <span class='op'>&lt;-</span> <span class='fu'>datasets</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/r/datasets/iris.html'>iris</a></span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>               <span class='co'># converting data.frame to tibble</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Species</span> <span class='op'>==</span> <span class='st'>'setosa'</span><span class='op'>)</span>    <span class='co'># filtering -- keeping only iris setosa data</span>
+
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>iris_setosa</span><span class='op'>$</span><span class='va'>Sepal.Length</span>           <span class='co'># extract sepal length of iris setosa</span>
+<span class='va'>x</span>
+</code></pre>
+</div>
+<pre><code> [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7
+[17] 5.4 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4
+[33] 5.2 5.5 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6
+[49] 5.3 5.0</code></pre>
+</div>
+<h3 id="range-of-the-observations">Range of the observations</h3>
+<p><em><strong>Range</strong></em> of a sample: <span class="math inline">\(\small{ [\min\limits_i{x_i}, \max\limits_i{x_i}]}\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'>## 1st approach (good if there is no software available) </span>
+<span class='co'># First, sort data points: </span>
+<span class='va'>x_sorted</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>x_sorted</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>4.3 4.4 4.4 4.4 4.5 4.6 4.6 4.6 4.6 4.7 4.7 4.8 4.8 4.8 4.8 4.8 4.9 4.9 4.9 4.9 5 5 5 5 5 5 5 5 5.1 5.1 5.1 5.1 5.1 5.1 5.1 5.1 5.2 5.2 5.2 5.3 5.4 5.4 5.4 5.4 5.4 5.5 5.5 5.7 5.7 5.8</code></pre>
+<div class="sourceCode">
+<pre><code><span class='co'># Second, take the first and the last values from the data sorted:</span>
+<span class='va'>range_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>x_sorted</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='va'>x_sorted</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x_sorted</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>range_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>4.3 5.8</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'>## 2nd approach (once one has R in hands the life is getting easier :) ) </span>
+<span class='co'># Use built-in function range</span>
+<span class='va'>range_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>range_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>4.3 5.8</code></pre>
+</div>
+<h3 id="mode">Mode</h3>
+<p><em><strong>Mode</strong></em> – <em>the most frequent value in a sample</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># creating a table of frequencies</span>
+<span class='va'>frequency_table</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>value <span class='op'>=</span> <span class='va'>x</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>frequency <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>frequency_table</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 15 x 2
+   value frequency
+   &lt;dbl&gt;     &lt;int&gt;
+ 1   4.3         1
+ 2   4.4         3
+ 3   4.5         1
+ 4   4.6         4
+ 5   4.7         2
+ 6   4.8         5
+ 7   4.9         4
+ 8   5           8
+ 9   5.1         8
+10   5.2         3
+11   5.3         1
+12   5.4         5
+13   5.5         2
+14   5.7         2
+15   5.8         1</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># calculating Mode: create a table of values with the highest frequency</span>
+<span class='va'>mode_table</span> <span class='op'>&lt;-</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>frequency_table</span>, <span class='va'>frequency</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>frequency</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>mode_table</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 2 x 2
+  value frequency
+  &lt;dbl&gt;     &lt;int&gt;
+1   5           8
+2   5.1         8</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># calculating Mode: extract the values from a table as a number (or a vector)</span>
+<span class='va'>mode_x</span> <span class='op'>&lt;-</span> <span class='va'>mode_table</span><span class='op'>$</span><span class='va'>value</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>mode_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>5 5.1</code></pre>
+</div>
+<h3 id="median">Median</h3>
+<p><em><strong>Median</strong></em> – <em>a number which separates a sample into two euqal parts</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>median_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>5</code></pre>
+</div>
+<h3 id="quantiles">Quantiles</h3>
+<p><em><strong>Quantiles</strong></em> – <em>cutpoints which divide a set of observations into equally sized groups</em>.</p>
+<p><span class="math inline">\(\boldsymbol{q}\)</span>-<em><strong>quantiles</strong></em> – <em>values that partition a finite set of values into <span class="math inline">\(q\)</span> subsets of equal sizes. There are <span class="math inline">\(q-1\)</span> of the <span class="math inline">\(q\)</span>-quantiles</em>.</p>
+<ul>
+<li>the only 2-quantile is called the <em><strong>median</strong></em>.</li>
+<li>the 3-quantiles are called <em><strong>tertiles</strong></em> or <em><strong>terciles</strong></em>.</li>
+<li>the 4-quantiles are called <em><strong>quartiles</strong></em>.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>quantile2_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>x</span>, probs <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>quantile2_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>5</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>quantile3_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>x</span>, probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>quantile3_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>4.9 5.1</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>quantile4_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>x</span>, probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>4</span>, <span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>/</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>quantile4_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>4.8 5 5.2</code></pre>
+</div>
+<h3 id="sample-mean">Sample mean</h3>
+<p><em><strong>Sample mean</strong></em> – <em>a sum of all sample points divided by a number of data points (<strong>sample size</strong>)</em></p>
+<p><span class="math display">\[\overline{X} = \frac{x_1 + x_2 + \ldots + x_n}{n}\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>mean_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>mean_x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>5.006</code></pre>
+</div>
+<p>The <em><strong>mean</strong></em> is the ``<em><strong>average</strong></em>’’ value.</p>
+<h3 id="sample-variance-and-sample-standard-deviation">Sample variance and sample standard deviation</h3>
+<p><em><strong>Sample variance</strong></em> (<span class="math inline">\(s^2\)</span>) and <em><strong>sample standard deviation</strong></em> (<span class="math inline">\(s\)</span>) are defined as</p>
+<p><span class="math display">\[s^2 = \frac{(x_1-\overline{X})^2 + (x_2-\overline{X})^2 + \ldots + (x_n-\overline{X})^2}{n-1}, \quad s = \sqrt{s^2}\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>sample_var</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>sample_var</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>0.124249</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>sample_sd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>sample_sd</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>0.3524897</code></pre>
+</div>
+<ul>
+<li>if <span class="math inline">\(s\)</span> is high (<span class="math inline">\(s \uparrow\)</span>) then there is more spreading.</li>
+<li>if <span class="math inline">\(s\)</span> is low (<span class="math inline">\(s \downarrow\)</span>) then there is less spreading.</li>
+</ul>
+<h2 id="statistical-plots.">Statistical plots.</h2>
+<p>Visualizing the data helps to understand how it is distributed.</p>
+<h3 id="histogram">Histogram</h3>
+<p>One way of visualization is plotting a <strong><em>histogram</em></strong>.</p>
+<p><em><strong>Histogram</strong></em> is a bar chart that shows how many data (sample) points are within a range (an interval), called a bin.The height of the bar indicates the number of observations (<em><strong>frequency</strong></em>) in that interval.</p>
+<p><em><strong>Histogram</strong></em> is an <em>approximation of a probability density function (p.d.f.)</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># number of bins</span>
+<span class='va'>n_intervals</span> <span class='op'>&lt;-</span> <span class='fl'>5</span> 
+
+<span class='co'># break points (interval endpoints)</span>
+<span class='va'>breaks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, length <span class='op'>=</span> <span class='va'>n_intervals</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span> 
+
+<span class='co'># create a histogram object</span>
+<span class='va'>histogram</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>breaks</span>, plot <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> 
+
+<span class='co'># get frequencies</span>
+<span class='va'>frequencies</span> <span class='op'>&lt;-</span> <span class='va'>histogram</span><span class='op'>$</span><span class='va'>counts</span>
+
+<span class='co'># create frequency table </span>
+<span class='va'>frequency_table</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+  no <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span><span class='op'>(</span><span class='va'>frequencies</span><span class='op'>)</span>,
+  interval <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"[% 4.2f, % 4.2f]"</span>, <span class='va'>breaks</span><span class='op'>[</span><span class='va'>no</span><span class='op'>]</span>, <span class='va'>breaks</span><span class='op'>[</span><span class='va'>no</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>,
+  frequency <span class='op'>=</span> <span class='va'>frequencies</span>
+<span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>frequency_table</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 5 x 3
+     no interval       frequency
+  &lt;int&gt; &lt;chr&gt;              &lt;int&gt;
+1     1 [ 4.30,  4.60]         9
+2     2 [ 4.60,  4.90]        11
+3     3 [ 4.90,  5.20]        19
+4     4 [ 5.20,  5.50]         8
+5     5 [ 5.50,  5.80]         3</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/histogram-plot-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<h3 id="cumulative-plot">Cumulative plot</h3>
+<p>Another graph that is useful is the <em><strong>cumulative plot</strong></em>. It represents the frequency of occurrence of values of a studied parameter less than a reference value.</p>
+<p>It is an <em>approximation of a cumulative distribution function (c.d.f.)</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># number of bins</span>
+<span class='va'>n_intervals</span> <span class='op'>&lt;-</span> <span class='fl'>5</span> 
+
+<span class='co'># break points (interval endpoints)</span>
+<span class='va'>breaks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, length <span class='op'>=</span> <span class='va'>n_intervals</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span> 
+
+<span class='co'># create a histogram object</span>
+<span class='va'>histogram</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>breaks</span>, plot <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> 
+
+<span class='co'># get frequencies</span>
+<span class='va'>frequencies</span> <span class='op'>&lt;-</span> <span class='va'>histogram</span><span class='op'>$</span><span class='va'>counts</span>
+
+<span class='co'># create cumulative table </span>
+<span class='va'>cumulative_table</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+  breaks <span class='op'>=</span> <span class='va'>breaks</span>,
+  `cumulative frequency` <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='va'>frequencies</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>cumulative_table</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 2
+  breaks `cumulative frequency`
+   &lt;dbl&gt;                  &lt;dbl&gt;
+1   4.3                       0
+2   4.6                       9
+3   4.90                     20
+4   5.20                     39
+5   5.5                      47
+6   5.8                      50</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/cumulative-plot-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<h3 id="standard-deviation-and-data-spreading">Standard deviation and data spreading</h3>
+<p>The following plots show the influence of a standard deviation (<span class="math inline">\(\sigma\)</span>) on the data spreading. The less the <span class="math inline">\(\sigma\)</span> value the more data are concentrated around the data mean, and <em>vise versa</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="inference-part1_files/figure-html5/sigma-influence-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<h2 id="estimation">Estimation</h2>
+<ul>
+<li>In real life experiments, we deal with observed data.</li>
+<li>The values we get from the data are the <em><strong>values of some random variable (discrete or continuous), which follows some distribution</strong></em>.</li>
+<li>The distribution has parameters (<em><strong>parameters of the distribution</strong></em>) but we don’t really know exact values of the parameters.</li>
+<li>All we can do is just the <em><strong>estimation</strong></em>.</li>
+</ul>
+<p>There are two types of estimation:</p>
+<ul>
+<li><em><strong>point estimation</strong></em>.</li>
+<li><em><strong>interval estimation</strong></em>.</li>
+</ul>
+<h2 id="point-estimation">Point estimation</h2>
+<ul>
+<li>Assume that we deal with a random variable <span class="math inline">\(X\)</span> that characterizes a population.</li>
+<li>Then, <span class="math inline">\(n\)</span> sample points (observations) <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> of <span class="math inline">\(X\)</span> represent a sample (of a size <span class="math inline">\(n\)</span>) from the population.</li>
+</ul>
+<h3 id="maximum-likelihood-estimation-mle">Maximum likelihood estimation (MLE)</h3>
+<p>Given a set of observations taken from some distribution <span class="math inline">\(p(x|\boldsymbol{\theta})\)</span>, where <span class="math inline">\(\boldsymbol{\theta}\)</span> is an (vector of) unknown parameter(s), one considres a function</p>
+<p><span class="math display">\[
+\mathcal{L}(x_1, x_2, \ldots, x_n|\boldsymbol{\theta}) = \prod_{i = 1}^n{p(x_i|\boldsymbol{\theta})}
+\]</span></p>
+<p>known as a <em><strong>likelihood function</strong></em>.</p>
+<p>Also, a <em><strong><span class="math inline">\(\log\)</span>-likelihood function</strong></em> can be considered:</p>
+<p><span class="math display">\[
+  \ell(x_1, x_2, \ldots, x_n|\boldsymbol{\theta}) = \log\mathcal{L}(x_1, x_2, \ldots, x_n|\boldsymbol{\theta}) = \sum_{i = 1}^n{\log p(x_i|\boldsymbol{\theta})}.
+\]</span> The optimal value of <span class="math inline">\(\boldsymbol{theta}\)</span> is found as a solution to the optimazition problem</p>
+<p><span class="math display">\[
+  \widehat{\boldsymbol{\theta}} = \arg\max_{\boldsymbol{\theta}}\ell(x_1, x_2, \ldots, x_n|\boldsymbol{\theta}).
+\]</span></p>
+<h3 id="examples-of-mles">Examples of MLEs</h3>
+<p><em><strong>Example 1</strong></em> (Normal distribution)</p>
+<p>Assume that we have a sample from a normal distribution:</p>
+<p><span class="math display">\[
+  x_1, x_2, \ldots, x_n \sim N(\mu, \sigma^2).
+\]</span> Parameters of the distribution are</p>
+<p><span class="math display">\[
+  \boldsymbol{\theta} = (\mu, \sigma),
+\]</span> and they are <em><strong>unknown</strong></em>.</p>
+<p>Let us write down a <em><strong>likelihood function</strong></em>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \ell(x_1, x_2, \ldots, x_n|\mu, \sigma) &amp;= \sum_{i = 1}^n{\log\left(\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\right)} = \\
+  &amp;= -\frac{n}{2}\log(2\pi)-n\log(\sigma)-\frac{1}{2}\sum_{i = 1}^{n}\frac{(x_i-\mu)^2}{\sigma^2}.
+\end{aligned}
+\]</span> By solving the corresponding optimization problem, we obtain</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \widehat{\mu} &amp;= \frac{1}{n}\sum_{i = 1}^nx_i = \overline{X}\\
+    \widehat{\sigma}^2 &amp;= \frac{1}{n}\sum_{i = 1}^n\left(x_i-\overline{X}\right)^2
+  \end{aligned}
+\]</span> which are the sample mean and sample variance respectively.</p>
+<p><em><strong>Example 2</strong></em> (Exponential distribution)</p>
+<p>Assume that we have a sample from an exponential distribution:</p>
+<p><span class="math display">\[
+  x_1, x_2, \ldots, x_n \sim Exp(\lambda).
+\]</span></p>
+<p>Parameter</p>
+<p><span class="math display">\[
+  \boldsymbol{\theta} = \lambda
+\]</span></p>
+<p>of the distribution is <em><strong>unknown</strong></em>.</p>
+<p>The <em><strong>likelihood function</strong></em> in this case is</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \ell(x_1, x_2, \ldots, x_n|\lambda) &amp;= \sum_{i = 1}^n{\log\left(\lambda e^{-\lambda x_i}\right)} = \\
+  &amp;= n\log(\lambda)-\lambda\sum_{i = 1}^{n}x_i.
+\end{aligned}
+\]</span></p>
+<p>By solving the corresponding optimization problem, we obtain</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \widehat{\lambda} &amp;= \frac{n}{\sum_{i = 1}^nx_i} = \frac{1}{\overline{X}}.
+  \end{aligned}
+\]</span> <em><strong>Example 3</strong></em> (Binomial distribution)</p>
+<p>Let</p>
+<p><span class="math display">\[
+  x_1, x_2, \ldots, x_n \sim Bin(m, p).
+\]</span></p>
+<p>be a sample from the binomial distribution. An <em><strong>unknown parameter</strong></em> is</p>
+<p><span class="math display">\[
+  \boldsymbol{\theta} = p.
+\]</span> In this case, the <em><strong>likelihood function</strong></em> is</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \ell(x_1, x_2, \ldots, x_n|p) &amp;= \sum_{i = 1}^n{\log\left({m\choose{x_i}}p^{x_i}(1-p)^{m-x_i}\right)} = \\
+  &amp;= n\log{m\choose{x_i}} + \log(p)\sum_{i = 1}^{n}x_i + \log(1-p)\sum_{i = 1}^n{(m - x_i)}.
+\end{aligned}
+\]</span> By solving the corresponding optimization problem, we obtain</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \widehat{p} &amp;= \frac{\overline{X}}{m}.
+  \end{aligned}
+\]</span> ### Estimator and estimation</p>
+<p>Two important quantities are</p>
+<p><span class="math display">\[  
+\begin{array}{ll} 
+  \mathbf{\text{sample mean}}  &amp; \\
+  &amp; \overline{X} = \frac{1}{n}\sum\limits_{i = 1}^{n}{x_i}. \\
+    \mathbf{\text{sample variance}}  \\ 
+     &amp; s^2 = \frac{1}{n-1}\sum\limits_{i = 1}^{n}{\left(x_i-\overline{X}\right)^2}.
+\end{array}
+\]</span> (!!! Notice that division is by <span class="math inline">\(n-1\)</span>)</p>
+<p>These estimations are two <em><strong>point estimations</strong></em>.</p>
+<p>In general, an <em><strong>estimator</strong></em> of some parameter <span class="math inline">\(\theta\)</span> (that is parameter of the population) is a function</p>
+<p><span class="math display">\[
+  \widehat{\theta} = \widehat{\theta}(X_1, X_2, \ldots, X_n)
+\]</span></p>
+<p>of sample points.</p>
+<p>An <em><strong>estimation</strong></em> is an observation of the <em><strong>estimator</strong></em></p>
+<p><span class="math display">\[
+  \widehat{\theta}(x_1, x_2, \ldots, x_n).
+\]</span> A point estimation is called <em><strong>unbiased</strong></em> if</p>
+<p><span class="math display">\[
+  \mathbf{E}[{\widehat{\theta}(X_1, X_2, \ldots, X_n)}] = \theta.
+\]</span></p>
+<p>That is, the expected value is equal to the quantity to be estimated.</p>
+<p><em><strong>Example 1</strong></em>.</p>
+<p><span class="math inline">\(\frac{1}{n}\left(X_1 + X_2 + \ldots + X_n\right)\)</span> is an <em><strong>unbiased</strong></em> estimation of the mean (<span class="math inline">\(\mu\)</span>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbf{E}\left[\frac{1}{n}\left(X_1 + X_2 + \ldots + X_n\right)\right] &amp;= \\
+  &amp;= \frac{1}{n}\left(\mathbf{E}[X_1] + \mathbf{E}[X_2] + \ldots + \mathbf{E}[X_n]\right) = \\
+  &amp;= \left|\mathbf{E}[X_i] = \mu,\text{ for all }i\right| = \\
+  &amp;= \frac{1}{n}\cdot n\cdot\mu = \mu
+\end{aligned}
+\]</span> <em><strong>Example 2</strong></em>.</p>
+<p><span class="math inline">\(\frac{1}{n}\left((X_1-\overline{X})^2 + (X_2-\overline{X})^2 + \ldots + (X_n-\overline{X})^2\right)\)</span> is a <em><strong>biased</strong></em> estimation of the variance;</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbf{E}\left[\frac{1}{n}\left((X_1-\overline{X})^2 + (X_2-\overline{X})^2 + \ldots + (X_n-\overline{X})^2\right)\right] &amp;= \frac{n-1}{n}\sigma^2
+\end{aligned}
+\]</span></p>
+<p><em><strong>Example 3</strong></em>.</p>
+<p><span class="math inline">\(\frac{1}{n-1}\left((X_1-\overline{X})^2 + (X_2-\overline{X})^2 + \ldots + (X_n-\overline{X})^2\right)\)</span> is an <em><strong>unbiased</strong></em> estimation of the variance.</p>
+<p><span class="math display">\[
+\begin{aligned}
+  &amp;\mathbf{E}\left[\frac{1}{n-1}\left((X_1-\overline{X})^2 + (X_2-\overline{X})^2 + \ldots + (X_n-\overline{X})^2\right)\right] = \\
+  \frac{n}{n-1}&amp;\mathbf{E}\left[\frac{1}{n}\left((X_1-\overline{X})^2 + (X_2-\overline{X})^2 + \ldots + (X_n-\overline{X})^2\right)\right] = \\
+  \frac{n}{n-1}&amp;\frac{n-1}{n}\sigma^2 = \sigma^2.
+\end{aligned}
+\]</span></p>
+<h2 id="confidence-interval">Confidence interval</h2>
+<ul>
+<li>Points estimation doesn’t tell us <em><strong>how much error it produces</strong></em>.</li>
+<li><em><strong>Interval estimations</strong></em>, on the other hand, provide us with such information.</li>
+</ul>
+<p><em><strong>Confidence interval</strong></em> gives the lower and the upper bounds of an estimated parameter <span class="math inline">\(\theta\)</span> as well as the probability of this parameter belongs to these bounds.</p>
+<p>This probability is called a <em><strong>confidence probability</strong></em>.</p>
+<h3 id="confidence-interval-for-the-mean-when-variance-is-known.">Confidence interval for the mean (when variance is known).</h3>
+<p>Let <span class="math inline">\(\overline{X}\)</span> be a sample mean of a sample of size <span class="math inline">\(n\)</span>. And suppose that the population variance is known and equals to <span class="math inline">\(\sigma^2\)</span>. What is the confidence interval of the population mean <span class="math inline">\(\mu\)</span>?</p>
+<p>Let us introduce a new random variable:</p>
+<p><span class="math display">\[
+  Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0, 1).
+\]</span></p>
+<p>Now, let us find two values <span class="math inline">\(z_{\frac{\alpha}{2}}\)</span>, <span class="math inline">\(z_{1-\frac{\alpha}{2}}\)</span> such that</p>
+<p><span class="math display">\[
+  \text{Pr}\left({z_{\frac{\alpha}{2}} \leq Z \leq z_{1-\frac{\alpha}{2}}}\right) = \gamma = 1-\alpha, 
+\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is the <em><strong>confidence probability</strong></em>, and <span class="math inline">\(\alpha\)</span> is the <em><strong>significance level</strong></em>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Pr}\left({z_{\frac{\alpha}{2}} \leq Z \leq z_{1-\frac{\alpha}{2}}}\right) &amp;= F\left(z_{1-\frac{\alpha}{2}}\right) - F\left(z_{\frac{\alpha}{2}}\right) = \gamma \Leftrightarrow \\ 
+&amp;\left\{
+  \begin{array}{c}
+  \begin{aligned}
+    F\left(z_{1-\frac{\alpha}{2}}\right) &amp;= 1-\frac{\alpha}{2} \\
+    F\left(z_{\frac{\alpha}{2}}\right) &amp;= \frac{\alpha}{2} 
+  \end{aligned}  
+  \end{array}
+\right.
+\end{aligned}
+\]</span></p>
+<p>Here, <span class="math inline">\(F(x)\)</span> is the probability distribution function of the random variable <span class="math inline">\(Z \sim N(0, 1)\)</span>. <span class="math inline">\(z_{1-\frac{\alpha}{2}}\)</span> and <span class="math inline">\(z_{\frac{\alpha}{2}}\)</span> are quantiles of the normal distribution, given probabilities <span class="math inline">\(1-\frac{\alpha}{2}\)</span>, <span class="math inline">\(\frac{\alpha}{2}\)</span>:</p>
+<p><span class="math display">\[
+\left\{
+  \begin{array}{c}
+  \begin{aligned}
+    z_{1-\frac{\alpha}{2}} &amp;= F^{-1}\left(1-\frac{\alpha}{2}\right) \\
+    z_{\frac{\alpha}{2}} &amp;= F^{-1}\left(\frac{\alpha}{2}\right)
+  \end{aligned}  
+  \end{array}
+\right.
+\]</span></p>
+<p>So, the confidence interval for the population mean is</p>
+<p><span class="math display">\[
+  \overline{X} - z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \leq \mu \leq \overline{X} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}.
+\]</span></p>
+<p><em><strong>Example 4</strong></em>. Let <span class="math inline">\(\overline{X} = 22\)</span> be a sample mean of a sample of a size <span class="math inline">\(n = 100\)</span> taken from <span class="math inline">\(N(\mu, \sigma^2 = 4)\)</span>. What is the 95% confidence interval for the population mean <span class="math inline">\(\mu\)</span>?</p>
+<p>Here, we have <span class="math inline">\(\gamma = 0.95 \Leftrightarrow \alpha = 1-\gamma = 0.05\)</span>. Then</p>
+<p><span class="math display">\[
+\left\{\begin{aligned}
+z_{1-\frac{\alpha}{2}} &amp;= F^{-1}\left(\frac{1-\alpha}{2}\right) = F^{-1}(0.975) = 1.96 \\
+z_{\frac{\alpha}{2}} &amp;= F^{-1}\left(\frac{\alpha}{2}\right) = F^{-1}(0.025) = -1.96 \\
+\end{aligned} 
+\right.
+\]</span> <span class="math display">\[
+  \overline{X} - z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \leq \mu \leq \overline{X} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \Leftrightarrow
+\]</span></p>
+<p><span class="math display">\[
+22-1.96\frac{2}{\sqrt{100}} \leq \mu \leq 22+1.96\frac{2}{\sqrt{100}} \Leftrightarrow \mu \in [20.76039, 23.23961]
+\]</span> with 95% of the confidence.</p>
+<h3 id="confidence-interval-for-the-mean-when-the-variance-is-unknown.">Confidence interval for the mean (when the variance is unknown).</h3>
+<p>Let <span class="math inline">\(\overline{X}\)</span> be a sample mean of a sample of a size <span class="math inline">\(n\)</span>, and let <span class="math inline">\(s^2\)</span> be a sample variance of this sample. What is the confidence interval of the population mean <span class="math inline">\(\mu\)</span>?</p>
+<p>Let us introduce a new random variable</p>
+<p><span class="math display">\[
+  T = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}}.
+\]</span></p>
+<p><span class="math inline">\(T\)</span> follows <span class="math inline">\(\boldsymbol{t}\)</span> distribution or Student’s distribution} with <span class="math inline">\(n-1\)</span> <em><strong>degrees of freedom</strong></em>, <span class="math inline">\(T \sim t(n-1)\)</span>.</p>
+<p>Now, let us find two values <span class="math inline">\(t_{\frac{\alpha}{2}}(n-1)\)</span>, <span class="math inline">\(t_{1-\frac{\alpha}{2}}(n-1)\)</span> such that</p>
+<p><span class="math display">\[
+  \text{Pr}\left({t_{\frac{\alpha}{2}}(n-1) \leq T \leq t_{1-\frac{\alpha}{2}}}(n-1)\right) = \gamma = 1-\alpha, 
+\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is the confidence probability, and <span class="math inline">\(\alpha\)</span> is the significance level.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Pr}\left({t_{\frac{\alpha}{2}}(n-1) \leq T_n \leq t_{1-\frac{\alpha}{2}}}(n-1)\right) &amp;= F\left(t_{1-\frac{\alpha}{2}}(n-1)\right) - F\left(t_{\frac{\alpha}{2}}(n-1)\right) = \gamma \Leftrightarrow \\ 
+&amp;\left\{
+  \begin{array}{c}
+  \begin{aligned}
+    F\left(t_{1-\frac{\alpha}{2}}\right) &amp;= 1-\frac{\alpha}{2} \\
+    F\left(t_{\frac{\alpha}{2}}\right) &amp;= \frac{\alpha}{2} 
+  \end{aligned}  
+  \end{array}
+\right.
+\end{aligned}
+\]</span></p>
+<p>Here, <span class="math inline">\(F(x)\)</span> is the probability distribution function of the random variable <span class="math inline">\(T \sim t(n-1)\)</span>. <span class="math inline">\(t_{1-\frac{\alpha}{2}}(n-1)\)</span> and <span class="math inline">\(t_{\frac{\alpha}{2}}(n-1)\)</span> are quantiles of <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom, given probabilities <span class="math inline">\(1-\frac{\alpha}{2}\)</span>, <span class="math inline">\(\frac{\alpha}{2}\)</span>:</p>
+<p><span class="math display">\[
+\left\{
+  \begin{array}{c}
+  \begin{aligned}
+    t_{1-\frac{\alpha}{2}}(n-1) &amp;= F^{-1}\left(1-\frac{\alpha}{2}\right) \\
+    t_{\frac{\alpha}{2}}(n-1) &amp;= F^{-1}\left(\frac{\alpha}{2}\right)
+  \end{aligned}  
+  \end{array}
+\right.
+\]</span></p>
+<p>So, the confidence interval for the population mean is</p>
+<p><span class="math display">\[
+  \overline{X} - t_{1-\frac{\alpha}{2}}(n-1)\frac{s}{\sqrt{n}} \leq \mu \leq \overline{X} - t_{\frac{\alpha}{2}}(n-1)\frac{s}{\sqrt{n}}.
+\]</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

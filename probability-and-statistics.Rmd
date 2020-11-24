@@ -12,4 +12,5 @@ listing:
     - 2019-10-10-discrete-random-variables
     - 2019-10-24-continuous-random-variables
     - 2019-11-15-mvt-random-variables
+    - 2019-11-21-inference-part1
 ---
