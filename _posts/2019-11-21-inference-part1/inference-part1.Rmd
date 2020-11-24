@@ -1,5 +1,5 @@
 ---
-title: "Lecture 5: Statistical inference -- Part 1"
+title: "Lecture 5: Statistical inference -- Estimation. Part 1"
 description: |
   In this lecture, basic concepts of statistics are addressed. A frequentist approach to the statistical inference is introduced.
 author: Yevgen Ryeznik

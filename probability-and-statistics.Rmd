@@ -13,4 +13,5 @@ listing:
     - 2019-10-24-continuous-random-variables
     - 2019-11-15-mvt-random-variables
     - 2019-11-21-inference-part1
+    - 2019-11-29-inference-part2
 ---

@@ -1,0 +1,323 @@
+---
+title: "Lecture 6: Statistical inference -- Estimation. Part 2"
+description: |
+  Bayesian approach to the statistical inference is introduced.
+author: Yevgen Ryeznik
+institute: Department of Pharmaceutical Biosciences, Uppsala University.
+date: 2019-11-29
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_float: TRUE
+header-includes:
+  - \usepackage{amsthm}
+  - \usepackage{amsfonts}
+  - \usepackage{hyperref}
+  - \usepackage{url}
+  - \usepackage{xcolor}
+  - \usepackage{array}
+  - \usepackage{booktabs}
+  - \usepackage{colortbl}
+  - \usepackage{float}
+  - \usepackage{longtable}
+  - \usepackage{makecell}
+  - \usepackage{multirow}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage{wrapfig}
+  - \usepackage[normalem]{ulem}
+---
+
+
+```{r,setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, message = FALSE, echo=FALSE)
+knitr::opts_chunk$set(fig.align = "center", fig.width = 6, fig.height = 4)
+options(knitr.table.format = "html")
+options(kableExtra.latex.load_packages = FALSE)
+
+library(tidyverse)
+library(kableExtra)
+
+add_theme <- function()
+  theme_bw()+
+  theme(
+    axis.text = element_text(family="Helvetica", face = "bold", size = 10),
+    axis.title = element_text(family="Helvetica", face = "bold", size = 12),
+    strip.text = element_text(family="Helvetica", face = "bold", size = 12),
+    title = element_text(family="Helvetica", face = "bold", size = 14),
+    legend.position = "bottom",
+    legend.text = element_text(family="Helvetica", face = "bold", size = 12)
+  )
+```
+
+
+## Bayesian approach
+
+Let $\theta$ be a parameter of interest. Somehow, a prior information about $\theta$ is available (historical reports, similar experiments, subjective estimates, etc. ). We can represent this information in terms of prior distribution
+
+$$
+  p(\theta)
+$$
+
+Then, we perform an experiment where we observe a random variable $Y=y$. Bayes' formula tells that
+
+$$
+  p(\theta|y) = \frac{p(\theta,y)}{p(y)} = \frac{p(\theta)p(y|\theta)}{p(y)}                                   
+$$
+
+where $p(\theta,y)$ is a _**posterior distribution**_ and 
+
+$$
+  p(y)=\sum\limits_{\theta}p(\theta)p(y|\theta) \text{ (discrete case)} 
+$$
+
+or
+
+$$
+  p(y)=\int\limits_{\Theta}p(\theta)p(y|\theta)d\theta \text{ (continuous case)}
+$$
+Formulas can be rewritten as 
+$$
+  p(\theta|y)\propto p(\theta)p(y|\theta).
+$$
+
+#### Example 1 (Spelling correction)
+
+What about the word “radom”? It could be:
+
+- Misspelling or mistyping of “random”.
+- Misspelling or mistyping of “radon”.
+- Intentional typing of “radom”.
+
+Label $y$ as the data (observation of $Y$) and $\theta$ as the word that a person was intending to type:
+
+$$
+  \text{Pr}(\theta|Y ="radom")\propto p(\theta)\text{Pr}(Y="radom"|\theta).
+$$
+Consider only three possibilities for the intendent word, $\theta$
+(“random”, “radon”, “radom”). 
+
+Posterior probability of interest, e.g. for $\theta_1$="random":
+
+$$
+\text{Pr}(\theta_1 |"radom") = \frac{p(\theta_1)\text{Pr}("radom"|\theta_1 )}{\sum_{j=1}^3p(\theta_j )\text{Pr}("radom"|\theta_j)}.
+$$
+
+We need:
+
+- Prior probabilities $p(\theta_j)$ (frequencies of words in some large database)
+- Likelihoods $p(y|\theta_j)$ (from model of spelling and typing errors)
+
+**Remark**. Radom is a city in Poland 
+
+## Estimation of probability $p= \text{Pr}(B)$ of some event $B$
+
+We want to study $p=p_B$. Two approaches can be applied:
+
+- _**Frequentist**_.  $\widehat{p}_B=\frac{k}{n}$,  where $k$ is a number of times when $B$ is true in $n$ trials. The uncertainty on estimate can be done with confidence intervals.
+- _**Bayesian**_. Uncertainty of $p_B$ is modelled with a p.d.f. $f(p)$. Then
+$$
+  \text{Pr}^\text{pred}(B)=\mathbf{E}[p]=\int pf(p)dp.
+$$
+
+_**The crucial point in Bayesian methodology is the choice of the density $f$. The density reflects all our knowledge about the studied problem**_.
+
+## Combining data and prior knowledge.
+
+- An experiment starts with a _**prior**_ assumption about the parameter of interest
+$$
+  f^\text{prior}(\theta)
+$$
+- Then a result of experiment is observed: some event $C$ is true.
+- Prior information is updated by the Bayes' formula
+$$
+  f^\text{post}(\theta)=cP(C|\theta)f^\text{prior}(\theta)
+$$
+
+where
+$$
+  \frac{1}{c} = P(C)= \int_{-\infty}^{+\infty}P(C|\theta)f^\text{prior}(\theta)d\theta.
+$$
+
+#### Example (severe adverse event (AE) in a clinical trial)
+
+Let us consider a clinical trial where when 1 severe AE out of 3 AEs has been observed, and we are interested in probability $p_B$ of a severe AE. Since we had no information about it before the experiment, we may assume that $p_B\sim U(0,1)$.
+$$
+  f^\text{prior}(p)=1.
+$$
+
+Now, we have observed a severe AE
+$$
+  C = \text{"one severe AE out of 3 AEs"} \Leftrightarrow N = 1,\text{ }N\sim Bin(3, p_B)
+$$
+$$
+\begin{aligned}
+  P(N=1|p)&=P(C|p)= {3\choose 1} p(1-p)^2 \Rightarrow \\
+  f^\text{post}(p) &= c\cdot 3p(1-p)^2\cdot 1=cp(1-p)^2, \text{ }0\leq p \leq 1,
+\end{aligned}
+$$
+which is $Beta(2,3)$:
+
+$$
+\theta\sim Beta(a,b),\quad f(\theta) = c\theta^{a-1} (1-\theta)^{b-1},\quad a, b > 0, \theta\in (0,1).
+$$
+```{r beta-prior-posterior}
+x <- seq(0, 1, by = 0.01)
+prior <- rep(1, length(x))
+posterior <- dbeta(x, 2, 3)
+
+tibble(x, prior, posterior) %>% 
+  gather(distribution, value, -x) %>% 
+  ggplot(aes(x = x, y = value))+
+  geom_line(aes(color = distribution), size = 1.5)+
+  scale_color_manual(values = c("red", "darkblue"))+
+  xlab(expression(paste("probability, ", italic(p))))+
+  ylab("")+
+  add_theme()
+```
+
+### Credibility Intervals
+
+$(1-\alpha)\cdot 100\%$ credibility interval for the parameter $\theta$ is given by
+
+$$
+  \text{Pr}(\theta_{1-\alpha/2}\leq \theta \leq \theta_{\alpha/2} )=1-\alpha.
+$$                                                                    
+
+### Example (Normal Distribution)
+
+$X_1,X_2,…,X_n \sim N(\mu, \sigma^2)$, and we are interested in estimating $\mu$:
+
+- prior distribution $\mu\sim N(\mu_0,\sigma_0^2)$
+
+It can be shown that the posterior for $\mu$ is also normal $N(\mu_1,\sigma_1^2)$ where
+
+$$
+ \mu_1=\frac{\frac{n}{\sigma^2}\overline{X}+\frac{1}{\sigma^2}\mu_0}{\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}}\qquad \sigma_1^2=\left(\frac{n}{\sigma^2}^2 + \frac{1}{\sigma_0^2}\right)^{-1}.
+$$
+
+95% credibility interval is
+$$
+  \mu_1-1.96\sigma_1 \leq \mu \leq \mu_1+1.96\sigma_1.
+$$
+
+## Choice of a Model for Data: Conditional Distribution
+
+Important step in Bayesian modelling: assume that $F(x;\theta)$ is actually the conditional distribution of $x$ given $\theta$, i.e. 
+$$
+  \text{Pr}(X\leq x|\theta) = F(x;\theta)
+$$
+
+The p.d.f. or p.m.f. of the conditional distribution $F(x|\theta)$ is denoted by $f(x|\theta)$.
+
+#### Example (Tossing a coin)
+
+Fair coin: $X\sim Bin(n,1/2)$
+
+Unknown coin: Distribution $P(X\leq x|\theta)$; the p.m.f. is $p_{X|\theta}(x|\theta)=Bin(n,\theta)$.
+
+## Conditional Independence
+
+The independence between variables is assumed to be valid for any value of $\theta$
+
+$$
+  \text{Pr}(X_1\leq x,\ldots, X_n\leq x) = F(x_1|\theta)\cdot\ldots\cdot F(x_n|\theta)
+$$
+
+for all $\theta$.
+
+## Bayesian Updating and Likelihood Functions
+
+Observations: $x_1,\ldots, x_n$ of $X_1,\ldots, X_n$.
+
+Assume that $f(x|\theta)$ is known and that observations of $X_i$ are conditionally independent.
+
+Then, 
+$$
+  f(x_1,\ldots, x_n|\theta) = f(x_1|\theta)\cdot\ldots\cdot f(x_n|\theta) = \mathcal{L}(\theta)
+$$
+
+is a likelihood.
+
+$$
+  f^\text{post}(\theta)=c\mathcal{L}(\theta)f^\text{prior}(\theta), \qquad  \frac{1}{c}= \int_{-\infty}^{+\infty}\mathcal{L}(\theta) f^\text{prior}(\theta)d\theta.
+$$
+
+
+## Conjugate Priors
+
+A conjugate prior is an algebraic convenience, giving a closed-form expression for the posterior; otherwise a difficult numerical integration may be necessary. 
+
+Further, conjugate priors may give intuition, by more transparently showing how a likelihood function updates a distribution. 
+
+#### Beta distribution
+
+$$
+\begin{array}{c}
+\theta\sim Beta(a,b),a,b>0, \text{ and }f(\theta) =c\theta^{a-1} (1-\theta)^{b-1},\text{ }0\leq\theta\leq 1, c=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \\   
+E[\theta]=p,V[\theta]=\frac{p(1-p)}{(a+b+1)},\text{ where } p=\frac{a}{a+b}.
+\end{array}
+$$
+
+The Beta priors are conjugated priors for the problem of estimating the probability $p = \text{Pr}(B)$. 
+
+- Observed in $n$ tries: the statement $B$ was true $k$ times. 
+- Prior density: $f^\text{prior}(\theta) \sim Beta(a,b)$ 
+- Posterior density follows as with 
+
+$$
+  f^\text{post} = Beta(\widetilde{a}, \widetilde{b}), \text{ where } \widetilde{a} = a + k, \widetilde{b} = b + n-k.
+$$
+
+The $Beta(a,b)$ prior is equivalent to observing that the event $B$ has occurred $a$ times in $a + b$ experiments. 
+
+
+### Dirichlet distribution
+
+$$
+\begin{array}{c}
+  \theta=(\theta_1, \theta_2)\sim Dirichlet(a_1,a_2,a_3), a_i > 0 \\
+  f(\theta_1, \theta_2) = c\theta_1^{a_1-1}\theta_2^{a_2-1}(1-\theta_1-\theta_2)^(a_3-1), \theta_i>0, \theta_1 + \theta_2 < 1 \\ 
+c = \frac{\Gamma(a_1+a_2+a_3)}{\Gamma(a_1)\Gamma(a_2)\Gamma(a_3)} \\ 
+\mathbf{E}[\theta_i] = \frac{a_i}{a_0} ,\mathbf{V}[\theta_i]=\frac{a_i(a_0-a_i )}{a_0^2(a_0+1)}, \text{ where } a_0=a_1+a_2+a_3, i=1,2.
+\end{array}
+$$
+The marginal distributions: $\theta_i\sim Beta(a_i,a_0-a_i)$, $i=1,2$.
+
+The Dirichlet priors are conjugated priors for the problem of estimating the probabilities 
+$p_i = \text{Pr}(B_i)$, $i = 1,2,3$, such that $B_i$ are disjoint and $p_1  + p_2  + p_3  = 1$. 
+
+Let $\theta_i= p_i$.
+
+- Observed in $n$ tries: the statement $B_i$  was true $k_i$ times. 
+-	The prior density $f^\text{prior}(\theta_1, \theta_2) \sim Dir(a_1,a_2,a_3)$. 
+- Posterior density: 
+$$
+f^\text{post}(\theta_1,\theta_2) \sim Dir(\widetilde{a}_1, \widetilde{a}_2, \widetilde{a}_3), \text{ where } \widetilde{a}_ = a_1 + k_1, \widetilde{a}_2 = a_2 + k_2, \widetilde{a}_3 = a_3 + k_3. 
+$$
+
+
+
+### Gamma distribution
+
+$$ 
+\begin{array}{c}
+  \theta\sim\Gamma(a,b), a, b> 0, \\
+  f(\theta) = c\theta^{a-1}(1-\theta)^{b-1}, 0\leq\theta\leq 1, \\
+  c=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \\
+  \mathbf{E}[\theta]=\frac{a}{b}, \mathbf{V}[\theta]=\frac{a}{b^2}.
+\end{array}
+$$
+The Gamma priors are conjugated priors for the problem of estimating the Poisson $\lambda$. 
+
+- Observed: Observed in $n$ tries (Poisson experiment): the statement $B$ was true $k$ times.
+- Prior density: $f^\text{prior}(\theta)\sim \Gamma(a,b)$.
+- Posterior density:
+
+$$ f^\text{post}(\theta) \sim \Gamma(\widetilde{a}, \widetilde{b}), \text{ where } \widetilde{a} = a + k, \widetilde{b} = b + n.                        
+$$    
+
+
