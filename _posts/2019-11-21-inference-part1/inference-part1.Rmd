@@ -108,7 +108,7 @@ Random error has no _preferred direction_, so we expect that averaging over a la
 
 In this case, an estimate _**may be imprecise**_, but _**not inaccurate**_. The impact of a random error, _**imprecision**_, can be minimized with a large sample sizes.
 
-```{r random-error: measurements, echo=FALSE, warning=FALSE, fig.width=8}
+```{r random-error: measurements, echo=FALSE, warning=FALSE, fig.width=8, preview=TRUE}
 obs <- tibble(
   obs_no = seq_len(100),
   obs_value = rnorm(100, mean = 1, sd = 1.5)
