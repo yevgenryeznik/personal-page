@@ -19,13 +19,103 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", fig.width = 6, fig.height = 4)
+
+library(ggplot2)
+library(magrittr)
 ```
 
 ## Problem formulation
 
-Let us consider a 2D-scattering problem.
+Let us consider a scattering problem of a plane monochromatic wave from a 2D screen (Fig. \@ref(fig:geometry)).
+
+
+```{r geometry, fig.cap="Geometry of the problem."}
+t <- seq(0, 2, length.out = 100)*pi
+alpha <- 40*pi/180
+A <- 1-alpha/(2*pi)
+B <- alpha/2
+
+x <- cos(A*t + B)
+y <- sin(A*t + B)
+
+tibble::tibble(x, y) %>% 
+  ggplot()+
+    geom_path(aes(x, y))+
+    geom_curve(
+      aes(x = 0, y = -2, xend = 0, yend = 2),
+      arrow = arrow(length = unit(0.05, "npc")),
+      curvature = 0
+    )+
+    geom_curve(
+      aes(x = -2, y = 0, xend = 2, yend = 0),
+      arrow = arrow(length = unit(0.05, "npc")),
+      curvature = 0
+    )+
+    geom_curve(
+      aes(x = 2*cos(5*pi/4), y = 2*sin(5*pi/4), xend = 1.1*cos(5*pi/4), yend = 1.1*sin(5*pi/4)),
+      arrow = arrow(length = unit(0.05, "npc")),
+      curvature = 0
+    )+
+    geom_curve(
+      aes(x = 1.1*cos(5*pi/4), y = 1.1*sin(5*pi/4), xend = 0, yend = 0),
+      curvature = 0, 
+      linetype = "dashed"
+    )+
+    geom_curve(
+      aes(x = 0.25*cos(5*pi/4), y = 0.25*sin(5*pi/4), xend = 0, yend = -0.25),
+      curvature = 0.5
+    )+
+    geom_text(aes(2, -0.1), label = "x", size = 6)+
+    geom_text(aes(0.1,  2), label = "y", size = 6)+
+    geom_text(aes(1.1*cos(7*pi/4), 1.1*sin(7*pi/4)), label = "Gamma", size = 6, parse = TRUE)+
+    geom_text(aes(1.5*cos(5*pi/4), 1.5*sin(5*pi/4)), label = "italic(bold(u))[0]", size = 6, parse = TRUE, vjust = -0.5)+
+    geom_text(aes(0.25*cos(11*pi/8), 0.25*sin(11*pi/8)), label = "italic(i)[0]", size = 6, parse = TRUE, vjust = 1.5)+
+    theme_bw()+
+    theme(
+      axis.text = element_blank(),
+      axis.title = element_blank(),
+      axis.ticks = element_blank(),
+      panel.border = element_blank()
+    )
+
+```
+
+Here, 
+
+- $\Gamma$ is the screen boundary.
+- $\boldsymbol{u}_0$ is an initial incidence field.
+- $i_0$ is an incidence angle.
+
+The question is: _what is the scattered field_?
+
+## Integral equation-based approach to solve the problem
+
+Let us consider a case of $H$-scattering (i.e. scattering of the magnetic field ). 
+
+Let $\boldsymbol{r} = \boldsymbol{r}(x, y)$ be a radius-vector of point on a coordinate plane. Then,
 
 $$
-\nabla\boldsymbol{H}(\boldsymbol{r}, t)
+H_0(\boldsymbol{r}) = e^{-jk\left(x\sin{(i_0)} + y\cos{(i_0)}\right)}
 $$
+is the incidence field, and 
+
+$$
+H_{sc}(\boldsymbol{r}) = \int_{\Gamma}\frac{1}{4j}\frac{\partial}{\partial\boldsymbol{n}'}H_0^{(2)}\left(k\left|\boldsymbol{r}-\boldsymbol{r}'\right|\right)\psi(\boldsymbol{r'})dl'
+$$
+is the scattered field. 
+
+Here,
+
+- $j$ is the imaginary unit, i.e. $j^2 = -1$.
+- $H_0^{(2)}(z)$ is the [_Hankel function_](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ type and zero order.
+
+According to the superposition principle, the total field is defined as
+
+$$
+H_{total}(\boldsymbol{r}) = H_{0}(\boldsymbol{r}) + H_{sc}(\boldsymbol{r}).
+$$
+
+
+
+
