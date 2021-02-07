@@ -83,9 +83,9 @@ tibble::tibble(x, y) %>%
 
 Here, 
 
-- $\Gamma$ is the screen boundary.
-- $\boldsymbol{u}_0$ is an initial incidence field.
-- $i_0$ is an incidence angle.
+  - $\Gamma$ is the screen boundary.
+  - $\boldsymbol{u}_0$ is an initial incidence field.
+  - $i_0$ is an incidence angle.
 
 The question is: _what is the scattered field_?
 
@@ -107,8 +107,9 @@ is the scattered field.
 
 Here,
 
-- $j$ is the imaginary unit, i.e. $j^2 = -1$.
-- $H_0^{(2)}(z)$ is the [_Hankel function_](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ type and zero order.
+  - $j$ is the imaginary unit, i.e. $j^2 = -1$.
+  - $k$ is a freespace wavenumber.
+  - $H_0^{(2)}(z)$ is the [_Hankel function_](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ type and zero order.
 
 According to the superposition principle, the total field is defined as
 
