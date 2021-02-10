@@ -109,7 +109,7 @@ Here,
 
   - $j$ is the imaginary unit, i.e. $j^2 = -1$.
   - $k$ is a freespace wavenumber.
-  - $H_0^{(2)}(z)$ is the [_Hankel function_](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ type and zero order.
+  - $H_0^{(2)}(z)$ is the [_Hankel function_](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ kind and zero order.
 
 According to the superposition principle, the total field is defined as
 
