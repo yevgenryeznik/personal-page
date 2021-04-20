@@ -17,7 +17,6 @@ output:
     toc_float: TRUE
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center", fig.width = 6, fig.height = 4)
 
@@ -28,7 +27,6 @@ library(magrittr)
 ## Problem formulation
 
 Let us consider a scattering problem of a plane monochromatic wave from a 2D screen (Fig. \@ref(fig:geometry)).
-
 
 ```{r geometry, fig.cap="Geometry of the problem."}
 t <- seq(0, 2, length.out = 100)*pi
@@ -81,35 +79,35 @@ tibble::tibble(x, y) %>%
 
 ```
 
-Here, 
+Here,
 
-  - $\Gamma$ is the screen boundary.
-  - $\boldsymbol{u}_0$ is an initial incidence field.
-  - $i_0$ is an incidence angle.
+-   $\Gamma$ is the screen boundary.
+-   $\boldsymbol{u}_0$ is an initial incidence field.
+-   $i_0$ is an incidence angle.
 
-The question is: _what is the scattered field_?
+The question is: *what is the scattered field*?
 
 ## Integral equation-based approach to solve the problem
 
-Let us consider a case of $H$-scattering (i.e. scattering of the magnetic field ). 
+Let us consider a case of $H$-scattering (i.e. scattering of the magnetic field ).
 
 Let $\boldsymbol{r} = \boldsymbol{r}(x, y)$ be a radius-vector of point on a coordinate plane. Then,
 
 $$
 H_0(\boldsymbol{r}) = e^{-jk\left(x\sin{(i_0)} + y\cos{(i_0)}\right)}
-$$
-is the incidence field, and 
+$$ is the incidence field, and
 
 $$
 H_{sc}(\boldsymbol{r}) = \int_{\Gamma}\frac{1}{4j}\frac{\partial}{\partial\boldsymbol{n}'}H_0^{(2)}\left(k\left|\boldsymbol{r}-\boldsymbol{r}'\right|\right)\psi(\boldsymbol{r'})dl'
 $$
-is the scattered field. 
+
+is the scattered field.
 
 Here,
 
-  - $j$ is the imaginary unit, i.e. $j^2 = -1$.
-  - $k$ is a freespace wavenumber.
-  - $H_0^{(2)}(z)$ is the [_Hankel function_](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ kind and zero order.
+-   $j$ is the imaginary unit, i.e. $j^2 = -1$.
+-   $k$ is a freespace wavenumber.
+-   $H_0^{(2)}(z)$ is the [*Hankel function*](https://en.wikipedia.org/wiki/Bessel_function#Hankel_functions:_H(1)α,_H(2)α) of the $2^\text{nd}$ kind and zero order.
 
 According to the superposition principle, the total field is defined as
 
@@ -117,6 +115,4 @@ $$
 H_{total}(\boldsymbol{r}) = H_{0}(\boldsymbol{r}) + H_{sc}(\boldsymbol{r}).
 $$
 
-
-
-
+Next step is

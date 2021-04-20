@@ -53,35 +53,35 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #545454; font-weight: bold; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #a1024a; } /* BaseN */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #008000; } /* Char */
-code span.cn { color: #d91e18; } /* Constant */
-code span.co { color: #545454; } /* Comment */
-code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #aa5d00; } /* DataType */
-code span.dv { color: #a1024a; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #a1024a; } /* Float */
-code span.fu { color: #4254a7; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #545454; font-weight: bold; } /* Information */
-code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
-code span.op { color: #696969; } /* Operator */
-code span.ot { color: #007faa; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #008000; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #008000; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #008000; } /* VerbatimString */
-code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
@@ -116,7 +116,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["calling-julia-from-r-via-juliacall_files/anchor-4.2.2/anchor.min.js","calling-julia-from-r-via-juliacall_files/bowser-1.9.3/bowser.min.js","calling-julia-from-r-via-juliacall_files/distill-2.2.21/template.v2.js","calling-julia-from-r-via-juliacall_files/figure-html5/scatter-plot-1.png","calling-julia-from-r-via-juliacall_files/header-attrs-2.5/header-attrs.js","calling-julia-from-r-via-juliacall_files/jquery-1.11.3/jquery.min.js","calling-julia-from-r-via-juliacall_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["calling-julia-from-r-via-juliacall_files/anchor-4.2.2/anchor.min.js","calling-julia-from-r-via-juliacall_files/bowser-1.9.3/bowser.min.js","calling-julia-from-r-via-juliacall_files/distill-2.2.21/template.v2.js","calling-julia-from-r-via-juliacall_files/figure-html5/performance-1.png","calling-julia-from-r-via-juliacall_files/figure-html5/scatter-plot-1.png","calling-julia-from-r-via-juliacall_files/header-attrs-2.5/header-attrs.js","calling-julia-from-r-via-juliacall_files/header-attrs-2.7/header-attrs.js","calling-julia-from-r-via-juliacall_files/jquery-1.11.3/jquery.min.js","calling-julia-from-r-via-juliacall_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -264,7 +264,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
-    overflow: hidden;
+    overflow: auto;
   }
 
   d-article div.sourceCode {
@@ -1404,7 +1404,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="calling-julia-from-r-via-juliacall_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="calling-julia-from-r-via-juliacall_files/header-attrs-2.7/header-attrs.js"></script>
   <script src="calling-julia-from-r-via-juliacall_files/jquery-1.11.3/jquery.min.js"></script>
   <script src="calling-julia-from-r-via-juliacall_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="calling-julia-from-r-via-juliacall_files/bowser-1.9.3/bowser.min.js"></script>
@@ -1421,7 +1421,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Calling Julia from R via JuliaCall","description":"In this blog post, we demonstrate how to use a code written in Julia programming language in an R script by using R package JuliaCall.","authors":[{"author":"Yevgen Ryeznik","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"","authorURL":"https://yevgen.github.io","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-11-20T00:00:00.000+01:00","citationText":"Ryeznik & , 2020"}
+{"title":"Calling Julia from R via JuliaCall","description":"In this blog post, we demonstrate how to use a code written in Julia programming language in an R script by using R package JuliaCall.","authors":[{"author":"Yevgen Ryeznik","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"","authorURL":"https://yevgen.github.io","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-11-20T00:00:00.000+00:00","citationText":"Ryeznik & , 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1455,19 +1455,174 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#what-is-distill">What is distill?</a></li>
-<li><a href="#observations-with-noise">Observations with noise</a></li>
+<li><a href="#r-package-juliacall"><code>R</code> package <code>JuliaCall</code></a></li>
+<li><a href="#example-integral-evaluation-with-monte-carlo-mc-approach">Example: integral evaluation with Monte Carlo (MC) approach</a></li>
 </ul>
 </nav>
 </div>
-<h2 id="what-is-distill">What is distill?</h2>
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
-<h2 id="observations-with-noise">Observations with noise</h2>
+<h2 id="r-package-juliacall"><code>R</code> package <code>JuliaCall</code></h2>
+<p>In <a href="../2018-04-10-extending-r-with-julia/index.html">one of the previous blog posts</a>, I wrote about the extending <code>R</code> with <code>Julia</code> by using <a href="https://github.com/johnmchambers/XRJulia"><code>XRJulia</code> <code>R</code> package</a>.</p>
+<p>Here, I would like to talk about another possibility of using <code>Julia</code> code in <code>R</code> projects. For seamless integration of <code>R</code> and <code>Julia</code>, one can use an <code>R</code> package called <a href="https://non-contradiction.github.io/JuliaCall/index.html"><code>JuliaCall</code></a>.</p>
+<p>To install the package run the command:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="calling-julia-from-r-via-juliacall_files/figure-html5/scatter-plot-1.png" width="624" /></p>
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"JuliaCall"</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</div>
+<p>Once the package is installed, it is necessary to initialize <code>Julia</code> to use it in the current <code>R</code> session:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/Non-Contradiction/JuliaCall'>JuliaCall</a></span><span class='op'>)</span>
+<span class='va'>julia_home</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>'JULIA_HOME'</span><span class='op'>)</span>, <span class='st'>'/bin'</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_setup.html'>julia_setup</a></span><span class='op'>(</span>JULIA_HOME <span class='op'>=</span> <span class='va'>julia_home</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Let’s explain the above code. To initialize <code>Julia</code> a function <code>julia_setup()</code> is used. It requires an input parameter <code>JULIA_HOME</code>, which contains a path to the <code>Julia</code> executable file. On my laptop, I have a <code>JULIA_HOME</code> system variable specified in the .Renviron file:</p>
+<pre><code>JULIA_HOME = &#39;/Applications/Julia-1.5.app/Contents/Resources/julia/&#39;,</code></pre>
+<p>and <code>Julia</code> executable file is located in the folder <code>$JULIA_HOME/bin</code>. So, the command</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>julia_home</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>'JULIA_HOME'</span><span class='op'>)</span>, <span class='st'>'/bin'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>create a string containing the path to the <code>Julia</code> executable:</p>
+<pre><code>julia_home = &#39;/Applications/Julia-1.5.app/Contents/Resources/julia/bin&#39;,</code></pre>
+<p>and this value is used as an input parameter value to the function <code>julia_setup()</code>.</p>
+<p>If <code>Julia</code> is not installed on your computer, then download it from the <a href="https://julialang.org/downloads/"><code>Julia</code> web page</a> or use the function <code>install_julia()</code> from the <code>JuliaCall</code> package:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>destination_folder</span> <span class='op'>&lt;-</span> <span class='co'># specify the installation path</span>
+<span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/install_julia.html'>install_julia</a></span><span class='op'>(</span><span class='va'>destination_folder</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>If everything is OK, then we can start using <code>Julia</code> in our <code>R</code>project.</p>
+<h2 id="example-integral-evaluation-with-monte-carlo-mc-approach">Example: integral evaluation with Monte Carlo (MC) approach</h2>
+<p>Let us evaluate the following integral</p>
+<p><span class="math display">\[
+  I = \int_0^{+\infty}{x^2e^{-\frac{x^2}{2}}}dx
+\]</span></p>
+<p>It can be rewritten as an expectation of the function</p>
+<p><span class="math display">\[
+f(x)=\left\{
+  \begin{array}{lr}
+    \sqrt{2\pi}x^2, &amp; x\geq 0 \\ 
+    0, &amp; x &lt; 0
+  \end{array}
+  \right.
+\]</span></p>
+<p>with respect to the normal distribution <span class="math inline">\(N(0, 1)\)</span> with p.d.f.</p>
+<p><span class="math display">\[
+  p(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} 
+\]</span></p>
+<p>Then,</p>
+<p><span class="math display">\[
+  I = \text{E}\left[f(x)\right] \approx \frac{1}{n}\sum_{i = 1}^n{f(x_i)},
+\]</span></p>
+<p>where <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> are the sample points from the standard normal distribution <span class="math inline">\(N(0, 1)\)</span>.</p>
+<p>Let us implement the latter formula by using both <code>R</code> and <code>R</code> extended with <code>Julia</code>.</p>
+<ol type="1">
+<li><code>R</code> implementation:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># First, let us create a function to integrate on the R side</span>
+<span class='va'>fcnR</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>&gt;=</span> <span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>*</span><span class='va'>pi</span><span class='op'>)</span><span class='op'>*</span><span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span>, <span class='fl'>0</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='co'># Second, we implement a MC procedure on the R side </span>
+<span class='va'>integrate_mcR</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>fcn</span>, <span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># sampling from N(0, 1)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>12345</span><span class='op'>)</span>
+  <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
+  
+  <span class='co'># mean of f(x)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'>fcn</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='co'># Finally, we evaluate the integral (with n=100,000)</span>
+  <span class='va'>IR</span> <span class='op'>&lt;-</span> <span class='fu'>integrate_mcR</span><span class='op'>(</span><span class='va'>fcnR</span>, <span class='fl'>100000</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><code>Julia</code> implementation:</li>
+</ol>
+<p>We use a function <code>julia_command()</code> to run <code>Julia</code> commands on the <code>Julia</code> side. If we need a value to use in <code>R</code>, there is a function called <code>julia_eval()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># First, let us create a function to integrate on the Julia side</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_command.html'>julia_command</a></span><span class='op'>(</span>
+    <span class='st'>"function fcn(x)
+      if (x &gt;= 0)
+         return sqrt(2*pi)*x^2
+       else 
+         return 0
+       end
+    end"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>fcn (generic function with 1 method)</code></pre>
+<div class="sourceCode">
+<pre><code><span class='co'># Second, we implement a MC procedure on the Julia side</span>
+<span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_command.html'>julia_command</a></span><span class='op'>(</span><span class='st'>"using Distributions, Random"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_command.html'>julia_command</a></span><span class='op'>(</span>
+    <span class='st'>"function integrate_mc(fcn::Function, n::Int64)
+      Random.seed!(12345)
+      x = rand(Normal(0, 1), n)
+      fx = zeros(Float64, n)
+      for r = 1:length(fx)
+          fx[r] = fcn(x[r])
+      end
+      return mean(fx)
+    end"</span><span class='op'>)</span>  
+</code></pre>
+</div>
+<pre><code>integrate_mc (generic function with 1 method)</code></pre>
+<div class="sourceCode">
+<pre><code><span class='co'># Finally, we calculate integral value (with N=100,000)</span>
+  <span class='va'>IJ</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_eval.html'>julia_eval</a></span><span class='op'>(</span><span class='st'>"integrate_mc(fcn, 100000)"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>The following table (Tab <a href="#tab:compare">1</a>) contains results of the integration.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:compare">Table 1: </span>Integration results.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Exact value</th>
+<th style="text-align: right;">MC (R)</th>
+<th style="text-align: right;">MC (Julia)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1.25331</td>
+<td style="text-align: right;">1.25347</td>
+<td style="text-align: right;">1.24851</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As we can see, numerical results are pretty close to the actual result. Let us compare relative performance (<code>R</code>/<code>Julia</code>) vs. number of samples taken <span class="math inline">\(n\)</span> (Fig. <a href="#fig:performance">1</a>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:performance"></span>
+<img src="calling-julia-from-r-via-juliacall_files/figure-html5/performance-1.png" alt="R vs. Julia performance." width="576" />
+<p class="caption">
+Figure 1: R vs. Julia performance.
+</p>
+</div>
+</div>
+<p>As one can see, <code>Julia</code> performs much better than <code>R</code> for a large sample size.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1475,6 +1630,15 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

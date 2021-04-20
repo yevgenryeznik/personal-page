@@ -18,21 +18,194 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+
 ```
 
-## What is distill?
+## `R` package `JuliaCall` 
 
-Distill is a publication format for scientific and technical writing, native to the web.
+In [one of the previous blog posts](../2018-04-10-extending-r-with-julia/index.html), I wrote about the extending `R` with `Julia` by using [`XRJulia` `R` package](https://github.com/johnmchambers/XRJulia).
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+Here, I would like to talk about another possibility of using `Julia` code in `R` projects. For seamless integration of `R` and `Julia`, one can use an `R` package called [`JuliaCall`](https://non-contradiction.github.io/JuliaCall/index.html). 
 
-## Observations with noise
+To install the package run the command:
 
-```{r scatter-plot}
+```{r, E, eval=FALSE}
+install.packages("JuliaCall")
+```
+
+Once the package is installed, it is necessary to initialize `Julia` to use it in the current `R` session:
+
+```{r}
+library(JuliaCall)
+julia_home <- paste0(Sys.getenv('JULIA_HOME'), '/bin')
+julia_setup(JULIA_HOME = julia_home)
+```
+
+Let's explain the above code. To initialize `Julia` a function `julia_setup()` is used. It requires an input parameter `JULIA_HOME`, which contains a path to the `Julia` executable file. On my laptop, I have a `JULIA_HOME` system variable specified in the .Renviron file:
+
+```
+JULIA_HOME = '/Applications/Julia-1.5.app/Contents/Resources/julia/',
+```
+
+and `Julia` executable file is located in the folder `$JULIA_HOME/bin`. So, the command
+
+```{r, eval=FALSE}
+julia_home <- paste0(Sys.getenv('JULIA_HOME'), '/bin')
+```
+
+create a string containing the path to the `Julia` executable:
+
+```
+julia_home = '/Applications/Julia-1.5.app/Contents/Resources/julia/bin',
+```
+and this value is used as an input parameter value to the function `julia_setup()`.
+
+If `Julia` is not installed on your computer, then download it from the [`Julia` web page](https://julialang.org/downloads/) or use the function `install_julia()` from the `JuliaCall` package:
+
+```{r, eval = FALSE}
+destination_folder <- # specify the installation path
+install_julia(destination_folder)
+```
+
+If everything is OK, then we can start using `Julia` in our `R`project.
+
+
+## Example: integral evaluation with Monte Carlo (MC) approach
+
+Let us evaluate the following integral 
+
+$$
+  I = \int_0^{+\infty}{x^2e^{-\frac{x^2}{2}}}dx
+$$
+
+It can be rewritten as an expectation of the function 
+
+$$
+f(x)=\left\{
+  \begin{array}{lr}
+    \sqrt{2\pi}x^2, & x\geq 0 \\ 
+    0, & x < 0
+  \end{array}
+  \right.
+$$
+
+with respect to the normal distribution $N(0, 1)$ with p.d.f. 
+
+$$
+  p(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} 
+$$
+
+Then,
+
+$$
+  I = \text{E}\left[f(x)\right] \approx \frac{1}{n}\sum_{i = 1}^n{f(x_i)},
+$$
+
+where $x_1, x_2, \ldots, x_n$ are the sample points from the standard normal distribution $N(0, 1)$.
+
+Let us implement the latter formula by using both `R` and `R` extended with `Julia`.
+
+1. `R` implementation:
+
+```{r mc-R}
+
+# First, let us create a function to integrate on the R side
+fcnR <- function(x) {
+  dplyr::if_else(x >= 0, sqrt(2*pi)*x^2, 0)
+}
+
+# Second, we implement a MC procedure on the R side 
+integrate_mcR <- function(fcn, n) {
+  # sampling from N(0, 1)
+  set.seed(12345)
+  x <- rnorm(n)
+  
+  # mean of f(x)
+  mean(fcn(x))
+}
+
+# Finally, we evaluate the integral (with n=100,000)
+  IR <- integrate_mcR(fcnR, 100000)
+```
+
+2. `Julia` implementation:
+
+We use a function `julia_command()` to run `Julia` commands on the `Julia` side. If we need a value to use in `R`, there is a function called `julia_eval()`.
+
+```{r mc-Julia}
+# First, let us create a function to integrate on the Julia side
+  julia_command(
+    "function fcn(x)
+      if (x >= 0)
+         return sqrt(2*pi)*x^2
+       else 
+         return 0
+       end
+    end")
+
+# Second, we implement a MC procedure on the Julia side
+julia_command("using Distributions, Random")
+julia_command(
+    "function integrate_mc(fcn::Function, n::Int64)
+      Random.seed!(12345)
+      x = rand(Normal(0, 1), n)
+      fx = zeros(Float64, n)
+      for r = 1:length(fx)
+          fx[r] = fcn(x[r])
+      end
+      return mean(fx)
+    end")  
+
+# Finally, we calculate integral value (with N=100,000)
+  IJ <- julia_eval("integrate_mc(fcn, 100000)")
+```
+
+The following table (Tab \@ref(tab:compare)) contains results of the integration. 
+
+```{r compare, echo=FALSE}
+library(magrittr)
+library(tibble)
+tribble(
+  ~`Exact value`, ~`MC (R)`, ~`MC (Julia)`,
+  1.25331, round(IR, 5), round(IJ, 5)
+) %>% 
+  knitr::kable(caption = "Integration results.", aligne = 'center')
+```
+
+As we can see, numerical results are pretty close to the actual result. Let us compare relative performance (`R`/`Julia`) vs. number of samples taken $n$ (Fig. \@ref(fig:performance)).
+
+```{r performance, echo=FALSE, fig.width=6, fig.height=4, fig.cap="R vs. Julia performance."}
 library(ggplot2)
-ds <- tibble::tibble(x = seq(1, 10, by = 0.1), y = cos(x) + rnorm(length(x), sd = 0.5))
-ggplot(ds, aes(x, y))+
-  geom_point()
+invisible(julia_eval(paste0("integrate_mc(fcn, ", 50, ")")))
+purrr::map_df(c(100, 1000, 10000, 100000, 1000000), ~ {
+  n <- as.integer(.x)
+  julia_command(paste0("Random.seed!(", n, ")"))
+  out <- microbenchmark::microbenchmark(
+    "R" = integrate_mcR(fcnR, n), 
+    "Julia" = julia_eval(paste0("integrate_mc(fcn, ", n, ")"))
+  )
+  tibble::tibble(
+    "n" = n,
+    "R" = mean(out$time[out$expr == "R"]),
+    "Julia" = mean(out$time[out$expr == "Julia"]),
+    "R/Julia" = `R`/`Julia`
+  )
+}) %>%
+  ggplot(aes(x = n, y = `R/Julia`))+
+  geom_point(size = 2.25)+
+  geom_line(size = 0.75)+
+  ylab("Time (R)/Time (Julia)")+
+  scale_x_log10(breaks = c(100, 1000, 10000, 100000, 1000000))+
+  theme_bw()+
+  theme(
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12)
+  )
 ```
+
+As one can see, `Julia` performs much better than `R` for a large sample size. 
+
 
