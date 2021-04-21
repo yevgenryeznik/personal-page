@@ -2629,56 +2629,6 @@ end</code></pre>
 </div>
 <pre><code>[1] 1.248508</code></pre>
 </div>
-<p>Table <a href="#tab:compare2">2</a> contains benchmarking results for two functions: <code>integrate_mcR()</code> and <code>integrate_mcJ()</code>:</p>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:compare2">Table 2: </span>Benchmark results (unit: milliseconds).</caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">expr</th>
-<th style="text-align: center;">min</th>
-<th style="text-align: center;">lq</th>
-<th style="text-align: center;">mean</th>
-<th style="text-align: center;">median</th>
-<th style="text-align: center;">uq</th>
-<th style="text-align: center;">max</th>
-<th style="text-align: center;">neval</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">integrate_mcR(fcnR, 1e+05)</td>
-<td style="text-align: center;">8.871172</td>
-<td style="text-align: center;">9.695288</td>
-<td style="text-align: center;">12.44142</td>
-<td style="text-align: center;">11.31667</td>
-<td style="text-align: center;">13.01484</td>
-<td style="text-align: center;">34.31947</td>
-<td style="text-align: center;">100</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">integrate_mcJ(fcnR, 1e+05)</td>
-<td style="text-align: center;">2485.132498</td>
-<td style="text-align: center;">2565.201168</td>
-<td style="text-align: center;">2864.63829</td>
-<td style="text-align: center;">2686.23797</td>
-<td style="text-align: center;">2948.04104</td>
-<td style="text-align: center;">5183.77280</td>
-<td style="text-align: center;">100</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

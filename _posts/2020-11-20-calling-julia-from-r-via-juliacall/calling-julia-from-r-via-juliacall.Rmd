@@ -244,15 +244,3 @@ integrate_mcJ <- function(fcn, n, seed = 12345) {
 integrate_mcJ(fcnR, 100000)
 ```
 
-Table \@ref(tab:compare2) contains benchmarking results for two functions: `integrate_mcR()` and `integrate_mcJ()`: 
-
-```{r compare2, echo=FALSE}
-library(magrittr)
-library(tibble)
-tribble(
-  ~expr, ~min, ~lq, ~mean, ~median, ~uq, ~max, ~neval,
- "integrate_mcR(fcnR, 1e+05)", 8.871172, 9.695288, 12.44142, 11.31667, 13.01484, 34.31947, 100,
- "integrate_mcJ(fcnR, 1e+05)", 2485.132498, 2565.201168, 2864.63829, 2686.23797, 2948.04104, 5183.77280, 100) %>% 
-  knitr::kable(caption = "Benchmark results (unit: milliseconds).", align = 'c')
-```
-
