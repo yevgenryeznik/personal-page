@@ -2429,6 +2429,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <ul>
 <li><a href="#r-package-juliacall"><code>R</code> package <code>JuliaCall</code></a></li>
 <li><a href="#example-integral-evaluation-with-monte-carlo-mc-approach">Example: integral evaluation with Monte Carlo (MC) approach</a></li>
+<li><a href="#writing-a-function-based-on-julia-code">Writing a function based on <code>Julia</code> code</a></li>
 </ul>
 </nav>
 </div>
@@ -2507,9 +2508,9 @@ f(x)=\left\{
 <span class='op'>}</span>
 
 <span class='co'># Second, we implement a MC procedure on the R side </span>
-<span class='va'>integrate_mcR</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>fcn</span>, <span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>integrate_mcR</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>fcn</span>, <span class='va'>n</span>, <span class='va'>seed</span> <span class='op'>=</span> <span class='fl'>12345</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='co'># sampling from N(0, 1)</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>12345</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='va'>seed</span><span class='op'>)</span>
   <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
   
   <span class='co'># mean of f(x)</span>
@@ -2546,18 +2547,18 @@ f(x)=\left\{
 </div>
 <div class="sourceCode">
 <pre><code><span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_command.html'>julia_command</a></span><span class='op'>(</span>
-    <span class='st'>"function integrate_mc(fcn::Function, n::Int64)
-      Random.seed!(12345)
-      x = rand(Normal(0, 1), n)
-      fx = zeros(Float64, n)
-      for r = 1:length(fx)
-          fx[r] = fcn(x[r])
-      end
-      return mean(fx)
-    end"</span><span class='op'>)</span>  
+    <span class='st'>"function integrate_mc(fcn::Function, n::Int64, seed::Int64 = 12345)
+        Random.seed!(seed)
+        x = rand(Normal(0, 1), n)
+        fx = zeros(Float64, n)
+        for r = 1:length(fx)
+            fx[r] = fcn(x[r])
+        end
+        return mean(fx)
+     end"</span><span class='op'>)</span>  
 </code></pre>
 </div>
-<pre><code>integrate_mc (generic function with 1 method)</code></pre>
+<pre><code>integrate_mc (generic function with 2 methods)</code></pre>
 <div class="sourceCode">
 <pre><code><span class='co'># Finally, we calculate integral value (with N=100,000)</span>
   <span class='va'>IJ</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_eval.html'>julia_eval</a></span><span class='op'>(</span><span class='st'>"integrate_mc(fcn, 100000)"</span><span class='op'>)</span>
@@ -2593,8 +2594,42 @@ Figure 1: R vs. Julia performance.
 </p>
 </div>
 </div>
-<p>As one can see, <code>Julia</code> performs much better than <code>R</code> for a large sample size.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>As one can see, <code>Julia</code> performs much better than <code>R</code> with a sample size of MC sample increasing.</p>
+<h2 id="writing-a-function-based-on-julia-code">Writing a function based on <code>Julia</code> code</h2>
+<p>Assume that we have a <code>Julia</code> script in a file <code>mc-integration.jl</code>:</p>
+<pre><code>usign Random
+using Distribution
+
+function integrate_mc(fcn::Function, n::Int64, seed::Int64 = 12345)
+  Random.seed!(seed)
+  x = rand(Normal(0, 1), n)
+  fx = zeros(Float64, n)
+  for r = 1:length(fx)
+    fx[r] = fcn(x[r])
+  end
+      
+  return mean(fx)
+end</code></pre>
+<p>Then, we can source this file using the command:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/julia_source.html'>julia_source</a></span><span class='op'>(</span><span class='st'>'mc-integration.jl'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>and create an <code>R</code> function calling <code>Julia</code> <code>integrate_mc()</code> function:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>integrate_mcJ</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>fcn</span>, <span class='va'>n</span>, <span class='va'>seed</span> <span class='op'>=</span> <span class='fl'>12345</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/JuliaCall/man/call.html'>julia_call</a></span><span class='op'>(</span><span class='st'>"integrate_mc"</span>, <span class='va'>fcn</span>, <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>seed</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'>integrate_mcJ</span><span class='op'>(</span><span class='va'>fcnR</span>, <span class='fl'>100000</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1.248508</code></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
