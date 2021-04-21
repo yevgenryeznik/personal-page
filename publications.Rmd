@@ -1,5 +1,5 @@
 ---
-title: Publications (2004 -- 2020)
+title: Publications (2004 -- 2021)
 site: distill::distill_website
 ---
 
@@ -8,6 +8,16 @@ site: distill::distill_website
 1. **Ryeznik, Y.** (2019) “Optimal Adaptive Designs and Adaptive Randomization Techniques for Clinical Trials”, _Uppsala Dissertations in Mathematics_, ISSN 1401-2049, **113**, p. 94. http://uu.diva-portal.org/smash/record.jsf?pid=diva2%3A1291159&dswid=8852
 
 ### PEER-REVIEWED PUBLICATIONS IN STATISTICAL AND MATHEMATICAL JOURNALS
+
+1.	**Ryeznik, Y.**, Sverdlov, O., Svensson, E., Montepiedra, G., Hooker, A., Wong, W.K. (2021) ”Pharmacometrics Meets Statistics – A Synergy for Modern Drug Development”, CPT: Pharmacometrics & System Pharmacology. _**Under review**_.
+
+1.	Fei, Z., **Ryeznik, Y.**, Sverdlov, O., Tan, Ch. W., Wong, W. K., (2021) "A Selective Survey of Data Science Applications for Healthcare Diagnosis, Inference, and Pandemic Response", IEEE Transactions on Big Data. _**Under review**_.
+
+1.	Svedlov, O., **Ryeznik, Y.**, Wong W.K. (2021) "Imbalance Randomization (Rationales for)", _Wiley StatsRef_: Statistical References Online. _**Submitted**_. 
+
+1.	Berger V., Bour L.,  Carter K.,  Chipman J..,  Everett C.,  Heussen N.,  Hewitt C., Hilgers R.-D.,  Luo Y.A., Renteria J.,  **Ryeznik Y.**,  Sverdlov O.,  Uschner D. (2021) "A roadmap to using randomization techniques in clinical trials", BMC Medical Research Methodology, _**accepted**_. https://doi.org/10.21203/rs.3.rs-135735/v1
+
+1. Sverdlov, O., **Ryeznik, Y.**, Wong W. K. (2021) "Opportunity for efficiency in clinical development: An overview of adaptive clinical trial designs and innovative machine learning tools, with examples from the cardiovascular field", _Contemporary Clinical Trials_. **105(5)**. https://doi.org/10.1016/j.cct.2021.106397 
 
 1. Sverdlov, O., **Ryeznik, Y.**, Wong W. K. (2020) “On Optimal Designs for Multi-Objective Clinical Trials: An Updated Review”, _Journal of Statistical Theory and Practice_, **14 (10)**. https://doi.org/10.1007/s42519-019-0073-4
 
@@ -83,6 +93,8 @@ Croatia. https://doi.org/10.1109/ICECOM.2005.205032
 
 
 ### BOOKS AND TUTORIALS:
+
+1. Sverdlov, O., **Ryeznik, Y.** (2021) "Randomization, Stratification, and Outcome Adaptive Allocation" in Handbook of Statistical Methods for Randomized Clinical Trials. Chapman and Hall/CRC.
 
 1. Malyarets, L. M., **Ryeznik, Y.**, Sinkevych, B. V. (2013) "Modern optimization techniques in MatLab. Part II", practice tutorial, Kharkov National University of Economics, 356 pages. (in Ukrainian).
     
