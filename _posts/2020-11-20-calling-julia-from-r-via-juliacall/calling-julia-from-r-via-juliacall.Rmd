@@ -118,9 +118,9 @@ fcnR <- function(x) {
 }
 
 # Second, we implement a MC procedure on the R side 
-integrate_mcR <- function(fcn, n) {
+integrate_mcR <- function(fcn, n, seed = 12345) {
   # sampling from N(0, 1)
-  set.seed(12345)
+  set.seed(seed)
   x <- rnorm(n)
   
   # mean of f(x)
@@ -149,15 +149,15 @@ We use a function `julia_command()` to run `Julia` commands on the `Julia` side.
 # Second, we implement a MC procedure on the Julia side
 julia_command("using Distributions, Random")
 julia_command(
-    "function integrate_mc(fcn::Function, n::Int64)
-      Random.seed!(12345)
-      x = rand(Normal(0, 1), n)
-      fx = zeros(Float64, n)
-      for r = 1:length(fx)
-          fx[r] = fcn(x[r])
-      end
-      return mean(fx)
-    end")  
+    "function integrate_mc(fcn::Function, n::Int64, seed::Int64 = 12345)
+        Random.seed!(seed)
+        x = rand(Normal(0, 1), n)
+        fx = zeros(Float64, n)
+        for r = 1:length(fx)
+            fx[r] = fcn(x[r])
+        end
+        return mean(fx)
+     end")  
 
 # Finally, we calculate integral value (with N=100,000)
   IJ <- julia_eval("integrate_mc(fcn, 100000)")
@@ -180,7 +180,7 @@ As we can see, numerical results are pretty close to the actual result. Let us c
 ```{r performance, echo=FALSE, fig.width=6, fig.height=4, fig.cap="R vs. Julia performance."}
 library(ggplot2)
 invisible(julia_eval(paste0("integrate_mc(fcn, ", 50, ")")))
-purrr::map_df(c(100, 1000, 10000, 100000, 1000000), ~ {
+purrr::map_df(c(1000, 10000, 100000, 1000000), ~ {
   n <- as.integer(.x)
   julia_command(paste0("Random.seed!(", n, ")"))
   out <- microbenchmark::microbenchmark(
@@ -198,7 +198,7 @@ purrr::map_df(c(100, 1000, 10000, 100000, 1000000), ~ {
   geom_point(size = 2.25)+
   geom_line(size = 0.75)+
   ylab("Time (R)/Time (Julia)")+
-  scale_x_log10(breaks = c(100, 1000, 10000, 100000, 1000000))+
+  scale_x_log10(breaks = c(1000, 10000, 100000, 1000000))+
   theme_bw()+
   theme(
     axis.text = element_text(size = 10),
@@ -206,6 +206,43 @@ purrr::map_df(c(100, 1000, 10000, 100000, 1000000), ~ {
   )
 ```
 
-As one can see, `Julia` performs much better than `R` for a large sample size. 
+As one can see, `Julia` performs much better than `R` with a sample size of MC sample increasing. 
+
+## Writing a function based on `Julia` code
+
+Assume that we have a `Julia` script in a file `mc-integration.jl`:
+
+```
+usign Random
+using Distribution
+
+function integrate_mc(fcn::Function, n::Int64, seed::Int64 = 12345)
+  Random.seed!(seed)
+  x = rand(Normal(0, 1), n)
+  fx = zeros(Float64, n)
+  for r = 1:length(fx)
+    fx[r] = fcn(x[r])
+  end
+      
+  return mean(fx)
+end
+```
+
+Then, we can source this file using the command:
+
+```{r, eval = FALSE}
+julia_source('mc-integration.jl')
+```
+
+and create an `R` function calling `Julia` `integrate_mc()` function:
+
+```{r}
+integrate_mcJ <- function(fcn, n, seed = 12345) {
+  julia_call("integrate_mc", fcn, as.integer(n), as.integer(seed))
+}
+
+integrate_mcJ(fcnR, 100000)
+```
+
 
 
