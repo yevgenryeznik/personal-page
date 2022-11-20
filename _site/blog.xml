@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Yevgen Ryeznik</title>
+<link>yevgenryeznik.github.io/personal-page/blog.html</link>
+<atom:link href="yevgenryeznik.github.io/personal-page/blog.xml" rel="self" type="application/rss+xml"/>
+<description>Yevgen Ryeznik's personal page.</description>
+<generator>quarto-1.0.35</generator>
+<lastBuildDate>Tue, 23 Aug 2022 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Calculation of the \(n^\text{th}\) derivatives of \(e^{ax}\cos(bx)\) and \(e^{ax}\sin(bx)\)</title>
+  <dc:creator>Yevgen Ryeznik</dc:creator>
+  <link>yevgenryeznik.github.io/personal-page/posts/20220824/two-interesting-nth-derivatives.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="problem-formulation" class="level2">
+<h2 class="anchored" data-anchor-id="problem-formulation">Problem formulation</h2>
+<p>Given functions <img src="https://latex.codecogs.com/png.latex?g_1(x)%20=%20e%5E%7Bax%7D%5Ccos(bx)"> and <img src="https://latex.codecogs.com/png.latex?g_2(x)%20=%20e%5E%7Bax%7D%5Csin(bx)">, calculate <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_1(x)"> and <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_2(x)">, <img src="https://latex.codecogs.com/png.latex?n%20=%201,%202,%20%5Cldots">.</p>
+</section>
+<section id="complex-analysis-approach" class="level2">
+<h2 class="anchored" data-anchor-id="complex-analysis-approach">Complex analysis approach</h2>
+<p>Let us consider a function <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20e%5E%7B(a+ib)x%7D">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Af(x)%20&amp;=%20e%5E%7Bax%7De%5E%7Bibx%7D%20=%20e%5E%7Bax%7D%5Cleft(%5Ccos(bx)%20+%20i%5Csin(bx)%5Cright)%20=%20%5C%5C%0A&amp;=%20e%5E%7Bax%7D%5Ccos(bx)%20+%20ie%5E%7Bax%7D%5Csin(bx)%20=%20%5C%5C%0A&amp;=%20g_1(x)%20+%20ig_2(x)%20%5CRightarrow%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Df(x)%20&amp;=%20%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_1(x)%20+i%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_2(x)%20%5CLeftrightarrow%20%5C%5C%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_1(x)%20&amp;=%20%5Cmathfrak%7BRe%7D%5Cleft(%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Df(x)%5Cright),%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_2(x)%20&amp;=%20%5Cmathfrak%7BIm%7D%5Cleft(%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Df(x)%5Cright).%0A%5Cend%7Baligned%7D%0A"></p>
+<p>The <img src="https://latex.codecogs.com/png.latex?n%5E%5Ctext%7Bth%7D"> derivative of <img src="https://latex.codecogs.com/png.latex?f(x)"> is given by</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Df(x)%20&amp;=%20(a+ib)%5Ene%5E%7B(a+ib)x%7D%20=%20%5C%5C%0A&amp;=%20%5Cleft%5B%0A%5Cbegin%7Baligned%7D%0Aa+ib%20&amp;=%20re%5E%7Bi%5Ctheta%7D,%20%5Ctext%7B%20where%7D%20%5C%5C%0Ar%20&amp;=%20%5Csqrt%7Ba%5E2+b%5E2%7D%20%5C%5C%0A%5Ctheta%20&amp;=%20%5Carg(a+ib)%20%5C%5C%0A&amp;%5CDownarrow%20%5C%5C%0A(a+ib)%5En%20&amp;=%20r%5Ene%5E%7Bin%5Ctheta%7D%0A%5Cend%7Baligned%7D%0A%5Cright%5D%20=%20%5C%5C%20%5C%5C%0A&amp;=%20r%5Ene%5E%7Bin%5Ctheta%7De%5E%7B(a+ib)x%7D%20=%20%5C%5C%0A&amp;=%20r%5Ene%5E%7Bax%7D%5Cleft(%5Ccos(n%5Ctheta)+i%5Csin(n%5Ctheta)%5Cright)%5Cleft(%5Ccos(bx)+i%5Csin(bx)%5Cright)%20=%20%5C%5C%0A&amp;=%20r%5Ene%5E%7Bax%7D%5Cleft((%5Cunderbrace%7B%5Ccos(bx)%5Ccos(n%5Ctheta)-%5Csin(bx)%5Csin(n%5Ctheta)%7D_%7B%5Ccos(bx+n%5Ctheta)%7D)%20+%20i(%5Cunderbrace%7B%5Csin(bx)%5Ccos(n%5Ctheta)+%5Ccos(bx)%5Csin(n%5Ctheta)%7D_%7B%5Csin(bx+n%5Ctheta)%7D)%5Cright)%20=%20%5C%5C%0A&amp;=%20r%5Ene%5E%7Bax%7D%5Ccos(bx%20+%20n%5Ctheta)%20+%20ir%5Ene%5E%7Bax%7D%5Csin(bx%20+%20n%5Ctheta)%20%5CRightarrow%20%5C%5C%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_1(x)%20=%20%5Cfrac%7Bd%5En%7D%7Bdx%5En%7D%5Cleft(e%5E%7Bax%7D%5Ccos(bx)%5Cright)%20&amp;=%20r%5Ene%5E%7Bax%7D%5Ccos(bx%20+%20n%5Ctheta),%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_2(x)%20=%20%5Cfrac%7Bd%5En%7D%7Bdx%5En%7D%5Cleft(e%5E%7Bax%7D%5Csin(bx)%5Cright)%20&amp;=%20r%5Ene%5E%7Bax%7D%5Csin(bx%20+%20n%5Ctheta),%20%5C%5C%0A%5Ctext%7Bwhere%20%7D%20r%20=%20%5Csqrt%7Ba%5E2+b%5E2%7D,%5C:%20%5Ctheta%20&amp;=%20%5Carg(a+ib).%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+</section>
+<section id="linear-algebra-approach" class="level2">
+<h2 class="anchored" data-anchor-id="linear-algebra-approach">Linear algebra approach</h2>
+<p>There is another approach that, from my point of view, is less efficient but is quite interesting.</p>
+<p>Let us consider a set of all linear combinations of functions <img src="https://latex.codecogs.com/png.latex?g_1(x)"> and <img src="https://latex.codecogs.com/png.latex?g_2(x)">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AS%20=%20%5Ctext%7Bspan%7D%5Cleft(g_1(x),%20g_2(x)%5Cright)%20=%20%5Cleft%5C%7Bf(x)%20=%20c_1g_1(x)%20+%20c_2g_2(x)%7Cc_1,%20c_2%20%5Cin%20%5Cmathbb%7BR%7D%5Cright%5C%7D.%0A"> Then, we may consider an operator <img src="https://latex.codecogs.com/png.latex?T:%20S%20%5Crightarrow%20%5Cmathbb%7BR%7D%5E2"> as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20f(x)=c_1g_1(x)%20+%20c_2g_2(x)%20%5Cin%20S,%5C:%20T%5Cleft%5Bf(x)%5Cright%5D%20=%20%5Cbegin%7Bpmatrix%7Dc_1%20%5C%5C%20c_2%5Cend%7Bpmatrix%7D%20%5CLeftrightarrow%20T%5E%7B-1%7D%5Cleft%5B%5Cbegin%7Bpmatrix%7Dc_1%20%5C%5C%20c_2%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20c_1g_1(x)%20+%20c_2g_2(x)%20=%20f(x).%0A"></p>
+<p>Now, let us differentiate a function <img src="https://latex.codecogs.com/png.latex?f(x)%5Cin%20S">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Bd%7D%7Bdx%7Df(x)%20&amp;=%20%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(c_1g_1(x)%20+%20c_2g_2(x)%5Cright)%20=%20%5C%5C%0A&amp;=%20c_1%5Cfrac%7Bd%7D%7Bdx%7Dg_1(x)%20+%20c_2%5Cfrac%7Bd%7D%7Bdx%7Dg_2(x)%20=%20%5C%5C%0A&amp;=%20c_1%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(e%5E%7Bax%7D%5Ccos(bx)%5Cright)%20+%20c_2%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(e%5E%7Bax%7D%5Csin(bx)%5Cright)%20=%20%5C%5C%0A&amp;=%20c_1%5Cleft(ae%5E%7Bax%7D%5Ccos(bx)%20-%20be%5E%7Bax%7D%5Csin(bx)%5Cright)%20+%20c_2%5Cleft(ae%5E%7Bax%7D%5Csin(bx)%20+%20be%5E%7Bax%7D%5Ccos(bx)%5Cright)%20=%20%5C%5C%0A&amp;=%20%5Cunderbrace%7B(ac_1%20+%20bc_2)%7D_%7B%5Cwidetilde%7Bc%7D_1%7De%5E%7Bax%7D%5Ccos(bx)%20+%20%5Cunderbrace%7B(-bc_1%20+%20ac_2)%7D_%7B%5Cwidetilde%7Bc%7D_2%7De%5E%7Bax%7D%5Csin(bx)%20=%20%5C%5C%0A&amp;=%20%5Cwidetilde%7Bc%7D_1e%5E%7Bax%7D%5Ccos(bx)%20+%20%5Cwidetilde%7Bc%7D_2e%5E%7Bax%7D%5Csin(bx)%20=%20%5C%5C%0A&amp;=%20%5Cwidetilde%7Bc%7D_1g_1(x)%20+%20%5Cwidetilde%7Bc%7D_2g_2(x)%20%5Cin%20S.%0A%5Cend%7Baligned%7D%0A"></p>
+<p>The latter means that differentiation operator <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdx%7D"> acts from <img src="https://latex.codecogs.com/png.latex?S"> to <img src="https://latex.codecogs.com/png.latex?S">, <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdx%7D:%20S%5Crightarrow%20S">, and can be represented as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bd%7D%7Bdx%7D%20=%20T%5E%7B-1%7D%5Ccirc%20D%5Ccirc%20T,%20%5Ctext%7B%20where%20%7D%20D%5Cleft%5B%5Cbegin%7Bpmatrix%7Dc_1%20%5C%5C%20c_2%5Cend%7Bpmatrix%7D%5Cright%5D%20=%0A%5Cbegin%7Bpmatrix%7D%20a%20&amp;%20b%20%5C%5C%20-b%20&amp;%20a%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7Dc_1%20%5C%5C%20c_2%5Cend%7Bpmatrix%7D,%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Ccirc"> operation means a <em>superposition</em> of operators.</p>
+<p>Thus, for <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20c_1g_1(x)%20+%20c_2g_2(x)%20%5Cin%20S">,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Bd%7D%7Bdx%7Df(x)%20&amp;=%20T%5E%7B-1%7D%5Ccirc%20D%5Ccirc%20T%5Bf(x)%5D%20=%20T%5E%7B-1%7D%5Ccirc%20D%5Cleft%5B%5Cbegin%7Bpmatrix%7Dc_1%20%5C%5C%20c_2%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Cleft%5B%5Cbegin%7Bpmatrix%7D%20a%20&amp;%20b%20%5C%5C%20-b%20&amp;%20a%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7D%20c_1%20%5C%5C%20c_2%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Cleft%5B%5Cbegin%7Bpmatrix%7D%20ac_1%20+%20bc_2%20%5C%5C%20-bc_1%20+%20ac_2%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20T%5E%7B-1%7D%5Cleft%5B%5Cbegin%7Bpmatrix%7D%20%5Cwidetilde%7Bc%7D_1%5C%5C%20%5Cwidetilde%7Bc%7D_2%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20%5Cwidetilde%7Bc%7D_1g_1(x)%20+%20%5Cwidetilde%7Bc%7D_2g_2(x).%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Then,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7D%20&amp;=%20%5Cunderbrace%7B%5Cfrac%7Bd%7D%7Bdx%7D%5Ccirc%20%5Cfrac%7Bd%7D%7Bdx%7D%20%5Ccirc%20%5Cldots%20%5Ccirc%20%5Cfrac%7Bd%7D%7Bdx%7D%7D_%7Bn%5Ctext%7B%20times%7D%7D%20=%20%5C%5C%0A&amp;=%20%5Cunderbrace%7B(T%5E%7B-1%7D%5Ccirc%20D%5Ccirc%20%5Coverbrace%7BT)%20%5Ccirc%20(T%5E%7B-1%7D%7D%5E%7B=%20I%7D%5Ccirc%20D%5Ccirc%20T)%20%5Ccirc%20%5Cldots%20%5Ccirc%20(T%5E%7B-1%7D%5Ccirc%20D%5Ccirc%20%5Coverbrace%7BT)%20%5Ccirc%20(T%5E%7B-1%7D%7D%5E%7B=%20I%7D%5Ccirc%20D%5Ccirc%20T)%20%7D_%7Bn%5Ctext%7B%20times%7D%7D%20=%20%5Cleft%5BI%20%5Ctext%7B%20is%20an%20identity%20operator%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Ccirc%20%5Cunderbrace%7BD%5Ccirc%20%5Cldots%20%5Ccirc%20D%7D_%7Bn%5Ctext%7B%20times%7D%7D%5Ccirc%20T%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Ccirc%20D%5En%20%5Ccirc%20T,%0A%5Cend%7Baligned%7D%0A"> where operator <img src="https://latex.codecogs.com/png.latex?D%5En"> is represented by <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D%5En">, the <img src="https://latex.codecogs.com/png.latex?n%5E%5Ctext%7Bth%7D"> power of matrix <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D%20=%20%5Cbegin%7Bpmatrix%7D%20a%20&amp;%20b%20%5C%5C%20-b%20&amp;%20a%20%5Cend%7Bpmatrix%7D">.</p>
+<section id="calculating-mathbfdn" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-mathbfdn">Calculating <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D%5En"></h3>
+<p>If <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BV%7D%20=%20%5Cleft(%5Cmathbf%7Bv%7D_1%5C:%20%5Cmathbf%7Bv%7D_2%5Cright)"> is a matrix of <em>eigenvectors</em> of matrix <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D">, and <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7B%5CLambda%7D%20=%20%5Cbegin%7Bpmatrix%7D%5Clambda_1%20&amp;%200%20%5C%5C%200%20&amp;%20%5Clambda_2%20%5Cend%7Bpmatrix%7D"> is a matrix of <em>eigenvalues</em> of matrix <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D">, then</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BD%7D%20=%20%5Cmathbf%7BV%7D%5Cmathbf%7B%5CLambda%7D%5Cmathbf%7BV%7D%5E%7B-1%7D,%20%5Ctext%7B%20and%20%7D%20%5Cmathbf%7BD%7D%5En%20=%20%5Cmathbf%7BV%7D%5Cmathbf%7B%5CLambda%7D%5En%5Cmathbf%7BV%7D%5E%7B-1%7D.%0A"></p>
+<p>Let us calculate <em>eigenvalues</em> <img src="https://latex.codecogs.com/png.latex?%5Clambda_1">, <img src="https://latex.codecogs.com/png.latex?%5Clambda_2">, and <em>eigenvectors</em> <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bv%7D_1">, <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bv%7D_2">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Clambda_1">, <img src="https://latex.codecogs.com/png.latex?%5Clambda_2"> are solutions of the equation</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cdet(%5Cmathbf%7BD%7D-%5Clambda%5Cmathbf%7BI%7D)%20=%200%20%5CLeftrightarrow%20%5Cdet%5Cbegin%7Bpmatrix%7Da-%5Clambda%20&amp;%20b%20%5C%5C%20-b%20&amp;%20a-%5Clambda%5Cend%7Bpmatrix%7D%20=%20(a-%5Clambda)%5E2+b%5E2=0%20%5CLeftrightarrow%0A%5Cleft%5C%7B%0A%5Cbegin%7Baligned%7D%0A%5Clambda_1%20&amp;=%20a+ib%20%5C%5C%0A%5Clambda_2%20&amp;=%20a-ib%0A%5Cend%7Baligned%7D%0A%5Cright.%0A"> Now, let us calculate <em>eigenvectors</em>:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Clambda_1%20&amp;=%20a+ib,%20%5C:%20%5Cmathbf%7Bv%7D_1%20=%20%5Cbegin%7Bpmatrix%7Dv_%7B11%7D%20%5C%5C%20v_%7B12%7D%5Cend%7Bpmatrix%7D,%20%5Ctext%7B%20and%20%7D%5Cmathbf%7BD%7D%5Cmathbf%7Bv%7D_1%20=%20%5Clambda_1%5Cmathbf%7Bv%7D_1%20%5CLeftrightarrow%20%5C%5C%0A&amp;%5Cleft.%0A%5Cbegin%7Baligned%7D%0Aav_%7B11%7D%20+%20bv_%7B12%7D%20&amp;=%20(a+ib)v_%7B11%7D%20%5C%5C%0A-bv_%7B11%7D%20+%20av_%7B12%7D%20&amp;=%20(a+ib)v_%7B12%7D%0A%5Cend%7Baligned%7D%0A%5Cright%7C%20%5CRightarrow%20%5Cmathbf%7Bv%7D_1=%5Cbegin%7Bpmatrix%7D1%20%5C%5C%20i%5Cend%7Bpmatrix%7D;%20%5C%5C%20%5C%5C%0A%5Clambda_2%20&amp;=%20a-ib,%20%5C:%20%5Cmathbf%7Bv%7D_2%20=%20%5Cbegin%7Bpmatrix%7Dv_%7B21%7D%20%5C%5C%20v_%7B22%7D%5Cend%7Bpmatrix%7D,%20%5Ctext%7B%20and%20%7D%5Cmathbf%7BD%7D%5Cmathbf%7Bv%7D_2%20=%20%5Clambda_2%5Cmathbf%7Bv%7D_2%20%5CLeftrightarrow%20%5C%5C%0A&amp;%5Cleft.%0A%5Cbegin%7Baligned%7D%0Aav_%7B21%7D%20+%20bv_%7B22%7D%20&amp;=%20(a-ib)v_%7B21%7D%20%5C%5C%0A-bv_%7B21%7D%20+%20av_%7B22%7D%20&amp;=%20(a-ib)v_%7B22%7D%0A%5Cend%7Baligned%7D%0A%5Cright%7C%20%5CRightarrow%20%5Cmathbf%7Bv%7D_2=%5Cbegin%7Bpmatrix%7Di%20%5C%5C%201%5Cend%7Bpmatrix%7D.%20%5C%5C%20%5C%5C%0A%5Cend%7Baligned%7D%0A"> Then,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BV%7D%20=%20%5Cbegin%7Bpmatrix%7D%201%20&amp;%20i%20%5C%5C%20i%20&amp;%201%5Cend%7Bpmatrix%7D,%20%5C:%0A%5Cmathbf%7B%5CLambda%7D%20=%20%5Cbegin%7Bpmatrix%7D%20a+ib%20&amp;%200%20%5C%5C%200%20&amp;%20a-ib%5Cend%7Bpmatrix%7D,%20%5C:%0A%5Cmathbf%7BV%7D%5E%7B-1%7D%20=%20%5Cbegin%7Bpmatrix%7D%200.5%20&amp;%20-0.5i%20%5C%5C%20-0.5i%20&amp;%200.5%5Cend%7Bpmatrix%7D%20%5CRightarrow%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7BD%7D%5En%20=%20%5Cmathbf%7BV%7D%5Cmathbf%7B%5CLambda%7D%5En%5Cmathbf%7BV%7D%5E%7B-1%7D%20&amp;=%0A%5Cbegin%7Bpmatrix%7D%201%20&amp;%20i%20%5C%5C%20i%20&amp;%201%5Cend%7Bpmatrix%7D%0A%5Cbegin%7Bpmatrix%7D%20(a+ib)%5En%20&amp;%200%20%5C%5C%200%20&amp;%20(a-ib)%5En%5Cend%7Bpmatrix%7D%0A%5Cbegin%7Bpmatrix%7D%200.5%20&amp;%20-0.5i%20%5C%5C%20-0.5i%20&amp;%200.5%5Cend%7Bpmatrix%7D%20=%20%5C%5C%0A&amp;=%20%5Cbegin%7Bpmatrix%7D%201%20&amp;%20i%20%5C%5C%20i%20&amp;%201%5Cend%7Bpmatrix%7D%0A%5Cbegin%7Bpmatrix%7D%200.5(a+ib)%5En%20&amp;%20-0.5i(a+ib)%5En%20%5C%5C%20-0.5i(a-ib)%5En%20&amp;%200.5(a-ib)%5En%5Cend%7Bpmatrix%7D%20=%20%5C%5C%0A&amp;=%20%5Cbegin%7Bpmatrix%7D%0A%20%20%20%5Cfrac%7B(a+ib)%5En%20+%20(a-ib)%5En%7D%7B2%7D%20&amp;%20%5Cfrac%7B(a+ib)%5En-(a-ib)%5En%7D%7B2i%7D%20%5C%5C%0A%20%20%20-%5Cfrac%7B(a+ib)%5En%20-%20(a-ib)%5En%7D%7B2i%7D&amp;%20%5Cfrac%7B(a+ib)%5En+(a-ib)%5En%7D%7B2%7D%0A%5Cend%7Bpmatrix%7D%20=%20%5C%5C%0A&amp;=%5Cleft%5B%0A%5Cbegin%7Baligned%7D%0A&amp;%5Ctext%7Bnotice%20that%20for%20%7Dr%20=%20%5Csqrt%7Ba%5E2+b%5E2%7D%20%5Ctext%7B%20and%20%7D%5Ctheta%20=%20%5Carg(a+ib),%5C%5C%0A&amp;%5Cleft.%5Cbegin%7Baligned%7D%0A(a+ib)%5En%20&amp;=%20(re%5E%7Bi%5Ctheta%7D)%5En%20=%20r%5Ene%5E%7Bin%5Ctheta%7D%20%5C%5C%0A(a-ib)%5En%20&amp;=%20(re%5E%7B-i%5Ctheta%7D)%5En%20=%20r%5Ene%5E%7B-in%5Ctheta%7D%0A%5Cend%7Baligned%7D%0A%5Cright%7C%20%5CRightarrow%20%5C%5C%20%5C%5C%0A&amp;%5Cfrac%7B(a+ib)%5En%20+%20(a-ib)%5En%7D%7B2%7D%20=%20r%5En%5Cfrac%7Be%5E%7Bin%5Ctheta%7D+e%5E%7B-in%5Ctheta%7D%7D%7B2%7D%20=%20r%5En%5Ccos(n%5Ctheta)%20%5C%5C%0A&amp;%5Cfrac%7B(a+ib)%5En%20-%20(a-ib)%5En%7D%7B2i%7D%20=%20r%5En%5Cfrac%7Be%5E%7Bin%5Ctheta%7D-e%5E%7B-in%5Ctheta%7D%7D%7B2i%7D%20=%20r%5En%5Csin(n%5Ctheta)%20%5C%5C%0A%5Cend%7Baligned%7D%0A%5Cright%5D%20=%20%5C%5C%0A&amp;=%20%5Cbegin%7Bpmatrix%7D%20r%5En%5Ccos(n%5Ctheta)%20&amp;%20r%5En%5Csin(n%5Ctheta)%20%5C%5C%20-r%5En%5Csin(n%5Ctheta)%20&amp;%20r%5En%5Ccos(n%5Ctheta)%5Cend%7Bpmatrix%7D.%0A%5Cend%7Baligned%7D%0A"></p>
+</section>
+<section id="calculating-the-ntextth-derivative" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-the-ntextth-derivative">Calculating the <img src="https://latex.codecogs.com/png.latex?n%5E%5Ctext%7Bth%7D"> derivative</h3>
+<p>Now, we can calculate the derivative of <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20c_1g_1(x)%20+%20c_2g_2(x)%20%5Cin%20S">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Df(x)%20&amp;=%20%5Cfrac%7Bd%5En%7D%7Bdx%5En%7D%5Cleft(c_1g_1(x)+c_2g_2(x)%5Cright)%20=%20c_1%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_1(x)%20+%20c_2%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_2(x)%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Ccirc%20D%5Ccirc%20T%5Cleft%5Bc_1g_1(x)+c_2g_2(x)%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Ccirc%20D%5En%5Cleft%5B%5Cbegin%7Bpmatrix%7D%20c_1%20%5C%5C%20c_2%20%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Cleft%5B%5Cmathbf%7BD%7D%5En%5Cbegin%7Bpmatrix%7D%20c_1%20%5C%5C%20c_2%20%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Cleft%5B%5Cbegin%7Bpmatrix%7Dr%5En%5Ccos(n%5Ctheta)%20&amp;%20r%5En%5Csin(n%5Ctheta)%20%5C%5C%20-r%5En%5Csin(n%5Ctheta)%20&amp;%20r%5En%5Ccos(n%5Ctheta)%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7D%20c_1%20%5C%5C%20c_2%20%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20T%5E%7B-1%7D%5Cleft%5B%5Cbegin%7Bpmatrix%7Dc_1r%5En%5Ccos(n%5Ctheta)%20+%20c_2r%5En%5Csin(n%5Ctheta)%20%5C%5C%20-c_1r%5En%5Csin(n%5Ctheta)%20+%20c_2r%5En%5Ccos(n%5Ctheta)%5Cend%7Bpmatrix%7D%5Cright%5D%20=%20%5C%5C%0A&amp;=%20%5Cleft(c_1r%5En%5Ccos(n%5Ctheta)%20+%20c_2r%5En%5Csin(n%5Ctheta)%5Cright)e%5E%7Bax%7D%5Ccos(bx)%20+%20%5Cleft(-c_1r%5En%5Csin(n%5Ctheta)%20+%20c_2r%5En%5Ccos(n%5Ctheta)%5Cright)e%5E%7Bax%7D%5Csin(bx)%20=%20%5C%5C%0A&amp;=%20c_1r%5Ene%5E%7Bax%7D%5Cunderbrace%7B%5Cleft(%5Ccos(bx)%5Ccos(n%5Ctheta)-%5Csin(bx)%5Csin(n%5Ctheta)%5Cright)%7D_%7B%5Ccos(bx+n%5Ctheta)%7D+%0Ac_2r%5Ene%5E%7Bax%7D%5Cunderbrace%7B%5Cleft(%5Csin(bx)%5Ccos(n%5Ctheta)+%5Ccos(bx)%5Csin(n%5Ctheta)%5Cright)%7D_%7B%5Csin(bx+n%5Ctheta)%7D%20=%20%5C%5C%0A&amp;=%20c_1r%5Ene%5E%7Bax%7D%5Ccos(bx+n%5Ctheta)+c_2r%5Ene%5E%7Bax%7D%5Csin(bx+n%5Ctheta)%20%5CRightarrow%20%5C%5C%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_1(x)%20&amp;=%20%5Cfrac%7Bd%5En%7D%7Bdx%5En%7D%5Cleft(e%5E%7Bax%7D%5Ccos(bx)%5Cright)%20=%20r%5Ene%5E%7Bax%7D%5Ccos(bx+n%5Ctheta)%5Ctext%7B%20and%20%7D%20%5C%5C%0A%5Cfrac%7Bd%5En%7D%7Bdx%5En%7Dg_2(x)%20&amp;=%20%5Cfrac%7Bd%5En%7D%7Bdx%5En%7D%5Cleft(e%5E%7Bax%7D%5Csin(bx)%5Cright)%20=%20r%5Ene%5E%7Bax%7D%5Csin(bx+n%5Ctheta),%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>which is the same result we obtained with complex analysis approach.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Calculus</category>
+  <category>Derivative</category>
+  <category>Eigenvalues</category>
+  <category>Eigenvectors</category>
+  <guid>yevgenryeznik.github.io/personal-page/posts/20220824/two-interesting-nth-derivatives.html</guid>
+  <pubDate>Tue, 23 Aug 2022 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Pythagorean theorem day</title>
+  <dc:creator>Yevgen Ryeznik</dc:creator>
+  <link>yevgenryeznik.github.io/personal-page/posts/20200229/pythagorean-theorem-day.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="pythagoreans-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="pythagoreans-theorem">Pythagorean’s theorem</h2>
+<p>In mathematics, the Pythagorean theorem gives a relation in Euclidean geometry among the three sides of a right triangle. It states that the area of the square which side is the hypotenuse (the side opposite the right angle) is equal to the sum of the areas of the squares on the other two sides.</p>
+<p>It can be written in the form of the following equation:</p>
+<p><span id="eq-pythagorean-theorem"><img src="https://latex.codecogs.com/png.latex?%0A%20%20a%5E2+b%5E2%20=%20c%5E2.%0A%5Ctag%7B1%7D"></span></p>
+<p>Figure&nbsp;1 shows a geometrical interpretation of the Pythagorean theorem.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-geometry" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="yevgenryeznik.github.io/personal-page/posts/20200229/pythagorean-theorem-day_files/figure-html/fig-geometry-1.png" class="img-fluid figure-img" width="768"></p>
+<p></p><figcaption class="figure-caption">Figure 1: Geometry of the Pythagorean theorem</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pythagorean-theorem-day" class="level2">
+<h2 class="anchored" data-anchor-id="pythagorean-theorem-day">Pythagorean theorem day</h2>
+<p>I found a funny definition of what is a <strong><em>Pythagorean theorem day</em></strong>. It is the day on which date in the format “yy-mm-dd” satisfies the following equality:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7Byy%7D%5E2%20=%20%5Ctext%7Bmm%7D%5E2%20+%20%5Ctext%7Bdd%7D%5E2.%0A"></p>
+<p>For example, August 15, 2017 can be written as 17-08-15, and it is a Pythagorean theorem day since</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A17%5E2%20=%208%5E2%20+%2015%5E2.%0A"> I was curious how many days in the 21st century are the Pythagorean theorem days?</p>
+</section>
+<section id="r-code-to-find-the-pythagorean-theorem-days" class="level2">
+<h2 class="anchored" data-anchor-id="r-code-to-find-the-pythagorean-theorem-days"><code>R</code> code to find the Pythagorean theorem days</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(lubridate)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">pythagorean_days <span class="ot" style="color: #003B4F;">&lt;-</span> tidyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">crossing</span>(</span>
+<span id="cb1-4">  <span class="at" style="color: #657422;">yy =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">99</span>),</span>
+<span id="cb1-5">  <span class="at" style="color: #657422;">mm =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">12</span>),</span>
+<span id="cb1-6">  <span class="at" style="color: #657422;">dd =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">31</span>)</span>
+<span id="cb1-7">) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-8">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb1-9">    <span class="at" style="color: #657422;">year =</span> <span class="fu" style="color: #4758AB;">as.character</span>(<span class="dv" style="color: #AD0000;">2000</span><span class="sc" style="color: #5E5E5E;">+</span>yy),</span>
+<span id="cb1-10">    <span class="at" style="color: #657422;">month =</span> stringr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">str_pad</span>(mm, <span class="at" style="color: #657422;">width =</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">pad =</span> <span class="st" style="color: #20794D;">"0"</span>),</span>
+<span id="cb1-11">    <span class="at" style="color: #657422;">day =</span> stringr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">str_pad</span>(dd, <span class="at" style="color: #657422;">width =</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">pad =</span> <span class="st" style="color: #20794D;">"0"</span>)</span>
+<span id="cb1-12">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-13">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb1-14">    <span class="co" style="color: #5E5E5E;"># making a character representation of a date</span></span>
+<span id="cb1-15">    <span class="at" style="color: #657422;">date_txt =</span> stringr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">str_glue</span>(<span class="st" style="color: #20794D;">'{year}{month}{day}'</span>),</span>
+<span id="cb1-16">    <span class="co" style="color: #5E5E5E;"># converting character representation of a date to a Date object.</span></span>
+<span id="cb1-17">    <span class="co" style="color: #5E5E5E;"># if it is an inappropriate date, the function returns NA.</span></span>
+<span id="cb1-18">    <span class="at" style="color: #657422;">date =</span> lubridate<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">ymd</span>(</span>
+<span id="cb1-19">      date_txt, </span>
+<span id="cb1-20">      <span class="at" style="color: #657422;">quiet =</span> <span class="cn" style="color: #8f5902;">TRUE</span></span>
+<span id="cb1-21">    )</span>
+<span id="cb1-22">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-23">  <span class="co" style="color: #5E5E5E;"># removing row with inappropriate dates</span></span>
+<span id="cb1-24">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">filter</span>(<span class="sc" style="color: #5E5E5E;">!</span><span class="fu" style="color: #4758AB;">is.na</span>(date)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-25">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb1-26">    <span class="at" style="color: #657422;">is_Pythagorean =</span> (yy<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">==</span> mm<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">+</span> dd<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb1-27">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-28">  <span class="co" style="color: #5E5E5E;"># keeping only Pythagorean days</span></span>
+<span id="cb1-29">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">filter</span>(is_Pythagorean) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb1-30">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">select</span>(date)</span>
+<span id="cb1-31"></span>
+<span id="cb1-32">pythagorean_days</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 1
+   date      
+   &lt;date&gt;    
+ 1 2005-03-04
+ 2 2005-04-03
+ 3 2010-06-08
+ 4 2010-08-06
+ 5 2013-05-12
+ 6 2013-12-05
+ 7 2015-09-12
+ 8 2015-12-09
+ 9 2017-08-15
+10 2020-12-16
+11 2025-07-24
+12 2026-10-24</code></pre>
+</div>
+</div>
+<p>As we can see, only 3 such days left in the 21st century, and one will be this year on December 16, 2020.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>Pythagorean theorem</category>
+  <guid>yevgenryeznik.github.io/personal-page/posts/20200229/pythagorean-theorem-day.html</guid>
+  <pubDate>Fri, 28 Feb 2020 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Sampling from the Wischart distribution.</title>
+  <dc:creator>Yevgen Ryeznik</dc:creator>
+  <link>yevgenryeznik.github.io/personal-page/posts/20200224/sampling-from-wischart.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="wishart-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="wishart-distribution">Wishart distribution</h2>
+<p><em>The <strong>Wishart distribution</strong> is a family of probability distributions defined over <strong>symmetric</strong>, <strong>nonnegative-definite</strong> matrix-valued random variables (“random matrices”). These distributions are of great importance in the estimation of covariance matrices in multivariate statistics.</em></p>
+<p>Suppose <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BX%7D_%7Bp%5Ctimes%20n%7D%20=%20%5Cleft(%5Cboldsymbol%7BX%7D%5E%7B(1)%7D,%20%5Cldots,%20%5Cboldsymbol%7BX%7D%5E%7Bn%7D%5Cright)"> is a <img src="https://latex.codecogs.com/png.latex?p%5Ctimes%20n"> matrix, each column of which is independently drawn from a <img src="https://latex.codecogs.com/png.latex?p">-variate normal distribution with zero mean, i.e.</p>
+<p><span id="eq-multivariate-normal"><img src="https://latex.codecogs.com/png.latex?%0A%20%20%5Cboldsymbol%7BX%7D%5E%7B(j)%7D%20%5Csim%20N(0,%20%5Cboldsymbol%7BV%7D),%20%5Cquad%20j%20=%201,%20%5Cldots,%20n,%0A%5Ctag%7B1%7D"></span></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BV%7D"> is a <img src="https://latex.codecogs.com/png.latex?p%5Ctimes%20p"> covariance matrix. Then a <strong><em>random matrix-valued variable</em></strong></p>
+<p><span id="eq-rnd-matrix"><img src="https://latex.codecogs.com/png.latex?%0A%20%20%5Cboldsymbol%7BS%7D%20=%20%5Cboldsymbol%7BX%7D%5Ccdot%20%5Cboldsymbol%7BX%7D'%0A%5Ctag%7B2%7D"></span></p>
+<p>follows Wishart distribution <img src="https://latex.codecogs.com/png.latex?W_p(%5Cboldsymbol%7BV%7D,%20n)">. It has the following numerical characteristics:</p>
+<ul>
+<li><p>Expected value: <span id="eq-wishart-mean"><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BE%7D%5Cleft%5B%5Cboldsymbol%7BS%7D%5Cright%5D%20=%20n%5Cboldsymbol%7BV%7D.%0A%5Ctag%7B3%7D"></span></p></li>
+<li><p>Variance: <span id="eq-wishart-variance"><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BVar%7D%5Cleft%5B%5Cboldsymbol%7BS%7D%5Cright%5D%20=%20n%5Cleft(%5Cboldsymbol%7BV%7D%5E2%20+%20diag(%5Cboldsymbol%7BV%7D)%5Ccdot%20diag(%5Cboldsymbol%7BV%7D)'%5Cright),%20%5C:%20diag(%5Cboldsymbol%7BV%7D)%20=%20%5Cleft(%5Cboldsymbol%7BV%7D_%7B11%7D,%20%5Cldots,%20%5Cboldsymbol%7BV%7D_%7Bpp%7D%5Cright),%0A%5Ctag%7B4%7D"></span></p></li>
+</ul>
+<p>where elements of <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BV%7D%5E2"> are obtained as squares of the corresponding elements of <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BV%7D">.</p>
+<p>We are interested in sampling random matrices with the mean value equal to <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BV%7D">, i.e.</p>
+<p><span id="eq-wishart-sample"><img src="https://latex.codecogs.com/png.latex?%0A%20%20%5Cboldsymbol%7BS%7D_%7B1%7D,%20%5Cboldsymbol%7BS%7D_%7B2%7D,%20%5Cldots,%20%5Csim%20W_p(%5Cboldsymbol%7BV%7D,%201).%0A%5Ctag%7B5%7D"></span></p>
+<p>A sample-point from the distribution <img src="https://latex.codecogs.com/png.latex?W_p(%5Cboldsymbol%7BV%7D,%201)"> can be drawn by doing the following steps:</p>
+<ol type="1">
+<li><p>Sample multi-variate (<img src="https://latex.codecogs.com/png.latex?p">-variate) random variable <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BX%7D%5Csim%20N(0,%20%5Cboldsymbol%7BV%7D)">:</p>
+<ul>
+<li>make a Choletsky decomposition of <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BV%7D">, i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BV%7D%20=%20%5Cboldsymbol%7BL%7D%5Ccdot%20%5Cboldsymbol%7BL%7D'."></li>
+<li>sample multi-variate (<img src="https://latex.codecogs.com/png.latex?p">-variate) random variable <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BZ%7D%5Csim%20N(0,%20%5Cboldsymbol%7BI%7D)."></li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BX%7D%20=%20%5Cboldsymbol%7BL%7D%5Ccdot%20%5Cboldsymbol%7BZ%7D."></li>
+</ul></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BS%7D%20=%20%5Cboldsymbol%7BX%7D%5Ccdot%20%5Cboldsymbol%7BX%7D'."></p></li>
+</ol>
+</section>
+<section id="r-code-to-perform-the-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="r-code-to-perform-the-procedure">R code to perform the procedure</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># loading pipe %&gt;%</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(magrittr)</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;"># loading map_ function family</span></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;">library</span>(purrr)</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="co" style="color: #5E5E5E;"># function to sample a single observation from the Wishart distribution, </span></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;"># given parameters V, n</span></span>
+<span id="cb1-9"></span>
+<span id="cb1-10">r1wishart <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(V, <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">1</span>){</span>
+<span id="cb1-11">  p <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">nrow</span>(V)</span>
+<span id="cb1-12"></span>
+<span id="cb1-13">  <span class="co" style="color: #5E5E5E;"># Choletsky decomposition </span></span>
+<span id="cb1-14">  L <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">t</span>(<span class="fu" style="color: #4758AB;">chol</span>(V))</span>
+<span id="cb1-15">  </span>
+<span id="cb1-16">  X <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">map</span>(<span class="fu" style="color: #4758AB;">seq_len</span>(n), <span class="sc" style="color: #5E5E5E;">~</span> { </span>
+<span id="cb1-17">    Z <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">rnorm</span>(p)</span>
+<span id="cb1-18">    L<span class="sc" style="color: #5E5E5E;">%*%</span>Z</span>
+<span id="cb1-19">  }) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb1-20">  <span class="fu" style="color: #4758AB;">unlist</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb1-21">  <span class="fu" style="color: #4758AB;">matrix</span>(<span class="at" style="color: #657422;">ncol =</span> n, <span class="at" style="color: #657422;">byrow =</span> <span class="cn" style="color: #8f5902;">FALSE</span>)</span>
+<span id="cb1-22">  X<span class="sc" style="color: #5E5E5E;">%*%</span><span class="fu" style="color: #4758AB;">t</span>(X) </span>
+<span id="cb1-23">}</span>
+<span id="cb1-24"></span>
+<span id="cb1-25"><span class="co" style="color: #5E5E5E;"># function to sample nsmp observations from the Wishart distribution, </span></span>
+<span id="cb1-26"><span class="co" style="color: #5E5E5E;"># given parameters V, n</span></span>
+<span id="cb1-27"></span>
+<span id="cb1-28">sample_wishart <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(nsmp, V, <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">1</span>){</span>
+<span id="cb1-29">  <span class="fu" style="color: #4758AB;">map</span>(<span class="fu" style="color: #4758AB;">seq_len</span>(nsmp), <span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">r1wishart</span>(V, n)) </span>
+<span id="cb1-30">}</span></code></pre></div>
+</div>
+</section>
+<section id="test-example" class="level2">
+<h2 class="anchored" data-anchor-id="test-example">Test example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;"># variances</span></span>
+<span id="cb2-2">omega <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">3</span>)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;"># correlation matrix</span></span>
+<span id="cb2-5">rho <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">rbind</span>(</span>
+<span id="cb2-6">  <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="fl" style="color: #AD0000;">0.2</span>, <span class="fl" style="color: #AD0000;">0.7</span>),</span>
+<span id="cb2-7">  <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.2</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="fl" style="color: #AD0000;">0.45</span>),</span>
+<span id="cb2-8">  <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.7</span>, <span class="fl" style="color: #AD0000;">0.45</span>, <span class="dv" style="color: #AD0000;">1</span>) </span>
+<span id="cb2-9">)</span>
+<span id="cb2-10"></span>
+<span id="cb2-11"><span class="co" style="color: #5E5E5E;"># covariance matrix</span></span>
+<span id="cb2-12">V <span class="ot" style="color: #003B4F;">&lt;-</span> rho<span class="sc" style="color: #5E5E5E;">*</span><span class="fu" style="color: #4758AB;">sqrt</span>(<span class="fu" style="color: #4758AB;">cbind</span>(omega)<span class="sc" style="color: #5E5E5E;">%*%</span><span class="fu" style="color: #4758AB;">rbind</span>(omega)) </span>
+<span id="cb2-13"></span>
+<span id="cb2-14"><span class="co" style="color: #5E5E5E;"># number of sample points</span></span>
+<span id="cb2-15">nsmp <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">10000</span></span>
+<span id="cb2-16"></span>
+<span id="cb2-17"><span class="co" style="color: #5E5E5E;"># sampling</span></span>
+<span id="cb2-18">W <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sample_wishart</span>(nsmp, V)</span>
+<span id="cb2-19"></span>
+<span id="cb2-20"><span class="co" style="color: #5E5E5E;"># calculating the sample mean. We expect that it is approximately equal to V</span></span>
+<span id="cb2-21">sample_mean <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">reduce</span>(W, <span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">+</span><span class="st" style="color: #20794D;">`</span>)<span class="sc" style="color: #5E5E5E;">/</span>nsmp </span>
+<span id="cb2-22"></span>
+<span id="cb2-23"><span class="co" style="color: #5E5E5E;"># printing out the sample mean</span></span>
+<span id="cb2-24"><span class="fu" style="color: #4758AB;">print</span>(sample_mean) </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]      [,2]     [,3]
+[1,] 0.9942158 0.3034728 1.213229
+[2,] 0.3034728 2.0452006 1.148126
+[3,] 1.2132293 1.1481260 3.000992</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;"># printing out the true mean</span></span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;">print</span>(V) </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]      [,2]     [,3]
+[1,] 1.0000000 0.2828427 1.212436
+[2,] 0.2828427 2.0000000 1.102270
+[3,] 1.2124356 1.1022704 3.000000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;"># calculating the sample variance. </span></span>
+<span id="cb6-2"><span class="co" style="color: #5E5E5E;"># We expect that it is approximately equal to V^2 + diag(V)%*%t(diag(V))</span></span>
+<span id="cb6-3"></span>
+<span id="cb6-4">sample_var <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">map</span>(W, <span class="sc" style="color: #5E5E5E;">~</span> .<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;">reduce</span>(<span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">+</span><span class="st" style="color: #20794D;">`</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb6-6">  <span class="st" style="color: #20794D;">'/'</span>(nsmp) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb6-7">  <span class="st" style="color: #20794D;">'-'</span>(sample_mean<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span>) </span>
+<span id="cb6-8"></span>
+<span id="cb6-9"><span class="co" style="color: #5E5E5E;"># printing out the result</span></span>
+<span id="cb6-10"><span class="fu" style="color: #4758AB;">print</span>(<span class="fu" style="color: #4758AB;">round</span>(nsmp<span class="sc" style="color: #5E5E5E;">/</span>(nsmp<span class="dv" style="color: #AD0000;">-1</span>)<span class="sc" style="color: #5E5E5E;">*</span>sample_var, <span class="dv" style="color: #AD0000;">2</span>)) </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]  [,3]
+[1,] 1.88 2.10  4.25
+[2,] 2.10 8.10  7.21
+[3,] 4.25 7.21 17.73</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;"># printing out the true variance</span></span>
+<span id="cb8-2"><span class="fu" style="color: #4758AB;">print</span>(V<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">cbind</span>(<span class="fu" style="color: #4758AB;">diag</span>(V))<span class="sc" style="color: #5E5E5E;">%*%</span><span class="fu" style="color: #4758AB;">rbind</span>(<span class="fu" style="color: #4758AB;">diag</span>(V)))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]  [,2]   [,3]
+[1,] 2.00 2.080  4.470
+[2,] 2.08 8.000  7.215
+[3,] 4.47 7.215 18.000</code></pre>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>Statistical simulations</category>
+  <category>Wishart distribution</category>
+  <guid>yevgenryeznik.github.io/personal-page/posts/20200224/sampling-from-wischart.html</guid>
+  <pubDate>Sun, 23 Feb 2020 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>k-means clustering approach to an integral evaluation</title>
+  <dc:creator>Yevgen Ryeznik</dc:creator>
+  <link>yevgenryeznik.github.io/personal-page/posts/20190614/k-means-clustering-for-integration.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="problem-formulation" class="level2">
+<h2 class="anchored" data-anchor-id="problem-formulation">Problem formulation</h2>
+<p>Let us consider an integral</p>
+<p><span id="eq-problem"><img src="https://latex.codecogs.com/png.latex?%0A%20%20I%20=%20%5Cint%5Climits_%7B%5COmega%7D%7Bf(x)%5Cpi(x)dx%7D,%0A%5Ctag%7B1%7D"></span></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?f(x):%20%5COmega%20%5Crightarrow%20%5Cmathbb%7BR%7D%5En">, <img src="https://latex.codecogs.com/png.latex?%5Cpi(x):%20%5COmega%20%5Crightarrow%20%5Cmathbb%7BR%7D%5En"> is a probability density function, <img src="https://latex.codecogs.com/png.latex?x%20%5Cin%20%5COmega%20%5Csubseteq%20%5Cmathbb%7BR%7D%5En">.</p>
+<p>Using Monte Carlo (MC) approach, the integral can be evaluates as</p>
+<p><span id="eq-mc"><img src="https://latex.codecogs.com/png.latex?%0A%20%20I%20%5Capprox%20%5Cfrac%7B1%7D%7BN%7D%5Csum%5Climits_%7Bi%20=%201%7D%5E%7BN%7D%7Bf(x_i)%7D,%0A%5Ctag%7B2%7D"></span></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5C%7Bx_i%5C%7D_%7Bi%20=%201%7D%5E%7BN%7D"> are sample points from the distribution <img src="https://latex.codecogs.com/png.latex?%5Cpi(x)">. The lager the sample size <img src="https://latex.codecogs.com/png.latex?N">, the more accurate the approximation. However, if <img src="https://latex.codecogs.com/png.latex?N"> is sufficiently large, then the integral evaluation procedure becomes time-consuming.</p>
+</section>
+<section id="k-means-clustering-approach-to-integration" class="level2">
+<h2 class="anchored" data-anchor-id="k-means-clustering-approach-to-integration">K-means clustering approach to integration</h2>
+<p>An alternative approach can be applied, which is base on the <em>k-means clustering</em>. The algorithm is the following:</p>
+<ol type="1">
+<li>Sample <img src="https://latex.codecogs.com/png.latex?N"> points from <img src="https://latex.codecogs.com/png.latex?%5Cpi(x)"> distribution.</li>
+<li>Apply k-means clustering to the sample obtained. An output of the clustering procedure is:
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5C%7BX_j%5E%7B(0)%7D%5C%7D_%7Bj%20=%201%7D%5EK"> – clusters’ centers.</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5C%7Bw_j%5C%7D_%7Bj%20=%201%7D%5EK"> – proportions of sample points in <img src="https://latex.codecogs.com/png.latex?j%5Ctext%7Bthe%7D"> cluster.</li>
+</ul></li>
+<li>Calculate an approximated value of the integral as</li>
+</ol>
+<p><span id="eq-k-means-approach"><img src="https://latex.codecogs.com/png.latex?%0A%20%20I%20%5Capprox%20%5Csum%5Climits_%7Bj%20=%201%7D%5E%7BK%7D%7Bw_jf(X_j%5E%7B(0)%7D)%7D.%0A%5Ctag%7B3%7D"></span></p>
+</section>
+<section id="r-code-implementing-k-means-based-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="r-code-implementing-k-means-based-algorithm">R code implementing k-means-based algorithm</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># </span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;"># fcn -- function to be integrated.</span></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;">#   X -- array (N x n) of sample points from a corresponding </span></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;">#        distribution.</span></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;">#   K -- number of clusters.</span></span>
+<span id="cb1-6">integrate_kmeans <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(fcn, X, K){</span>
+<span id="cb1-7">  km <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">kmeans</span>(X,  K)         <span class="co" style="color: #5E5E5E;"># we use R function kmeans</span></span>
+<span id="cb1-8">  Xc <span class="ot" style="color: #003B4F;">&lt;-</span> km<span class="sc" style="color: #5E5E5E;">$</span>centers            <span class="co" style="color: #5E5E5E;"># centers of obtained clusters</span></span>
+<span id="cb1-9">   w <span class="ot" style="color: #003B4F;">&lt;-</span> km<span class="sc" style="color: #5E5E5E;">$</span>size<span class="sc" style="color: #5E5E5E;">/</span><span class="fu" style="color: #4758AB;">sum</span>(km<span class="sc" style="color: #5E5E5E;">$</span>size)  <span class="co" style="color: #5E5E5E;"># proportions of sample points in clusters</span></span>
+<span id="cb1-10">  </span>
+<span id="cb1-11">  F <span class="ot" style="color: #003B4F;">&lt;-</span> purrr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">map_dbl</span>(<span class="fu" style="color: #4758AB;">seq_len</span>(K), <span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">fcn</span>(Xc[., ])) </span>
+<span id="cb1-12">  I <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sum</span>(w<span class="sc" style="color: #5E5E5E;">*</span>F)</span>
+<span id="cb1-13">  </span>
+<span id="cb1-14">  <span class="fu" style="color: #4758AB;">return</span>(I)</span>
+<span id="cb1-15">}</span></code></pre></div>
+</div>
+</section>
+<section id="r-code-implementing-monte-carlo-based-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="r-code-implementing-monte-carlo-based-algorithm">R code implementing Monte Carlo-based algorithm</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;"># fcn -- function to be integrated.</span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;">#   X -- array (N x n) of sample points from a corresponding </span></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;">#        distribution.</span></span>
+<span id="cb2-4">integrate_mc <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(fcn, X){</span>
+<span id="cb2-5">  F <span class="ot" style="color: #003B4F;">&lt;-</span> purrr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">map_dbl</span>(<span class="fu" style="color: #4758AB;">seq_len</span>(K), <span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">fcn</span>(X[., ])) </span>
+<span id="cb2-6">  I <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">mean</span>(F)</span>
+<span id="cb2-7">  </span>
+<span id="cb2-8">  <span class="fu" style="color: #4758AB;">return</span>(I)</span>
+<span id="cb2-9">}</span></code></pre></div>
+</div>
+</section>
+<section id="an-example" class="level2">
+<h2 class="anchored" data-anchor-id="an-example">An Example</h2>
+<p>Let us evaluate a two-dimensional integral</p>
+<p><span id="eq-example"><img src="https://latex.codecogs.com/png.latex?%0A%20%20I%20=%20%5Ciint%5Climits_%7Bx_1%5E2%20+%20x_2%5E2%20%5Cleq%204%7De%5E%7B-%5Cfrac%7B(x_1%5E2+x_2%5E2)%7D%7B4%7D%7Ddx_1dx_2,%0A%5Ctag%7B4%7D"></span></p>
+<p>which can be rewritten as</p>
+<p><span id="eq-example-updt"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%20%20I%20&amp;=%20%5Cint%5Climits_%7B-%5Cinfty%7D%5E%5Cinfty%5Cint%5Climits_%7B-%5Cinfty%7D%5E%5Cinfty%204%5Cpi%5Cchi(x_1,%20%20%20%20%20x_2)%5Cfrac%7B1%7D%7B4%5Cpi%7De%5E%7B-%5Cfrac%7B(x_1%5E2+x_2%5E2)%7D%7B4%7D%7Ddx_1dx_2%20=%20%5C%5C%0A%20%20&amp;=%20%5Cint%5Climits_%7B-%5Cinfty%7D%5E%5Cinfty%5Cint%5Climits_%7B-%5Cinfty%7D%5E%5Cinfty%20f(x_1,%20x_2)%5Cpi(x_1,%20x_2)dx_1dx_2,%0A%5Cend%7Baligned%7D%20%20%0A%5Ctag%7B5%7D"></span></p>
+<p>where</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%20%20f(x_1,%20x_2)%20=%204%5Cpi%5Cchi(x_1,%20x_2)=%5Cleft%5C%7B%5Cbegin%7Barray%7D%7Brl%7D%204%5Cpi,%20&amp;%20x_1%5E2+x_2%5E2%20%5Cleq%204%5C%5C%200,%20&amp;%20otherwise%5Cend%7Barray%7D%5Cright.,%0A"></p>
+<p>and</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%20%20%5Cpi(x)%20=%20%5Cfrac%7B1%7D%7B4%5Cpi%7De%5E%7B-%5Cfrac%7B(x_1%5E2+x_2%5E2)%7D%7B4%7D%7D%0A"></p>
+<p>is a probability density function of a normal distribution <img src="https://latex.codecogs.com/png.latex?N%5Cleft(%5Cmu%20=%20%5Cleft(%5Cbegin%7Barray%7D%7Bcc%7D0%20%5C%5C%200%5Cend%7Barray%7D%5Cright),%20%5CSigma%20=%20%5Cleft(%5Cbegin%7Barray%7D%7Bcc%7D2%20&amp;%200%20%5C%5C%200%20&amp;%202%5Cend%7Barray%7D%5Cright)%5Cright)">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">fcn <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(x){</span>
+<span id="cb3-2">  result <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">4</span><span class="sc" style="color: #5E5E5E;">*</span>pi<span class="sc" style="color: #5E5E5E;">*</span><span class="fu" style="color: #4758AB;">ifelse</span>(x[<span class="dv" style="color: #AD0000;">1</span>]<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span><span class="sc" style="color: #5E5E5E;">+</span>x[<span class="dv" style="color: #AD0000;">2</span>]<span class="sc" style="color: #5E5E5E;">^</span><span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">&lt;=</span> <span class="dv" style="color: #AD0000;">4</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">0</span>)</span>
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;">return</span>(result)</span>
+<span id="cb3-4">}</span>
+<span id="cb3-5"></span>
+<span id="cb3-6">n <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">2</span>      <span class="co" style="color: #5E5E5E;"># number of dimensions</span></span>
+<span id="cb3-7">N <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">10000</span>  <span class="co" style="color: #5E5E5E;"># sample size from normal distribution</span></span>
+<span id="cb3-8">K <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">8</span>      <span class="co" style="color: #5E5E5E;"># number of clusters for k-means clustering</span></span>
+<span id="cb3-9"></span>
+<span id="cb3-10"><span class="co" style="color: #5E5E5E;"># sampling from N(mu, Sigma)</span></span>
+<span id="cb3-11">mu <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">0</span>)</span>
+<span id="cb3-12">Sigma <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">diag</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>))</span>
+<span id="cb3-13"></span>
+<span id="cb3-14"><span class="fu" style="color: #4758AB;">set.seed</span>(<span class="dv" style="color: #AD0000;">3141592</span>)</span>
+<span id="cb3-15">X <span class="ot" style="color: #003B4F;">&lt;-</span> MASS<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">mvrnorm</span>(N, mu, Sigma)</span>
+<span id="cb3-16"></span>
+<span id="cb3-17"><span class="co" style="color: #5E5E5E;"># integration by using MC</span></span>
+<span id="cb3-18">mc_value <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">integrate_mc</span>(fcn, X)</span>
+<span id="cb3-19"></span>
+<span id="cb3-20"><span class="co" style="color: #5E5E5E;"># integration by using k-means</span></span>
+<span id="cb3-21">kmeans_value <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">integrate_kmeans</span>(fcn, X, K)</span>
+<span id="cb3-22"></span>
+<span id="cb3-23"><span class="co" style="color: #5E5E5E;"># true value</span></span>
+<span id="cb3-24">true_value <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">4</span><span class="sc" style="color: #5E5E5E;">*</span>pi<span class="sc" style="color: #5E5E5E;">*</span>(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">-</span><span class="fu" style="color: #4758AB;">exp</span>(<span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span>))</span>
+<span id="cb3-25"></span>
+<span id="cb3-26">tibble<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">tibble</span>(</span>
+<span id="cb3-27">  true_value, mc_value, kmeans_value</span>
+<span id="cb3-28">)                    </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  true_value mc_value kmeans_value
+       &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;
+1       7.94     7.85         7.73</code></pre>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>k-means clustering</category>
+  <category>Integration</category>
+  <category>Monte Carlo</category>
+  <category>R</category>
+  <guid>yevgenryeznik.github.io/personal-page/posts/20190614/k-means-clustering-for-integration.html</guid>
+  <pubDate>Thu, 13 Jun 2019 22:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
