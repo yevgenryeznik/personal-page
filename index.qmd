@@ -17,21 +17,20 @@ about:
 ---
 
 
-## Welcome to my page!
+## Welcome!
 
 My name is **Yevgen Ryeznik**
 <br/>(*Ukrainian🇺🇦: Євген Рєзнік*).
 
-I work as a statistician at [*AstraZeneca*](https://www.astrazeneca.com) (Gothenburg, Sweden), where I provide statistical support for design and analysis of clinical trials.
+I am a statistician working in the pharma industry, providing statistical support 
+for the design and analysis of clinical trials.
 
-Before joining *AstraZeneca*, I worked at [*Uppsala University*](https://uu.se/) (Sweden), where I obtained a Ph.D. degree in Applied Mathematics and Statistics in 2019. The PhD project was a part of the the [*Center for Interdisciplinary Mathematics* (CIM)](https://www.math.uu.se/research/cim/) initialtive. 
+I have a Ph.D. degree in _applied mathematics and statistics_ obtained at at [*Uppsala University*](https://uu.se/) (Sweden) in 2019. The PhD project was a part of the the [*Center for Interdisciplinary Mathematics* (CIM)](https://www.math.uu.se/research/cim/) initiative. My supervisors were professor [*Warwick Tucker*](https://katalog.uu.se/profile/?id=XX4412) from the [*Department of Mathematics*](https://math.uu.se/) and professor [*Andrew Hooker*](https://katalog.uu.se/profile/?id=N4-631) from the [*Department of Pharmaceutical Biosciences, Pharmacometrics Research Group*](https://katalog.uu.se/organisation/?orgId=FF3:12).
 
-My supervisors were professor [*Warwick Tucker*](https://katalog.uu.se/profile/?id=XX4412) from the [*Department of Mathematics*](https://math.uu.se/) and professor [*Andrew Hooker*](https://katalog.uu.se/profile/?id=N4-631) from the [*Department of Pharmaceutical Biosciences, Pharmacometrics Research Group*](https://katalog.uu.se/organisation/?orgId=FF3:12).
+My detailed CV is available [**here**](./cv.html). 
 
-[**Here**](./cv.html), you can read my detailed CV. 
+I am interested in solving research problems in _mathematics_, _(bio)statistics_, _pharmacometrics_, and _machine learning_ as well as statistical programming and scientific computing, using `R` or `Julia` programming languages.  
 
-On this site, I [write](./blog.html) about mathematical and statistical problems and their solutions, which I have found to be interesting to me. Most of the solutions come with `R` or `Julia` code.  
-
-Also, you can find here materials for several  [courses](./teaching.html), that I teach/taught.
+Also, [here](./teaching.html) you can find information about several  [courses](./teaching.html), that I teach/taught.
 
 
