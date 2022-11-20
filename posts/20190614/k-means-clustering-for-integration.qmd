@@ -1,0 +1,148 @@
+---
+title: "k-means clustering approach to an integral evaluation"
+description: "k-means clustering approache to calculating multi-dimensional integrals as an alternative to Monte Carlo."
+date: 2019-06-14
+categories:
+  - k-means clustering
+  - Integration
+  - Monte Carlo
+  - R
+execute: 
+  warning: false
+  message: false  
+---
+
+## Problem formulation
+
+Let us consider an integral
+
+$$
+  I = \int\limits_{\Omega}{f(x)\pi(x)dx},
+$${#eq-problem} 
+
+where $f(x): \Omega \rightarrow \mathbb{R}^n$, $\pi(x): \Omega \rightarrow \mathbb{R}^n$ is a probability density function, $x \in \Omega \subseteq \mathbb{R}^n$. 
+
+Using Monte Carlo (MC) approach, the integral can be evaluates as 
+
+$$
+  I \approx \frac{1}{N}\sum\limits_{i = 1}^{N}{f(x_i)}, 
+$${#eq-mc} 
+
+where $\{x_i\}_{i = 1}^{N}$ are sample points from the distribution $\pi(x)$. The lager the sample size $N$, the more accurate the approximation. However, if $N$ is sufficiently large, then the integral evaluation procedure becomes time-consuming. 
+
+
+## K-means clustering approach to integration
+
+An alternative approach can be applied, which is base on the _k-means clustering_. The algorithm is the following:
+
+1. Sample $N$ points from $\pi(x)$ distribution.
+2. Apply k-means clustering to the sample obtained. An output of the clustering procedure is:
+    - $\{X_j^{(0)}\}_{j = 1}^K$ -- clusters' centers.
+    - $\{w_j\}_{j = 1}^K$ -- proportions of sample points in $j\text{the}$ cluster.
+3. Calculate an approximated value of the integral as 
+
+$$
+  I \approx \sum\limits_{j = 1}^{K}{w_jf(X_j^{(0)})}.
+$${#eq-k-means-approach} 
+
+## R code implementing k-means-based algorithm  
+
+```{r}
+#| label: kmeans-clustering-approach
+
+# 
+# fcn -- function to be integrated.
+#   X -- array (N x n) of sample points from a corresponding 
+#        distribution.
+#   K -- number of clusters.
+integrate_kmeans <- function(fcn, X, K){
+  km <- kmeans(X,  K)         # we use R function kmeans
+  Xc <- km$centers            # centers of obtained clusters
+   w <- km$size/sum(km$size)  # proportions of sample points in clusters
+  
+  F <- purrr::map_dbl(seq_len(K), ~ fcn(Xc[., ])) 
+  I <- sum(w*F)
+  
+  return(I)
+}
+```
+
+## R code implementing Monte Carlo-based algorithm
+
+```{r}
+#| label: monte-carlo-approach
+
+# fcn -- function to be integrated.
+#   X -- array (N x n) of sample points from a corresponding 
+#        distribution.
+integrate_mc <- function(fcn, X){
+  F <- purrr::map_dbl(seq_len(K), ~ fcn(X[., ])) 
+  I <- mean(F)
+  
+  return(I)
+}
+```
+
+
+## An Example
+
+Let us evaluate a two-dimensional integral 
+
+$$
+  I = \iint\limits_{x_1^2 + x_2^2 \leq 4}e^{-\frac{(x_1^2+x_2^2)}{4}}dx_1dx_2,
+$${#eq-example}
+
+which can be rewritten as 
+
+$$
+\begin{aligned}
+  I &= \int\limits_{-\infty}^\infty\int\limits_{-\infty}^\infty 4\pi\chi(x_1,     x_2)\frac{1}{4\pi}e^{-\frac{(x_1^2+x_2^2)}{4}}dx_1dx_2 = \\ 
+  &= \int\limits_{-\infty}^\infty\int\limits_{-\infty}^\infty f(x_1, x_2)\pi(x_1, x_2)dx_1dx_2,
+\end{aligned}  
+$${#eq-example-updt} 
+
+where 
+
+$$
+  f(x_1, x_2) = 4\pi\chi(x_1, x_2)=\left\{\begin{array}{rl} 4\pi, & x_1^2+x_2^2 \leq 4\\ 0, & otherwise\end{array}\right.,
+$$ 
+
+and 
+
+$$
+  \pi(x) = \frac{1}{4\pi}e^{-\frac{(x_1^2+x_2^2)}{4}}
+$$ 
+
+is a probability density function of a normal distribution $N\left(\mu = \left(\begin{array}{cc}0 \\ 0\end{array}\right), \Sigma = \left(\begin{array}{cc}2 & 0 \\ 0 & 2\end{array}\right)\right)$. 
+
+```{r}
+#| label: example-function
+fcn <- function(x){
+  result <- 4*pi*ifelse(x[1]^2+x[2]^2 <= 4, 1, 0)
+  return(result)
+}
+
+n <- 2      # number of dimensions
+N <- 10000  # sample size from normal distribution
+K <- 8      # number of clusters for k-means clustering
+
+# sampling from N(mu, Sigma)
+mu <- c(0, 0)
+Sigma <- diag(c(2, 2))
+
+set.seed(3141592)
+X <- MASS::mvrnorm(N, mu, Sigma)
+
+# integration by using MC
+mc_value <- integrate_mc(fcn, X)
+
+# integration by using k-means
+kmeans_value <- integrate_kmeans(fcn, X, K)
+
+# true value
+true_value <- 4*pi*(1-exp(-1))
+
+tibble::tibble(
+  true_value, mc_value, kmeans_value
+)                    
+```

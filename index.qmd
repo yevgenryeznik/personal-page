@@ -1,0 +1,37 @@
+---
+title: "Yevgen Ryeznik"
+image: /img/yevgen.jpg
+about:
+  template: trestles
+  image-width: 10em
+  image-shape: round
+  links: 
+    - text: "{{< fa brands linkedin >}}"
+      href: https://www.linkedin.com/in/yevgen-ryeznik-3975b645/
+    - text: "{{< fa brands github >}}"
+      href: https://github.com/yevgenryeznik
+    - text: "{{< fa brands orcid >}}"
+      href: https://orcid.org/0000-0003-2997-8566  
+    - text: "{{< ai google-scholar >}}"
+      href: https://scholar.google.com/citations?user=9bSyqvMAAAAJ&hl=en&oi=ao  
+---
+
+
+## Welcome to my page!
+
+My name is **Yevgen Ryeznik**
+<br/>(*Ukrainian🇺🇦: Євген Рєзнік*).
+
+I work as a statistician at [*AstraZeneca*](https://www.astrazeneca.com) (Gothenburg, Sweden), where I provide statistical support for design and analysis of clinical trials.
+
+Before joining *AstraZeneca*, I worked at [*Uppsala University*](https://uu.se/) (Sweden), where I obtained a Ph.D. degree in Applied Mathematics and Statistics in 2019. The PhD project was a part of the the [*Center for Interdisciplinary Mathematics* (CIM)](https://www.math.uu.se/research/cim/) initialtive. 
+
+My supervisors were professor [*Warwick Tucker*](https://katalog.uu.se/profile/?id=XX4412) from the [*Department of Mathematics*](https://math.uu.se/) and professor [*Andrew Hooker*](https://katalog.uu.se/profile/?id=N4-631) from the [*Department of Pharmaceutical Biosciences, Pharmacometrics Research Group*](https://katalog.uu.se/organisation/?orgId=FF3:12).
+
+[**Here**](./cv.html), you can read my detailed CV. 
+
+On this site, I [write](./blog.html) about mathematical and statistical problems and their solutions, which I have found to be interesting to me. Most of the solutions come with `R` or `Julia` code.  
+
+Also, you can find here materials for several  [courses](./teaching.html), that I teach/taught.
+
+

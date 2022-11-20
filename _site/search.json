@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Yevgen Ryeznik",
-    "section": "",
-    "text": "My name is Yevgen Ryeznik (Ukrainian🇺🇦: Євген Рєзнік).\nI work as a statistician at AstraZeneca (Gothenburg, Sweden), where I provide statistical support for design and analysis of clinical trials.\nBefore joining AstraZeneca, I worked at Uppsala University (Sweden), where I obtained a Ph.D. degree in Applied Mathematics and Statistics in 2019. The PhD project was a part of the the Center for Interdisciplinary Mathematics (CIM) initialtive.\nMy supervisors were professor Warwick Tucker from the Department of Mathematics and professor Andrew Hooker from the Department of Pharmaceutical Biosciences, Pharmacometrics Research Group.\nHere, you can read my detailed CV.\nOn this site, I write about mathematical and statistical problems and their solutions, which I have found to be interesting to me. Most of the solutions come with R or Julia code.\nAlso, you can find here materials for several courses, that I teach/taught."
-  },
-  {
     "objectID": "teaching.html",
     "href": "teaching.html",
     "title": "Teaching",
@@ -110,6 +103,13 @@
     "title": "k-means clustering approach to an integral evaluation",
     "section": "An Example",
     "text": "An Example\nLet us evaluate a two-dimensional integral\n\\[\n  I = \\iint\\limits_{x_1^2 + x_2^2 \\leq 4}e^{-\\frac{(x_1^2+x_2^2)}{4}}dx_1dx_2,\n\\tag{4}\\]\nwhich can be rewritten as\n\\[\n\\begin{aligned}\n  I &= \\int\\limits_{-\\infty}^\\infty\\int\\limits_{-\\infty}^\\infty 4\\pi\\chi(x_1,     x_2)\\frac{1}{4\\pi}e^{-\\frac{(x_1^2+x_2^2)}{4}}dx_1dx_2 = \\\\\n  &= \\int\\limits_{-\\infty}^\\infty\\int\\limits_{-\\infty}^\\infty f(x_1, x_2)\\pi(x_1, x_2)dx_1dx_2,\n\\end{aligned}  \n\\tag{5}\\]\nwhere\n\\[\n  f(x_1, x_2) = 4\\pi\\chi(x_1, x_2)=\\left\\{\\begin{array}{rl} 4\\pi, & x_1^2+x_2^2 \\leq 4\\\\ 0, & otherwise\\end{array}\\right.,\n\\]\nand\n\\[\n  \\pi(x) = \\frac{1}{4\\pi}e^{-\\frac{(x_1^2+x_2^2)}{4}}\n\\]\nis a probability density function of a normal distribution \\(N\\left(\\mu = \\left(\\begin{array}{cc}0 \\\\ 0\\end{array}\\right), \\Sigma = \\left(\\begin{array}{cc}2 & 0 \\\\ 0 & 2\\end{array}\\right)\\right)\\).\n\nfcn <- function(x){\n  result <- 4*pi*ifelse(x[1]^2+x[2]^2 <= 4, 1, 0)\n  return(result)\n}\n\nn <- 2      # number of dimensions\nN <- 10000  # sample size from normal distribution\nK <- 8      # number of clusters for k-means clustering\n\n# sampling from N(mu, Sigma)\nmu <- c(0, 0)\nSigma <- diag(c(2, 2))\n\nset.seed(3141592)\nX <- MASS::mvrnorm(N, mu, Sigma)\n\n# integration by using MC\nmc_value <- integrate_mc(fcn, X)\n\n# integration by using k-means\nkmeans_value <- integrate_kmeans(fcn, X, K)\n\n# true value\ntrue_value <- 4*pi*(1-exp(-1))\n\ntibble::tibble(\n  true_value, mc_value, kmeans_value\n)                    \n\n# A tibble: 1 × 3\n  true_value mc_value kmeans_value\n       <dbl>    <dbl>        <dbl>\n1       7.94     7.85         7.73"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Yevgen Ryeznik",
+    "section": "",
+    "text": "My name is Yevgen Ryeznik (Ukrainian🇺🇦: Євген Рєзнік).\nI work as a statistician at AstraZeneca (Gothenburg, Sweden), where I provide statistical support for design and analysis of clinical trials.\nBefore joining AstraZeneca, I worked at Uppsala University (Sweden), where I obtained a Ph.D. degree in Applied Mathematics and Statistics in 2019. The PhD project was a part of the the Center for Interdisciplinary Mathematics (CIM) initialtive.\nMy supervisors were professor Warwick Tucker from the Department of Mathematics and professor Andrew Hooker from the Department of Pharmaceutical Biosciences, Pharmacometrics Research Group.\nHere, you can read my detailed CV.\nOn this site, I write about mathematical and statistical problems and their solutions, which I have found to be interesting to me. Most of the solutions come with R or Julia code.\nAlso, you can find here materials for several courses, that I teach/taught."
   },
   {
     "objectID": "publications.html",
