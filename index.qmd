@@ -1,6 +1,6 @@
 ---
 title: "Yevgen Ryeznik"
-image: ./img/yevgen.jpg
+image: ./img/yr-photo.jpg
 about:
   template: trestles
   image-width: 10em
