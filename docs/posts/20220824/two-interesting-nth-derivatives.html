@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Yevgen Ryeznik">
+<meta name="dcterms.date" content="2022-08-24">
+<meta name="description" content="Two approaches of calculating the n^\text{th} derivatives: complex analysis and linear algebra techniques.">
+
+<title>Yevgen Ryeznik - Calculation of the \(n^\text{th}\) derivatives of \(e^{ax}\cos(bx)\) and \(e^{ax}\sin(bx)\)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Yevgen Ryeznik</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html">Publications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/yevgen-ryeznik-3975b645/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/yevgenryeznik"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0003-2997-8566"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=9bSyqvMAAAAJ&amp;hl=en&amp;oi=ao"><i class="ai ai-1x ai-google-scholar"></i></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem-formulation" id="toc-problem-formulation" class="nav-link active" data-scroll-target="#problem-formulation">Problem formulation</a></li>
+  <li><a href="#complex-analysis-approach" id="toc-complex-analysis-approach" class="nav-link" data-scroll-target="#complex-analysis-approach">Complex analysis approach</a></li>
+  <li><a href="#linear-algebra-approach" id="toc-linear-algebra-approach" class="nav-link" data-scroll-target="#linear-algebra-approach">Linear algebra approach</a>
+  <ul class="collapse">
+  <li><a href="#calculating-mathbfdn" id="toc-calculating-mathbfdn" class="nav-link" data-scroll-target="#calculating-mathbfdn">Calculating <span class="math inline">\(\mathbf{D}^n\)</span></a></li>
+  <li><a href="#calculating-the-ntextth-derivative" id="toc-calculating-the-ntextth-derivative" class="nav-link" data-scroll-target="#calculating-the-ntextth-derivative">Calculating the <span class="math inline">\(n^\text{th}\)</span> derivative</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Calculation of the <span class="math inline">\(n^\text{th}\)</span> derivatives of <span class="math inline">\(e^{ax}\cos(bx)\)</span> and <span class="math inline">\(e^{ax}\sin(bx)\)</span></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Calculus</div>
+    <div class="quarto-category">Derivative</div>
+    <div class="quarto-category">Eigenvalues</div>
+    <div class="quarto-category">Eigenvectors</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Two approaches of calculating the <span class="math inline">\(n^\text{th}\)</span> derivatives: complex analysis and linear algebra techniques.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yevgen Ryeznik </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 24, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="problem-formulation" class="level2">
+<h2 class="anchored" data-anchor-id="problem-formulation">Problem formulation</h2>
+<p>Given functions <span class="math inline">\(g_1(x) = e^{ax}\cos(bx)\)</span> and <span class="math inline">\(g_2(x) = e^{ax}\sin(bx)\)</span>, calculate <span class="math inline">\(\frac{d^n}{dx^n}g_1(x)\)</span> and <span class="math inline">\(\frac{d^n}{dx^n}g_2(x)\)</span>, <span class="math inline">\(n = 1, 2, \ldots\)</span>.</p>
+</section>
+<section id="complex-analysis-approach" class="level2">
+<h2 class="anchored" data-anchor-id="complex-analysis-approach">Complex analysis approach</h2>
+<p>Let us consider a function <span class="math inline">\(f(x) = e^{(a+ib)x}\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+f(x) &amp;= e^{ax}e^{ibx} = e^{ax}\left(\cos(bx) + i\sin(bx)\right) = \\
+&amp;= e^{ax}\cos(bx) + ie^{ax}\sin(bx) = \\
+&amp;= g_1(x) + ig_2(x) \Rightarrow \\
+\frac{d^n}{dx^n}f(x) &amp;= \frac{d^n}{dx^n}g_1(x) +i\frac{d^n}{dx^n}g_2(x) \Leftrightarrow \\ \\
+\frac{d^n}{dx^n}g_1(x) &amp;= \mathfrak{Re}\left(\frac{d^n}{dx^n}f(x)\right), \\
+\frac{d^n}{dx^n}g_2(x) &amp;= \mathfrak{Im}\left(\frac{d^n}{dx^n}f(x)\right).
+\end{aligned}
+\]</span></p>
+<p>The <span class="math inline">\(n^\text{th}\)</span> derivative of <span class="math inline">\(f(x)\)</span> is given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^n}{dx^n}f(x) &amp;= (a+ib)^ne^{(a+ib)x} = \\
+&amp;= \left[
+\begin{aligned}
+a+ib &amp;= re^{i\theta}, \text{ where} \\
+r &amp;= \sqrt{a^2+b^2} \\
+\theta &amp;= \arg(a+ib) \\
+&amp;\Downarrow \\
+(a+ib)^n &amp;= r^ne^{in\theta}
+\end{aligned}
+\right] = \\ \\
+&amp;= r^ne^{in\theta}e^{(a+ib)x} = \\
+&amp;= r^ne^{ax}\left(\cos(n\theta)+i\sin(n\theta)\right)\left(\cos(bx)+i\sin(bx)\right) = \\
+&amp;= r^ne^{ax}\left((\underbrace{\cos(bx)\cos(n\theta)-\sin(bx)\sin(n\theta)}_{\cos(bx+n\theta)}) + i(\underbrace{\sin(bx)\cos(n\theta)+\cos(bx)\sin(n\theta)}_{\sin(bx+n\theta)})\right) = \\
+&amp;= r^ne^{ax}\cos(bx + n\theta) + ir^ne^{ax}\sin(bx + n\theta) \Rightarrow \\ \\
+\frac{d^n}{dx^n}g_1(x) = \frac{d^n}{dx^n}\left(e^{ax}\cos(bx)\right) &amp;= r^ne^{ax}\cos(bx + n\theta), \\
+\frac{d^n}{dx^n}g_2(x) = \frac{d^n}{dx^n}\left(e^{ax}\sin(bx)\right) &amp;= r^ne^{ax}\sin(bx + n\theta), \\
+\text{where } r = \sqrt{a^2+b^2},\: \theta &amp;= \arg(a+ib). \\
+\end{aligned}
+\]</span></p>
+</section>
+<section id="linear-algebra-approach" class="level2">
+<h2 class="anchored" data-anchor-id="linear-algebra-approach">Linear algebra approach</h2>
+<p>There is another approach that, from my point of view, is less efficient but is quite interesting.</p>
+<p>Let us consider a set of all linear combinations of functions <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span>:</p>
+<p><span class="math display">\[
+S = \text{span}\left(g_1(x), g_2(x)\right) = \left\{f(x) = c_1g_1(x) + c_2g_2(x)|c_1, c_2 \in \mathbb{R}\right\}.
+\]</span> Then, we may consider an operator <span class="math inline">\(T: S \rightarrow \mathbb{R}^2\)</span> as</p>
+<p><span class="math display">\[
+\forall f(x)=c_1g_1(x) + c_2g_2(x) \in S,\: T\left[f(x)\right] = \begin{pmatrix}c_1 \\ c_2\end{pmatrix} \Leftrightarrow T^{-1}\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] = c_1g_1(x) + c_2g_2(x) = f(x).
+\]</span></p>
+<p>Now, let us differentiate a function <span class="math inline">\(f(x)\in S\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d}{dx}f(x) &amp;= \frac{d}{dx}\left(c_1g_1(x) + c_2g_2(x)\right) = \\
+&amp;= c_1\frac{d}{dx}g_1(x) + c_2\frac{d}{dx}g_2(x) = \\
+&amp;= c_1\frac{d}{dx}\left(e^{ax}\cos(bx)\right) + c_2\frac{d}{dx}\left(e^{ax}\sin(bx)\right) = \\
+&amp;= c_1\left(ae^{ax}\cos(bx) - be^{ax}\sin(bx)\right) + c_2\left(ae^{ax}\sin(bx) + be^{ax}\cos(bx)\right) = \\
+&amp;= \underbrace{(ac_1 + bc_2)}_{\widetilde{c}_1}e^{ax}\cos(bx) + \underbrace{(-bc_1 + ac_2)}_{\widetilde{c}_2}e^{ax}\sin(bx) = \\
+&amp;= \widetilde{c}_1e^{ax}\cos(bx) + \widetilde{c}_2e^{ax}\sin(bx) = \\
+&amp;= \widetilde{c}_1g_1(x) + \widetilde{c}_2g_2(x) \in S.
+\end{aligned}
+\]</span></p>
+<p>The latter means that differentiation operator <span class="math inline">\(\frac{d}{dx}\)</span> acts from <span class="math inline">\(S\)</span> to <span class="math inline">\(S\)</span>, <span class="math inline">\(\frac{d}{dx}: S\rightarrow S\)</span>, and can be represented as</p>
+<p><span class="math display">\[
+\frac{d}{dx} = T^{-1}\circ D\circ T, \text{ where } D\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] =
+\begin{pmatrix} a &amp; b \\ -b &amp; a\end{pmatrix}\begin{pmatrix}c_1 \\ c_2\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(\circ\)</span> operation means a <em>superposition</em> of operators.</p>
+<p>Thus, for <span class="math inline">\(f(x) = c_1g_1(x) + c_2g_2(x) \in S\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d}{dx}f(x) &amp;= T^{-1}\circ D\circ T[f(x)] = T^{-1}\circ D\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] = \\
+&amp;= T^{-1}\left[\begin{pmatrix} a &amp; b \\ -b &amp; a\end{pmatrix}\begin{pmatrix} c_1 \\ c_2\end{pmatrix}\right] = \\
+&amp;= T^{-1}\left[\begin{pmatrix} ac_1 + bc_2 \\ -bc_1 + ac_2\end{pmatrix}\right] = T^{-1}\left[\begin{pmatrix} \widetilde{c}_1\\ \widetilde{c}_2\end{pmatrix}\right] = \\
+&amp;= \widetilde{c}_1g_1(x) + \widetilde{c}_2g_2(x).
+\end{aligned}
+\]</span></p>
+<p>Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^n}{dx^n} &amp;= \underbrace{\frac{d}{dx}\circ \frac{d}{dx} \circ \ldots \circ \frac{d}{dx}}_{n\text{ times}} = \\
+&amp;= \underbrace{(T^{-1}\circ D\circ \overbrace{T) \circ (T^{-1}}^{= I}\circ D\circ T) \circ \ldots \circ (T^{-1}\circ D\circ \overbrace{T) \circ (T^{-1}}^{= I}\circ D\circ T) }_{n\text{ times}} = \left[I \text{ is an identity operator}\right] = \\
+&amp;= T^{-1}\circ \underbrace{D\circ \ldots \circ D}_{n\text{ times}}\circ T = \\
+&amp;= T^{-1}\circ D^n \circ T,
+\end{aligned}
+\]</span> where operator <span class="math inline">\(D^n\)</span> is represented by <span class="math inline">\(\mathbf{D}^n\)</span>, the <span class="math inline">\(n^\text{th}\)</span> power of matrix <span class="math inline">\(\mathbf{D} = \begin{pmatrix} a &amp; b \\ -b &amp; a \end{pmatrix}\)</span>.</p>
+<section id="calculating-mathbfdn" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-mathbfdn">Calculating <span class="math inline">\(\mathbf{D}^n\)</span></h3>
+<p>If <span class="math inline">\(\mathbf{V} = \left(\mathbf{v}_1\: \mathbf{v}_2\right)\)</span> is a matrix of <em>eigenvectors</em> of matrix <span class="math inline">\(\mathbf{D}\)</span>, and <span class="math inline">\(\mathbf{\Lambda} = \begin{pmatrix}\lambda_1 &amp; 0 \\ 0 &amp; \lambda_2 \end{pmatrix}\)</span> is a matrix of <em>eigenvalues</em> of matrix <span class="math inline">\(\mathbf{D}\)</span>, then</p>
+<p><span class="math display">\[
+\mathbf{D} = \mathbf{V}\mathbf{\Lambda}\mathbf{V}^{-1}, \text{ and } \mathbf{D}^n = \mathbf{V}\mathbf{\Lambda}^n\mathbf{V}^{-1}.
+\]</span></p>
+<p>Let us calculate <em>eigenvalues</em> <span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_2\)</span>, and <em>eigenvectors</em> <span class="math inline">\(\mathbf{v}_1\)</span>, <span class="math inline">\(\mathbf{v}_2\)</span>.</p>
+<p><span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_2\)</span> are solutions of the equation</p>
+<p><span class="math display">\[
+\det(\mathbf{D}-\lambda\mathbf{I}) = 0 \Leftrightarrow \det\begin{pmatrix}a-\lambda &amp; b \\ -b &amp; a-\lambda\end{pmatrix} = (a-\lambda)^2+b^2=0 \Leftrightarrow
+\left\{
+\begin{aligned}
+\lambda_1 &amp;= a+ib \\
+\lambda_2 &amp;= a-ib
+\end{aligned}
+\right.
+\]</span> Now, let us calculate <em>eigenvectors</em>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lambda_1 &amp;= a+ib, \: \mathbf{v}_1 = \begin{pmatrix}v_{11} \\ v_{12}\end{pmatrix}, \text{ and }\mathbf{D}\mathbf{v}_1 = \lambda_1\mathbf{v}_1 \Leftrightarrow \\
+&amp;\left.
+\begin{aligned}
+av_{11} + bv_{12} &amp;= (a+ib)v_{11} \\
+-bv_{11} + av_{12} &amp;= (a+ib)v_{12}
+\end{aligned}
+\right| \Rightarrow \mathbf{v}_1=\begin{pmatrix}1 \\ i\end{pmatrix}; \\ \\
+\lambda_2 &amp;= a-ib, \: \mathbf{v}_2 = \begin{pmatrix}v_{21} \\ v_{22}\end{pmatrix}, \text{ and }\mathbf{D}\mathbf{v}_2 = \lambda_2\mathbf{v}_2 \Leftrightarrow \\
+&amp;\left.
+\begin{aligned}
+av_{21} + bv_{22} &amp;= (a-ib)v_{21} \\
+-bv_{21} + av_{22} &amp;= (a-ib)v_{22}
+\end{aligned}
+\right| \Rightarrow \mathbf{v}_2=\begin{pmatrix}i \\ 1\end{pmatrix}. \\ \\
+\end{aligned}
+\]</span> Then,</p>
+<p><span class="math display">\[
+\mathbf{V} = \begin{pmatrix} 1 &amp; i \\ i &amp; 1\end{pmatrix}, \:
+\mathbf{\Lambda} = \begin{pmatrix} a+ib &amp; 0 \\ 0 &amp; a-ib\end{pmatrix}, \:
+\mathbf{V}^{-1} = \begin{pmatrix} 0.5 &amp; -0.5i \\ -0.5i &amp; 0.5\end{pmatrix} \Rightarrow
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{D}^n = \mathbf{V}\mathbf{\Lambda}^n\mathbf{V}^{-1} &amp;=
+\begin{pmatrix} 1 &amp; i \\ i &amp; 1\end{pmatrix}
+\begin{pmatrix} (a+ib)^n &amp; 0 \\ 0 &amp; (a-ib)^n\end{pmatrix}
+\begin{pmatrix} 0.5 &amp; -0.5i \\ -0.5i &amp; 0.5\end{pmatrix} = \\
+&amp;= \begin{pmatrix} 1 &amp; i \\ i &amp; 1\end{pmatrix}
+\begin{pmatrix} 0.5(a+ib)^n &amp; -0.5i(a+ib)^n \\ -0.5i(a-ib)^n &amp; 0.5(a-ib)^n\end{pmatrix} = \\
+&amp;= \begin{pmatrix}
+   \frac{(a+ib)^n + (a-ib)^n}{2} &amp; \frac{(a+ib)^n-(a-ib)^n}{2i} \\
+   -\frac{(a+ib)^n - (a-ib)^n}{2i}&amp; \frac{(a+ib)^n+(a-ib)^n}{2}
+\end{pmatrix} = \\
+&amp;=\left[
+\begin{aligned}
+&amp;\text{notice that for }r = \sqrt{a^2+b^2} \text{ and }\theta = \arg(a+ib),\\
+&amp;\left.\begin{aligned}
+(a+ib)^n &amp;= (re^{i\theta})^n = r^ne^{in\theta} \\
+(a-ib)^n &amp;= (re^{-i\theta})^n = r^ne^{-in\theta}
+\end{aligned}
+\right| \Rightarrow \\ \\
+&amp;\frac{(a+ib)^n + (a-ib)^n}{2} = r^n\frac{e^{in\theta}+e^{-in\theta}}{2} = r^n\cos(n\theta) \\
+&amp;\frac{(a+ib)^n - (a-ib)^n}{2i} = r^n\frac{e^{in\theta}-e^{-in\theta}}{2i} = r^n\sin(n\theta) \\
+\end{aligned}
+\right] = \\
+&amp;= \begin{pmatrix} r^n\cos(n\theta) &amp; r^n\sin(n\theta) \\ -r^n\sin(n\theta) &amp; r^n\cos(n\theta)\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+</section>
+<section id="calculating-the-ntextth-derivative" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-the-ntextth-derivative">Calculating the <span class="math inline">\(n^\text{th}\)</span> derivative</h3>
+<p>Now, we can calculate the derivative of <span class="math inline">\(f(x) = c_1g_1(x) + c_2g_2(x) \in S\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^n}{dx^n}f(x) &amp;= \frac{d^n}{dx^n}\left(c_1g_1(x)+c_2g_2(x)\right) = c_1\frac{d^n}{dx^n}g_1(x) + c_2\frac{d^n}{dx^n}g_2(x) = \\
+&amp;= T^{-1}\circ D\circ T\left[c_1g_1(x)+c_2g_2(x)\right] = \\
+&amp;= T^{-1}\circ D^n\left[\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
+&amp;= T^{-1}\left[\mathbf{D}^n\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
+&amp;= T^{-1}\left[\begin{pmatrix}r^n\cos(n\theta) &amp; r^n\sin(n\theta) \\ -r^n\sin(n\theta) &amp; r^n\cos(n\theta)\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
+&amp;= T^{-1}\left[\begin{pmatrix}c_1r^n\cos(n\theta) + c_2r^n\sin(n\theta) \\ -c_1r^n\sin(n\theta) + c_2r^n\cos(n\theta)\end{pmatrix}\right] = \\
+&amp;= \left(c_1r^n\cos(n\theta) + c_2r^n\sin(n\theta)\right)e^{ax}\cos(bx) + \left(-c_1r^n\sin(n\theta) + c_2r^n\cos(n\theta)\right)e^{ax}\sin(bx) = \\
+&amp;= c_1r^ne^{ax}\underbrace{\left(\cos(bx)\cos(n\theta)-\sin(bx)\sin(n\theta)\right)}_{\cos(bx+n\theta)}+
+c_2r^ne^{ax}\underbrace{\left(\sin(bx)\cos(n\theta)+\cos(bx)\sin(n\theta)\right)}_{\sin(bx+n\theta)} = \\
+&amp;= c_1r^ne^{ax}\cos(bx+n\theta)+c_2r^ne^{ax}\sin(bx+n\theta) \Rightarrow \\ \\
+\frac{d^n}{dx^n}g_1(x) &amp;= \frac{d^n}{dx^n}\left(e^{ax}\cos(bx)\right) = r^ne^{ax}\cos(bx+n\theta)\text{ and } \\
+\frac{d^n}{dx^n}g_2(x) &amp;= \frac{d^n}{dx^n}\left(e^{ax}\sin(bx)\right) = r^ne^{ax}\sin(bx+n\theta), \\
+\end{aligned}
+\]</span></p>
+<p>which is the same result we obtained with complex analysis approach.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">© Yevgen Ryeznik (2022)</div>
+  </div>
+</footer>
+
+
+
+</body></html>
