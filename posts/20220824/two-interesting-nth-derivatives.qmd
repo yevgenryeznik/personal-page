@@ -31,7 +31,9 @@ f(x) &= e^{ax}e^{ibx} = e^{ax}\left(\cos(bx) + i\sin(bx)\right) = \\
 \end{aligned}
 $$
 
-The $n^\text{th}$ derivative of $f(x)$ is given by
+Here, $\mathfrak{Re}(\cdot)$ and $\mathfrak{Im}(\cdot)$ are the *real* and *imaginary* parts of a complex number.
+
+Then, the $n^\text{th}$ derivative of $f(x)$ is given by
 
 $$
 \begin{aligned}
@@ -47,23 +49,24 @@ r &= \sqrt{a^2+b^2} \\
 \right] = \\ \\
 &= r^ne^{in\theta}e^{(a+ib)x} = \\
 &= r^ne^{ax}\left(\cos(n\theta)+i\sin(n\theta)\right)\left(\cos(bx)+i\sin(bx)\right) = \\
-&= r^ne^{ax}\left((\underbrace{\cos(bx)\cos(n\theta)-\sin(bx)\sin(n\theta)}_{\cos(bx+n\theta)}) + i(\underbrace{\sin(bx)\cos(n\theta)+\cos(bx)\sin(n\theta)}_{\sin(bx+n\theta)})\right) = \\
+& \begin{aligned}=r^ne^{ax}&\left((\underbrace{\cos(bx)\cos(n\theta)-\sin(bx)\sin(n\theta)}_{\cos(bx+n\theta)})\right. + \\ 
+&+i\left.(\underbrace{\sin(bx)\cos(n\theta)+\cos(bx)\sin(n\theta)}_{\sin(bx+n\theta)})\right)=\end{aligned} \\
 &= r^ne^{ax}\cos(bx + n\theta) + ir^ne^{ax}\sin(bx + n\theta) \Rightarrow \\ \\
-\frac{d^n}{dx^n}g_1(x) = \frac{d^n}{dx^n}\left(e^{ax}\cos(bx)\right) &= r^ne^{ax}\cos(bx + n\theta), \\
-\frac{d^n}{dx^n}g_2(x) = \frac{d^n}{dx^n}\left(e^{ax}\sin(bx)\right) &= r^ne^{ax}\sin(bx + n\theta), \\
-\text{where } r = \sqrt{a^2+b^2},\: \theta &= \arg(a+ib). \\
+\frac{d^n}{dx^n}g_1(x) &= \frac{d^n}{dx^n}\left(e^{ax}\cos(bx)\right) = r^ne^{ax}\cos(bx + n\theta), \\
+\frac{d^n}{dx^n}g_2(x) &= \frac{d^n}{dx^n}\left(e^{ax}\sin(bx)\right) = r^ne^{ax}\sin(bx + n\theta), \\
+\text{where } r &= \sqrt{a^2+b^2},\: \theta = \arg(a+ib). \\
 \end{aligned}
 $$
 
 ## Linear algebra approach
 
-There is another approach that, from my point of view, is less efficient but is quite interesting.
+Let us consider another approach that, from my point of view, is less efficient but is quite interesting.
 
 Let us consider a set of all linear combinations of functions $g_1(x)$ and $g_2(x)$:
 
 $$
 S = \text{span}\left(g_1(x), g_2(x)\right) = \left\{f(x) = c_1g_1(x) + c_2g_2(x)|c_1, c_2 \in \mathbb{R}\right\}.
-$$ Then, we may consider an operator $T: S \rightarrow \mathbb{R}^2$ as
+$$ Then, one may consider an operator $T: S \rightarrow \mathbb{R}^2$ such as
 
 $$
 \forall f(x)=c_1g_1(x) + c_2g_2(x) \in S,\: T\left[f(x)\right] = \begin{pmatrix}c_1 \\ c_2\end{pmatrix} \Leftrightarrow T^{-1}\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] = c_1g_1(x) + c_2g_2(x) = f(x).
@@ -83,20 +86,19 @@ $$
 \end{aligned}
 $$
 
-The latter means that differentiation operator $\frac{d}{dx}$ acts from $S$ to $S$, $\frac{d}{dx}: S\rightarrow S$, and can be represented as
+The latter means that the differentiation operator $\frac{d}{dx}$ acts from $S$ to $S$, $\frac{d}{dx}: S\rightarrow S$, and can be represented as
 
 $$
-\frac{d}{dx} = T^{-1}\circ D\circ T, \text{ where } D\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] = 
-\begin{pmatrix} a & b \\ -b & a\end{pmatrix}\begin{pmatrix}c_1 \\ c_2\end{pmatrix},
+\frac{d}{dx} = T^{-1}DT, \text{ where } D\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] = 
+\begin{pmatrix} a & b \\ -b & a\end{pmatrix}\begin{pmatrix}c_1 \\ c_2\end{pmatrix}.
 $$
-
-where $\circ$ operation means a *superposition* of operators.
 
 Thus, for $f(x) = c_1g_1(x) + c_2g_2(x) \in S$,
 
 $$
 \begin{aligned}
-\frac{d}{dx}f(x) &= T^{-1}\circ D\circ T[f(x)] = T^{-1}\circ D\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right] = \\
+\frac{d}{dx}f(x) &= \left(T^{-1}DT\right)[f(x)] = T^{-1}\left[D\left[T\left[f(x)\right]\right]\right] = \\
+&= T^{-1}\left[D\left[\begin{pmatrix}c_1 \\ c_2\end{pmatrix}\right]\right] = \\
 &= T^{-1}\left[\begin{pmatrix} a & b \\ -b & a\end{pmatrix}\begin{pmatrix} c_1 \\ c_2\end{pmatrix}\right] = \\
 &= T^{-1}\left[\begin{pmatrix} ac_1 + bc_2 \\ -bc_1 + ac_2\end{pmatrix}\right] = T^{-1}\left[\begin{pmatrix} \widetilde{c}_1\\ \widetilde{c}_2\end{pmatrix}\right] = \\
 &= \widetilde{c}_1g_1(x) + \widetilde{c}_2g_2(x).
@@ -107,12 +109,14 @@ Then,
 
 $$
 \begin{aligned}
-\frac{d^n}{dx^n} &= \underbrace{\frac{d}{dx}\circ \frac{d}{dx} \circ \ldots \circ \frac{d}{dx}}_{n\text{ times}} = \\
-&= \underbrace{(T^{-1}\circ D\circ \overbrace{T) \circ (T^{-1}}^{= I}\circ D\circ T) \circ \ldots \circ (T^{-1}\circ D\circ \overbrace{T) \circ (T^{-1}}^{= I}\circ D\circ T) }_{n\text{ times}} = \left[I \text{ is an identity operator}\right] = \\
-&= T^{-1}\circ \underbrace{D\circ \ldots \circ D}_{n\text{ times}}\circ T = \\
-&= T^{-1}\circ D^n \circ T,
+\frac{d^n}{dx^n}\left[\cdot\right] &= \underbrace{\frac{d}{dx}\frac{d}{dx}\ldots\frac{d}{dx}\left[\cdot\right]}_{n\text{ times}} = \\
+&= \underbrace{(T^{-1}D\overbrace{T)(T^{-1}}^{= I}DT)\ldots (T^{-1}D \overbrace{T)(T^{-1}}^{= I}DT) }_{n\text{ times}} = \left[I \text{ is an identity operator}\right] = \\
+&= T^{-1}\underbrace{\left(D\ldots D\right)}_{n\text{ times}}T = \\
+&= T^{-1}D^nT,
 \end{aligned}
-$$ where operator $D^n$ is represented by $\mathbf{D}^n$, the $n^\text{th}$ power of matrix $\mathbf{D} = \begin{pmatrix} a & b \\ -b & a \end{pmatrix}$.
+$$
+
+where operator $D^n$ is represented by $\mathbf{D}^n$, the $n^\text{th}$ power of matrix $\mathbf{D} = \begin{pmatrix} a & b \\ -b & a \end{pmatrix}$.
 
 ### Calculating $\mathbf{D}^n$
 
@@ -196,14 +200,15 @@ Now, we can calculate the derivative of $f(x) = c_1g_1(x) + c_2g_2(x) \in S$:
 $$
 \begin{aligned}
 \frac{d^n}{dx^n}f(x) &= \frac{d^n}{dx^n}\left(c_1g_1(x)+c_2g_2(x)\right) = c_1\frac{d^n}{dx^n}g_1(x) + c_2\frac{d^n}{dx^n}g_2(x) = \\
-&= T^{-1}\circ D\circ T\left[c_1g_1(x)+c_2g_2(x)\right] = \\
-&= T^{-1}\circ D^n\left[\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
+&= T^{-1}DT\left[c_1g_1(x)+c_2g_2(x)\right] = \\
+&= T^{-1}\left[ D^n\left[\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right]\right] = \\
 &= T^{-1}\left[\mathbf{D}^n\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
 &= T^{-1}\left[\begin{pmatrix}r^n\cos(n\theta) & r^n\sin(n\theta) \\ -r^n\sin(n\theta) & r^n\cos(n\theta)\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
-&= T^{-1}\left[\begin{pmatrix}c_1r^n\cos(n\theta) + c_2r^n\sin(n\theta) \\ -c_1r^n\sin(n\theta) + c_2r^n\cos(n\theta)\end{pmatrix}\right] = \\
-&= \left(c_1r^n\cos(n\theta) + c_2r^n\sin(n\theta)\right)e^{ax}\cos(bx) + \left(-c_1r^n\sin(n\theta) + c_2r^n\cos(n\theta)\right)e^{ax}\sin(bx) = \\
-&= c_1r^ne^{ax}\underbrace{\left(\cos(bx)\cos(n\theta)-\sin(bx)\sin(n\theta)\right)}_{\cos(bx+n\theta)}+
-c_2r^ne^{ax}\underbrace{\left(\sin(bx)\cos(n\theta)+\cos(bx)\sin(n\theta)\right)}_{\sin(bx+n\theta)} = \\
+&= T^{-1}\left[\begin{pmatrix}c_1r^n\cos(n\theta) + c_2r^n\sin(n\theta) \\ \\ -c_1r^n\sin(n\theta) + c_2r^n\cos(n\theta)\end{pmatrix}\right] = \\ \\
+&= \left(c_1r^n\cos(n\theta) + c_2r^n\sin(n\theta)\right)e^{ax}\cos(bx) + \\
+&+ \left(-c_1r^n\sin(n\theta) + c_2r^n\cos(n\theta)\right)e^{ax}\sin(bx) = \\ \\
+&= c_1r^ne^{ax}\underbrace{\left(\cos(bx)\cos(n\theta)-\sin(bx)\sin(n\theta)\right)}_{\cos(bx+n\theta)}+ \\
+&+ c_2r^ne^{ax}\underbrace{\left(\sin(bx)\cos(n\theta)+\cos(bx)\sin(n\theta)\right)}_{\sin(bx+n\theta)} = \\
 &= c_1r^ne^{ax}\cos(bx+n\theta)+c_2r^ne^{ax}\sin(bx+n\theta) \Rightarrow \\ \\
 \frac{d^n}{dx^n}g_1(x) &= \frac{d^n}{dx^n}\left(e^{ax}\cos(bx)\right) = r^ne^{ax}\cos(bx+n\theta)\text{ and } \\
 \frac{d^n}{dx^n}g_2(x) &= \frac{d^n}{dx^n}\left(e^{ax}\sin(bx)\right) = r^ne^{ax}\sin(bx+n\theta), \\
