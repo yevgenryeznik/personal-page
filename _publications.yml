@@ -47,6 +47,7 @@ peer_reviewed:
     pages: 1-24
     doi: https://doi.org/10.1186/s12874-021-01303-z
     pdf: https://bmcmedresmethodol.biomedcentral.com/track/pdf/10.1186/s12874-021-01303-z.pdf
+    github: https://github.com/yevgenryeznik/restricted-two-arm
   ryeznik2021:
     title: "Pharmacometrics meets statistics-A synergy for modern drug development."
     author:
