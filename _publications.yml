@@ -12,6 +12,22 @@ doctoral_thesis:
     url: http://uu.diva-portal.org/smash/record.jsf?pid=diva2%3A1291159&dswid=8852
     pdf: http://uu.diva-portal.org/smash/get/diva2:1291159/FULLTEXT01.pdf
 peer_reviewed:
+  fei2022:
+    title: "An overview of healthcare data analytics with applications to the COVID-19 pandemic."
+    author:
+      - Fei, Z.
+      - me
+      - Sverdlov, O.
+      - Tan, Ch. W.
+      - Wong, W. K.
+    year: 2022
+    journal: IEEE Transactions on Big Data
+    volume: 8
+    number: 6
+    pages: 1463-1480
+    url:
+    doi: https://doi.org/10.1109/TBDATA.2021.3103458
+    arxiv: https://arxiv.org/pdf/2111.14623.pdf
   sverdlov2022:
     title: "Accounting for patient engagement in randomized controlled trials evaluating digital cognitive behavioral therapies."
     author:
@@ -64,22 +80,6 @@ peer_reviewed:
     pages: 1134-1149
     doi: https://doi.org/10.1002/psp4.12696
     pdf: https://ascpt.onlinelibrary.wiley.com/doi/epdf/10.1002/psp4.12696
-  fei2021:
-    title: "An overview of healthcare data analytics with applications to the COVID-19 pandemic."
-    author:
-      - Fei, Z.
-      - me
-      - Sverdlov, O.
-      - Tan, Ch. W.
-      - Wong, W. K.
-    year: 2021
-    journal: IEEE Transactions on Big Data
-    volume:
-    number:
-    pages:
-    url:
-    doi: https://doi.org/10.1109/TBDATA.2021.3103458
-    arxiv: https://arxiv.org/pdf/2111.14623.pdf
   sverdlov2021:
     title: "Opportunity for efficiency in clinical development: An overview of adaptive clinical trial designs and innovative machine learning tools, with examples from the cardiovascular field."
     author:

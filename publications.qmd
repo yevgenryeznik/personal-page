@@ -7,127 +7,153 @@ toc-title: "Contents"
 ## Doctoral thesis
 
 ### 2019
-**Ryeznik, Y.** (2019) "Optimal adaptive designs and adaptive randomization techniques for clinical trials." _Uppsala Dissertations in Mathematics_,ISSN 1401-2049 **113**:94. <a  target="_blank" href="http://uu.diva-portal.org/smash/record.jsf?pid=diva2%3A1291159&dswid=8852"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a> <a  target="_blank" href="http://uu.diva-portal.org/smash/get/diva2:1291159/FULLTEXT01.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+**Ryeznik, Y.** (2019) "Optimal adaptive designs and adaptive randomization techniques for clinical trials." *Uppsala Dissertations in Mathematics*,ISSN 1401-2049 **113**:94. <a  target="_blank" href="http://uu.diva-portal.org/smash/record.jsf?pid=diva2%3A1291159&dswid=8852"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a> <a  target="_blank" href="http://uu.diva-portal.org/smash/get/diva2:1291159/FULLTEXT01.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ## Peer-reviewed publications
 
 ### 2022
-Sverdlov, O., **Ryeznik, Y.** (2022) "Accounting for patient engagement in randomized controlled trials evaluating digital cognitive behavioral therapies." _Applied Sciences_ **12 (10)**:4952. <a  target="_blank" href="https://doi.org/10.3390/app12104952"><button class="ref-btn doi-btn">doi</button></a>
+
+Fei, Z., **Ryeznik, Y.**, Sverdlov, O., Tan, Ch. W., Wong, W. K. (2022) "An overview of healthcare data analytics with applications to the COVID-19 pandemic." *IEEE Transactions on Big Data* **8 (6)**:1463-1480. <a  target="_blank" href="https://doi.org/10.1109/TBDATA.2021.3103458"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://arxiv.org/pdf/2111.14623.pdf"><button class="ref-btn arxiv-btn"><i class="ai ai-arxiv"></i> arxiv</button></a>
+
+Sverdlov, O., **Ryeznik, Y.** (2022) "Accounting for patient engagement in randomized controlled trials evaluating digital cognitive behavioral therapies." *Applied Sciences* **12 (10)**:4952. <a  target="_blank" href="https://doi.org/10.3390/app12104952"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2021
-Berger, V.W., Bour, L. J., Carter, K., Chipman, J. J., Everett, C. C., Heussen, N, Hewitt, C, Hilgers, R. D., Luo, Y. A., Renteria, J., **Ryeznik, Y.**, Sverdlov, O., Uschner, D. (2021) "A roadmap to using randomization in clinical trials." _BMC Medical Research Methodology_ **21 (168)**:1-24. <a  target="_blank" href="https://doi.org/10.1186/s12874-021-01303-z"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://bmcmedresmethodol.biomedcentral.com/track/pdf/10.1186/s12874-021-01303-z.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a> <a  target="_blank" href="https://github.com/yevgenryeznik/restricted-two-arm"><button class="ref-btn github-btn"><i class="fa-brands fa-github"></i> github</button></a>
 
-**Ryeznik, Y.**, Sverdlov, O.,, Svensson, E. M., Montepiedra, G., Hooker, A. C., Wong, W. K. (2021) "Pharmacometrics meets statistics-A synergy for modern drug development." _CPT: Pharmacometrics & Systems Pharmacology_ **10 (10)**:1134-1149. <a  target="_blank" href="https://doi.org/10.1002/psp4.12696"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://ascpt.onlinelibrary.wiley.com/doi/epdf/10.1002/psp4.12696"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+Berger, V.W., Bour, L. J., Carter, K., Chipman, J. J., Everett, C. C., Heussen, N, Hewitt, C, Hilgers, R. D., Luo, Y. A., Renteria, J., **Ryeznik, Y.**, Sverdlov, O., Uschner, D. (2021) "A roadmap to using randomization in clinical trials." *BMC Medical Research Methodology* **21 (168)**:1-24. <a  target="_blank" href="https://doi.org/10.1186/s12874-021-01303-z"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://bmcmedresmethodol.biomedcentral.com/track/pdf/10.1186/s12874-021-01303-z.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a> <a  target="_blank" href="https://github.com/yevgenryeznik/restricted-two-arm"><button class="ref-btn github-btn"><i class="fa-brands fa-github"></i> github</button></a>
 
-Fei, Z., **Ryeznik, Y.**, Sverdlov, O., Tan, Ch. W., Wong, W. K. (2021) "An overview of healthcare data analytics with applications to the COVID-19 pandemic." _IEEE Transactions on Big Data_ . <a  target="_blank" href="https://doi.org/10.1109/TBDATA.2021.3103458"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://arxiv.org/pdf/2111.14623.pdf"><button class="ref-btn arxiv-btn"><i class="ai ai-arxiv"></i> arxiv</button></a>
+**Ryeznik, Y.**, Sverdlov, O.,, Svensson, E. M., Montepiedra, G., Hooker, A. C., Wong, W. K. (2021) "Pharmacometrics meets statistics-A synergy for modern drug development." *CPT: Pharmacometrics & Systems Pharmacology* **10 (10)**:1134-1149. <a  target="_blank" href="https://doi.org/10.1002/psp4.12696"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://ascpt.onlinelibrary.wiley.com/doi/epdf/10.1002/psp4.12696"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
-Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2021) "Opportunity for efficiency in clinical development: An overview of adaptive clinical trial designs and innovative machine learning tools, with examples from the cardiovascular field." _Contemporary Clinical Trials_ **105**:106397. <a  target="_blank" href="https://doi.org/10.1016/j.cct.2021.106397"><button class="ref-btn doi-btn">doi</button></a>
+Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2021) "Opportunity for efficiency in clinical development: An overview of adaptive clinical trial designs and innovative machine learning tools, with examples from the cardiovascular field." *Contemporary Clinical Trials* **105**:106397. <a  target="_blank" href="https://doi.org/10.1016/j.cct.2021.106397"><button class="ref-btn doi-btn">doi</button></a>
 
-Tyzhnenko, A. G., **Ryeznik, Y.** (2021) "Practical treatment of the multicollinearity: The optimal ridge method and the modified OLS." _Problems of Economy_ **1 (47)**:155-168. <a  target="_blank" href="https:// doi.org/10.32983/2222-0712-2021-1-155-168"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.problecon.com/export_pdf/problems-of-economy-2021-1_0-pages-155_168.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+Tyzhnenko, A. G., **Ryeznik, Y.** (2021) "Practical treatment of the multicollinearity: The optimal ridge method and the modified OLS." *Problems of Economy* **1 (47)**:155-168. <a  target="_blank" href="https:// doi.org/10.32983/2222-0712-2021-1-155-168"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.problecon.com/export_pdf/problems-of-economy-2021-1_0-pages-155_168.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ### 2020
-Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2020) "On optimal designs for clinical trials: An updated review." _Journal of Statistical Theory and Practice_ **14 (10)**:1-29. <a  target="_blank" href="https://doi.org/10.1007/s42519-019-0073-4"><button class="ref-btn doi-btn">doi</button></a>
+
+Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2020) "On optimal designs for clinical trials: An updated review." *Journal of Statistical Theory and Practice* **14 (10)**:1-29. <a  target="_blank" href="https://doi.org/10.1007/s42519-019-0073-4"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2019
-Tyzhnenko, A. G., **Ryeznik, Y.** (2019) "Ordinary least squares: the adequacy of linear regression solutions under multicollinearity and without it." _Problems of Economy_ **39 (1)**:217-227. <a  target="_blank" href="https://doi.org/10.32983/2222-0712-2019-1-217-227"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.problecon.com/export_pdf/problems-of-economy-2019-1_0-pages-217_227.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
-Sverdlov, O., **Ryeznik, Y.** (2019) "Implementing unequal randomization in clinical trials with heterogeneous treatment costs." _Statistics in Medicine_ **38 (16)**:2905-2927. <a  target="_blank" href="https://doi.org/10.1002/sim.8160"><button class="ref-btn doi-btn">doi</button></a>
+Tyzhnenko, A. G., **Ryeznik, Y.** (2019) "Ordinary least squares: the adequacy of linear regression solutions under multicollinearity and without it." *Problems of Economy* **39 (1)**:217-227. <a  target="_blank" href="https://doi.org/10.32983/2222-0712-2019-1-217-227"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.problecon.com/export_pdf/problems-of-economy-2019-1_0-pages-217_227.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+Sverdlov, O., **Ryeznik, Y.** (2019) "Implementing unequal randomization in clinical trials with heterogeneous treatment costs." *Statistics in Medicine* **38 (16)**:2905-2927. <a  target="_blank" href="https://doi.org/10.1002/sim.8160"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2018
-**Ryeznik, Y.**, Sverdlov, O., Hooker, A. C. (2018) "Implementing optimal designs for dose–response studies through adaptive randomization for a small population group." _AAPS Journal_ **20 (85)**. <a  target="_blank" href="https://doi.org/10.1208/s12248-018-0242-5"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://link.springer.com/content/pdf/10.1208/s12248-018-0242-5.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
-**Ryeznik, Y.**, Sverdlov, O. (2018) "A comparative study of restricted randomization procedures for multiarm trials with equal or unequal treatment allocation ratios." _Statistics in Medicine_ **37 (21)**:3056-3077. <a  target="_blank" href="https://doi.org/10.1002/sim.7817"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://github.com/yevgenryeznik/restricted-multi-arm"><button class="ref-btn github-btn"><i class="fa-brands fa-github"></i> github</button></a>
+**Ryeznik, Y.**, Sverdlov, O., Hooker, A. C. (2018) "Implementing optimal designs for dose--response studies through adaptive randomization for a small population group." *AAPS Journal* **20 (85)**. <a  target="_blank" href="https://doi.org/10.1208/s12248-018-0242-5"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://link.springer.com/content/pdf/10.1208/s12248-018-0242-5.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
-**Ryeznik, Y.**, Sverdlov, O., Hooker, A. C. (2018) "Adaptive optimal designs for dose-finding studies with time-to-event outcomes." _AAPS Journal_ **20 (24)**. <a  target="_blank" href="https://doi.org/10.1208/s12248-017-0166-5"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://link.springer.com/content/pdf/10.1208/s12248-017-0166-5.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+**Ryeznik, Y.**, Sverdlov, O. (2018) "A comparative study of restricted randomization procedures for multiarm trials with equal or unequal treatment allocation ratios." *Statistics in Medicine* **37 (21)**:3056-3077. <a  target="_blank" href="https://doi.org/10.1002/sim.7817"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://github.com/yevgenryeznik/restricted-multi-arm"><button class="ref-btn github-btn"><i class="fa-brands fa-github"></i> github</button></a>
+
+**Ryeznik, Y.**, Sverdlov, O., Hooker, A. C. (2018) "Adaptive optimal designs for dose-finding studies with time-to-event outcomes." *AAPS Journal* **20 (24)**. <a  target="_blank" href="https://doi.org/10.1208/s12248-017-0166-5"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://link.springer.com/content/pdf/10.1208/s12248-017-0166-5.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ### 2015
-**Ryeznik, Y.**, Sverdlov, O., WOng, W. K. (2015) "RARtool: A MatLab software package for designing response-adaptive randomized clinical trials with time-to-event outcomes." _Journal of Statistical Software_ **66 (1)**. <a  target="_blank" href="https://doi.org/10.18637%2Fjss.v066.i01"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.jstatsoft.org/index.php/jss/article/view/v066i01/872"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
-Sverdlov, O., **Ryeznik, Y.**, Wu, S. (2015) "Exact Bayesian inference comparing binomial proportions, with application to proof-of-concept clinical trials." _Therapeutic Innovation & Regulatory Science_ **49 (1)**:163-174. <a  target="_blank" href="https://doi.org/10.1177/2168479014547420"><button class="ref-btn doi-btn">doi</button></a>
+**Ryeznik, Y.**, Sverdlov, O., WOng, W. K. (2015) "RARtool: A MatLab software package for designing response-adaptive randomized clinical trials with time-to-event outcomes." *Journal of Statistical Software* **66 (1)**. <a  target="_blank" href="https://doi.org/10.18637%2Fjss.v066.i01"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.jstatsoft.org/index.php/jss/article/view/v066i01/872"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+Sverdlov, O., **Ryeznik, Y.**, Wu, S. (2015) "Exact Bayesian inference comparing binomial proportions, with application to proof-of-concept clinical trials." *Therapeutic Innovation & Regulatory Science* **49 (1)**:163-174. <a  target="_blank" href="https://doi.org/10.1177/2168479014547420"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2014
+
 Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2014) "Efficient and ethical response-adaptive randomization designs for multi-arm clinical trials with Weibull time-to-event outcomes." **24 (4)**:732-754. <a  target="_blank" href="https://doi.org/10.1080/10543406.2014.903261"><button class="ref-btn doi-btn">doi</button></a>
 
-Sverdlov, O., Wong, W. K., **Ryeznik, Y.** (2014) "Adaptive clinical trial designs for phase I cancer studies." _Statistics Surveys_ **8**:2-44. <a  target="_blank" href="https://doi.org/10.1214/14-SS106"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F14-SS106"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+Sverdlov, O., Wong, W. K., **Ryeznik, Y.** (2014) "Adaptive clinical trial designs for phase I cancer studies." *Statistics Surveys* **8**:2-44. <a  target="_blank" href="https://doi.org/10.1214/14-SS106"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F14-SS106"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ### 2013
-Sverdlov, O., Rosenberger, W. F., **Ryeznik, Y.** (2013) "Utility of covariate-adjusted response-adaptive randomization in survival trials." _Statistics in Biopharmaceutical Research_ **5 (1)**:38-53. <a  target="_blank" href="https://doi.org/10.1080/19466315.2012.754376"><button class="ref-btn doi-btn">doi</button></a>
+
+Sverdlov, O., Rosenberger, W. F., **Ryeznik, Y.** (2013) "Utility of covariate-adjusted response-adaptive randomization in survival trials." *Statistics in Biopharmaceutical Research* **5 (1)**:38-53. <a  target="_blank" href="https://doi.org/10.1080/19466315.2012.754376"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2012
-Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2012) "Doubly-adaptive biased coin designs for balancing competing objectives in time-to-event trials." _Statistics and Its Interface_ **5 (1)**:401-413. <a  target="_blank" href="https://doi.org/10.4310/SII.2012.v5.n4.a3"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.intlpress.com/site/pub/files/_fulltext/journals/sii/2012/0005/0004/SII-2012-0005-0004-a003.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2012) "Doubly-adaptive biased coin designs for balancing competing objectives in time-to-event trials." *Statistics and Its Interface* **5 (1)**:401-413. <a  target="_blank" href="https://doi.org/10.4310/SII.2012.v5.n4.a3"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.intlpress.com/site/pub/files/_fulltext/journals/sii/2012/0005/0004/SII-2012-0005-0004-a003.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ### 2010
-Tyzhnenko, A. G., **Ryeznik, Y.** (2010) "Peculiarities of electromagnetic wave scattering from water surface causing an anomalous effect." _Telecommunications and Radio Engineering_ **69 (6)**:531-536. <a  target="_blank" href="https://doi.org/10.1615/TelecomRadEng.v69.i6.70"><button class="ref-btn doi-btn">doi</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2010) "Peculiarities of electromagnetic wave scattering from water surface causing an anomalous effect." *Telecommunications and Radio Engineering* **69 (6)**:531-536. <a  target="_blank" href="https://doi.org/10.1615/TelecomRadEng.v69.i6.70"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2008
-**Ryeznik, Y.**, Sukharevsky, O. I., Tyzhnenko, A. G. (2008) "Detection of the scatterer's form and size with multyfrequency radiolocation." _The Bulletin of Kharkiv National University_ **834 (13)**:31-36 (in Russian). 
 
-Tyzhnenko, A. G., **Ryeznik, Y.** (2008) "Potentially unbreakable ciphering on a hybrid physical-mathematical level." _The Bulletin of Kharkiv National University_ **834 (13)**:108-114. <a  target="_blank" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.557.2690&rep=rep1&type=pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+**Ryeznik, Y.**, Sukharevsky, O. I., Tyzhnenko, A. G. (2008) "Detection of the scatterer's form and size with multyfrequency radiolocation." *The Bulletin of Kharkiv National University* **834 (13)**:31-36 (in Russian).
 
-Tyzhnenko, A. G., **Ryeznik, Y.** (2008) "Identification and localization of reflected pulses under strong noise." _The Bulletin of Kharkiv National University_ **806 (12)**:70-75 (in Russian). 
+Tyzhnenko, A. G., **Ryeznik, Y.** (2008) "Potentially unbreakable ciphering on a hybrid physical-mathematical level." *The Bulletin of Kharkiv National University* **834 (13)**:108-114. <a  target="_blank" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.557.2690&rep=rep1&type=pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2008) "Identification and localization of reflected pulses under strong noise." *The Bulletin of Kharkiv National University* **806 (12)**:70-75 (in Russian).
 
 ### 2007
-Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Scattering from sea surface leading spike effect." _Raditechnics_ **149**:27-31 (in Russian). 
 
-Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Estimation of accuracy of scattering field for 2D screens calculated with Method of Moments (MoM) in $L_2$" _The Bulletin of Kharkiv National University_ **756**:65-70 (in Russian). 
+Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Scattering from sea surface leading spike effect." *Raditechnics* **149**:27-31 (in Russian).
 
-Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Estimates of accuracy and efficiency of a MoM algorithm in $L_2$ for 2-D screens" _Progress in Electromagnetics Research_ **71**:295-316. <a  target="_blank" href="https://doi.org/10.2528/PIER07030603"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="http://www.jpier.org/PIER/pier71/17.07030603.Tyzhnenko.R.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Estimation of accuracy of scattering field for 2D screens calculated with Method of Moments (MoM) in $L_2$" *The Bulletin of Kharkiv National University* **756**:65-70 (in Russian).
 
-Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Galerkin method solution as a reference solution for MoM algorithms in $L_2$ for $E$-screens." _Journal of Applied Elecromagnetism_ **9 (1)**:27-44. <a  target="_blank" href="http://jae.ece.ntua.gr/archive/"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
+Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Estimates of accuracy and efficiency of a MoM algorithm in $L_2$ for 2-D screens" *Progress in Electromagnetics Research* **71**:295-316. <a  target="_blank" href="https://doi.org/10.2528/PIER07030603"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="http://www.jpier.org/PIER/pier71/17.07030603.Tyzhnenko.R.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Galerkin method solution as a reference solution for MoM algorithms in $L_2$ for $E$-screens." *Journal of Applied Elecromagnetism* **9 (1)**:27-44. <a  target="_blank" href="http://jae.ece.ntua.gr/archive/"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
 ### 2005
-Tyzhnenko, A. G., **Ryeznik, Y.** (2005) "Convergent Galerkin MoM solution for 2-D $H$-scattering from screens." _Electromagnetics_ **25 (4)**:329-341. <a  target="_blank" href="https://doi.org/10.1080/02726340590936176"><button class="ref-btn doi-btn">doi</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2005) "Convergent Galerkin MoM solution for 2-D $H$-scattering from screens." *Electromagnetics* **25 (4)**:329-341. <a  target="_blank" href="https://doi.org/10.1080/02726340590936176"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2004
-Tyzhnenko, A. G., **Ryeznik, Y.** (2004) "Convergent Galerkin MoM solution to the hypersingular $1^\text{st}$ kind integral equation for 2-D Neumann problem." _Journal of Applied Elecromagnetism_ **6 (2)**:37-51. <a  target="_blank" href="http://jae.ece.ntua.gr/archive/"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2004) "Convergent Galerkin MoM solution to the hypersingular $1^\text{st}$ kind integral equation for 2-D Neumann problem." *Journal of Applied Elecromagnetism* **6 (2)**:37-51. <a  target="_blank" href="http://jae.ece.ntua.gr/archive/"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
 ## Books, book chapters, and tutorials
 
 ### 2022
-Sverdlov, O., **Ryeznik, Y.**, Leonov, S., Fedorov, V. (2022) "Statistical approaches in the development of digital therapeutics" in _Digital Therapeutics: Strategic, Scientific, Developmental, and Regulatory Aspects_, chapter 6, Chapman and Hall/CRC. <a  target="_blank" href="https://www.taylorfrancis.com/books/edit/10.1201/9781003017288/digital-therapeutics-oleksandr-sverdlov-joris-van-dam"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
-Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2022) "Imbalanced randomization (rationales for)." in _Wiley StatsRef: Statistics Reference Online_, Wiley Online Library. <a  target="_blank" href="https://doi.org/10.1002/9781118445112.stat08345"><button class="ref-btn doi-btn">doi</button></a>
+Sverdlov, O., **Ryeznik, Y.**, Leonov, S., Fedorov, V. (2022) "Statistical approaches in the development of digital therapeutics" in *Digital Therapeutics: Strategic, Scientific, Developmental, and Regulatory Aspects*, chapter 6, Chapman and Hall/CRC. <a  target="_blank" href="https://www.taylorfrancis.com/books/edit/10.1201/9781003017288/digital-therapeutics-oleksandr-sverdlov-joris-van-dam"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
+
+Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2022) "Imbalanced randomization (rationales for)." in *Wiley StatsRef: Statistics Reference Online*, Wiley Online Library. <a  target="_blank" href="https://doi.org/10.1002/9781118445112.stat08345"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2021
-Sverdlov, O., **Ryeznik, Y.** (2021) "Randomization, stratification, and outcome-adaptive allocation" in _Handbook of Statistical Methods for Randomized Clinical Trials_, chapter 11: 215-242, Chapman and Hall/CRC. <a  target="_blank" href="https://doi.org/10.1201/9781315119694"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781315119694-11/randomization-stratification-outcome-adaptive-allocation-oleksandr-sverdlov-yevgen-ryeznik?context=ubx&refId=41496c7c-cc8f-4536-9fc2-cddcbcdb7abd"><button class="ref-btn abstract-btn">abstract</button></a>
+
+Sverdlov, O., **Ryeznik, Y.** (2021) "Randomization, stratification, and outcome-adaptive allocation" in *Handbook of Statistical Methods for Randomized Clinical Trials*, chapter 11: 215-242, Chapman and Hall/CRC. <a  target="_blank" href="https://doi.org/10.1201/9781315119694"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781315119694-11/randomization-stratification-outcome-adaptive-allocation-oleksandr-sverdlov-yevgen-ryeznik?context=ubx&refId=41496c7c-cc8f-4536-9fc2-cddcbcdb7abd"><button class="ref-btn abstract-btn">abstract</button></a>
 
 ### 2018
-Kryvokhyzha, D., **Ryeznik, Y.** (2018) "Hail tutorial in Scala for population genomics ETL" in _SDS-2.2, Scalable Data Science._, GitBook. <a  target="_blank" href="https://lamastex.gitbooks.io/sds-2-2/content/sds-2-2/999_05_StudentProject_HailScalaGenomicsETLTutorial.html"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
+
+Kryvokhyzha, D., **Ryeznik, Y.** (2018) "Hail tutorial in Scala for population genomics ETL" in *SDS-2.2, Scalable Data Science.*, GitBook. <a  target="_blank" href="https://lamastex.gitbooks.io/sds-2-2/content/sds-2-2/999_05_StudentProject_HailScalaGenomicsETLTutorial.html"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
 ## Conference presentations
 
 ### 2018
-"Computation of the geometric mean and variance of the AUC using polynomial chaos." (with A. C. Hooker). _PAGE Meeting_: Montreux, Switzerland, May 29-June 1, 2018. <a  target="_blank" href="https://www.page-meeting.org/default.asp?abstract=8730"><button class="ref-btn abstract-btn">abstract</button></a>
 
-"Treatment allocation adaptive randomization methods in clinical trials with few individuals may influence model parameter estimation." (with O. Sverdlov and A. C. Hooker). _PAGE Meeting_: Montreux, Switzerland, May 29-June 1, 2018. <a  target="_blank" href="https://www.page-meeting.org/?abstract=8714"><button class="ref-btn abstract-btn">abstract</button></a> <a  target="_blank" href="https://www.page-meeting.org/pdf_assets/9931-YR-PAGE-2018-randomization.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+"Computation of the geometric mean and variance of the AUC using polynomial chaos." (with A. C. Hooker). *PAGE Meeting*: Montreux, Switzerland, May 29-June 1, 2018. <a  target="_blank" href="https://www.page-meeting.org/default.asp?abstract=8730"><button class="ref-btn abstract-btn">abstract</button></a>
 
-"Implementing optimal designs for dose-response studies through adaptive randomization for a small population group." (with O. Sverdlov and A. C. Hooker). _Design of Experiments: New Challenges_: Marseille, France, April 30-May 4, 2018. <a  target="_blank" href="https://conferences.cirm-math.fr/1762.html"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
+"Treatment allocation adaptive randomization methods in clinical trials with few individuals may influence model parameter estimation." (with O. Sverdlov and A. C. Hooker). *PAGE Meeting*: Montreux, Switzerland, May 29-June 1, 2018. <a  target="_blank" href="https://www.page-meeting.org/?abstract=8714"><button class="ref-btn abstract-btn">abstract</button></a> <a  target="_blank" href="https://www.page-meeting.org/pdf_assets/9931-YR-PAGE-2018-randomization.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+"Implementing optimal designs for dose-response studies through adaptive randomization for a small population group." (with O. Sverdlov and A. C. Hooker). *Design of Experiments: New Challenges*: Marseille, France, April 30-May 4, 2018. <a  target="_blank" href="https://conferences.cirm-math.fr/1762.html"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
 ### 2016
-"Adaptive dose finding for time-to-event outcomes with adaptive choice of patient number based on response rate." (with O. Sverdlov and A. C. Hooker). _PAGE Meeting_: Lisboa, Portugal, June 7-10, 2016. <a  target="_blank" href="https://www.page-meeting.org/pdf_assets/5629-%5B07-JUNE-2016%5D%20PAGE2016_Main.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
-"Adaptive optimal designs for dose-finding studies with time-to-event outcomes on continuous dose space." (with O. Sverdlov and A. C. Hooker). _SIAM Conference on Uncertainty Quantification_: Lausanne, Switzerland, April 5-8, 2016. <a  target="_blank" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=75159"><button class="ref-btn abstract-btn">abstract</button></a>
+"Adaptive dose finding for time-to-event outcomes with adaptive choice of patient number based on response rate." (with O. Sverdlov and A. C. Hooker). *PAGE Meeting*: Lisboa, Portugal, June 7-10, 2016. <a  target="_blank" href="https://www.page-meeting.org/pdf_assets/5629-%5B07-JUNE-2016%5D%20PAGE2016_Main.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+"Adaptive optimal designs for dose-finding studies with time-to-event outcomes on continuous dose space." (with O. Sverdlov and A. C. Hooker). *SIAM Conference on Uncertainty Quantification*: Lausanne, Switzerland, April 5-8, 2016. <a  target="_blank" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=75159"><button class="ref-btn abstract-btn">abstract</button></a>
 
 ### 2015
-"Adaptive designs for dose finding clinical trials with time-to-event outcomes." (with O. Sverdlov and A. C. Hooker). _PAGE Meeting_: Hersonissos, Crete, Greece, June 2-5, 2015. <a  target="_blank" href="https://www.page-meeting.org/pdf_assets/3298-YR_PAGE_2015_Poster_Final.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+"Adaptive designs for dose finding clinical trials with time-to-event outcomes." (with O. Sverdlov and A. C. Hooker). *PAGE Meeting*: Hersonissos, Crete, Greece, June 2-5, 2015. <a  target="_blank" href="https://www.page-meeting.org/pdf_assets/3298-YR_PAGE_2015_Poster_Final.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ### 2012
-"Development of software for simulation and implementation of response-adaptive time-to-event trials." (with O. Sverdlov and W. K. Wong). _Joint Statistical Meetings (JSM)_: San Diego CA, USA, July 28-August 2, 2012. <a  target="_blank" href="https://ww2.amstat.org/meetings/jsm/2012/onlineprogram/AbstractDetails.cfm?abstractid=304097"><button class="ref-btn abstract-btn">abstract</button></a>
+
+"Development of software for simulation and implementation of response-adaptive time-to-event trials." (with O. Sverdlov and W. K. Wong). *Joint Statistical Meetings (JSM)*: San Diego CA, USA, July 28-August 2, 2012. <a  target="_blank" href="https://ww2.amstat.org/meetings/jsm/2012/onlineprogram/AbstractDetails.cfm?abstractid=304097"><button class="ref-btn abstract-btn">abstract</button></a>
 
 ### 2011
-"Efficient and ethical adaptive randomization designs for multi-armed clinical trials with Weibull time-to-event outcomes." (with O. Sverdlov and W. K. Wong). _The 20th Applied Statistics Symposium, International Chinese Statistical Association (ICSA)_: New York, USA, June 26-29, 2011. <a  target="_blank" href="https://www.icsa.org/2011/online_files/abstractsBook.pdf"><button class="ref-btn abstract-btn">abstract</button></a>
+
+"Efficient and ethical adaptive randomization designs for multi-armed clinical trials with Weibull time-to-event outcomes." (with O. Sverdlov and W. K. Wong). *The 20th Applied Statistics Symposium, International Chinese Statistical Association (ICSA)*: New York, USA, June 26-29, 2011. <a  target="_blank" href="https://www.icsa.org/2011/online_files/abstractsBook.pdf"><button class="ref-btn abstract-btn">abstract</button></a>
 
 ### 2010
-"Covariate-adjusted response-adaptive randomization designs for phase III survival trials." (with O. Sverdlov). _XVII Biostatistics Applied Symposium (BASS)_: Hilton Head, SC, USA, 2010. <a  target="_blank" href="https://www.bassconference.org/tutorials/BASS%202010%20Sverdlov.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
+"Covariate-adjusted response-adaptive randomization designs for phase III survival trials." (with O. Sverdlov). *XVII Biostatistics Applied Symposium (BASS)*: Hilton Head, SC, USA, 2010. <a  target="_blank" href="https://www.bassconference.org/tutorials/BASS%202010%20Sverdlov.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
 
 ## Conference proceedings
 
 ### 2007
-Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Scattering amplitude error analysis for the MoM schemes in $L_2$ commonly used for solving a 2-D scattering from screens." _The Sixth International Kharkov Symposium on Millimeter and Submillimeter Waves, MSMW-07_: 319-321. Kharkiv, Ukraine. <a  target="_blank" href="https://doi.org/10.1109/MSMW.2007.4294648"><button class="ref-btn doi-btn">doi</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2007) "Scattering amplitude error analysis for the MoM schemes in $L_2$ commonly used for solving a 2-D scattering from screens." *The Sixth International Kharkov Symposium on Millimeter and Submillimeter Waves, MSMW-07*: 319-321. Kharkiv, Ukraine. <a  target="_blank" href="https://doi.org/10.1109/MSMW.2007.4294648"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2006
-Tyzhnenko, A. G., **Ryeznik, Y.** (2006) "A new insight into a possible spike mechanism." _International Conference on Mathematical Methods in Electromagnetics Theory, MMET-06_: 170-172. Kharkiv, Ukraine. <a  target="_blank" href="https://doi.org/10.1109/MMET.2006.1689734"><button class="ref-btn doi-btn">doi</button></a>
+
+Tyzhnenko, A. G., **Ryeznik, Y.** (2006) "A new insight into a possible spike mechanism." *International Conference on Mathematical Methods in Electromagnetics Theory, MMET-06*: 170-172. Kharkiv, Ukraine. <a  target="_blank" href="https://doi.org/10.1109/MMET.2006.1689734"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2005
-Tyzhnenko, A. G., **Ryeznik, Y.** (2005) "A unique solution for $H$-scattering from 2-D roughness on a PEC plane." _18th International Conference on Applied Electromagnetic, ICECom-05_: 1-4. Dubrovnik, Croatia. <a  target="_blank" href="https://doi.org/10.1109/ICECOM.2005.205032"><button class="ref-btn doi-btn">doi</button></a>
 
+Tyzhnenko, A. G., **Ryeznik, Y.** (2005) "A unique solution for $H$-scattering from 2-D roughness on a PEC plane." *18th International Conference on Applied Electromagnetic, ICECom-05*: 1-4. Dubrovnik, Croatia. <a  target="_blank" href="https://doi.org/10.1109/ICECOM.2005.205032"><button class="ref-btn doi-btn">doi</button></a>
