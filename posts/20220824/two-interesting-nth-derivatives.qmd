@@ -200,7 +200,7 @@ Now, we can calculate the derivative of $f(x) = c_1g_1(x) + c_2g_2(x) \in S$:
 $$
 \begin{aligned}
 \frac{d^n}{dx^n}f(x) &= \frac{d^n}{dx^n}\left(c_1g_1(x)+c_2g_2(x)\right) = c_1\frac{d^n}{dx^n}g_1(x) + c_2\frac{d^n}{dx^n}g_2(x) = \\
-&= T^{-1}DT\left[c_1g_1(x)+c_2g_2(x)\right] = \\
+&= T^{-1}D^nT\left[c_1g_1(x)+c_2g_2(x)\right] = \\
 &= T^{-1}\left[ D^n\left[\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right]\right] = \\
 &= T^{-1}\left[\mathbf{D}^n\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
 &= T^{-1}\left[\begin{pmatrix}r^n\cos(n\theta) & r^n\sin(n\theta) \\ -r^n\sin(n\theta) & r^n\cos(n\theta)\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}\right] = \\
