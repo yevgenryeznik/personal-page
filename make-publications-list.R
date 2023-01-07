@@ -194,7 +194,7 @@ publications_qmd <- c()
 
 qmd_header <- c(
   '---',
-  'title: "Publications (2004-2022)"',
+  'title: "Publications (2004-2023)"',
   'toc-location: left',
   'toc-title: "Contents"',
   '---',
