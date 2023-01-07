@@ -25,7 +25,7 @@ website:
         text: "{{< fa brands orcid >}}"
       - href: https://scholar.google.com/citations?user=9bSyqvMAAAAJ&hl=en&oi=ao
         text: "{{< ai google-scholar >}}"
-  page-footer: "&copy; Yevgen Ryeznik (2022)"
+  page-footer: "&copy; Yevgen Ryeznik (2023)"
 format:
   html:
     theme: theme.scss
