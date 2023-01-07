@@ -48,7 +48,7 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ::: grid
 ::: g-col-4
-![](./logo/janssen.png){width="20%"} **Jan. 2023 -- present**<br/> {{< fa location-dot >}} *Gothenburg, Sweden*
+![](./logo/janssen.png){width="19%"} **Jan. 2023 -- present**<br/> {{< fa location-dot >}} *Gothenburg, Sweden*
 :::
 
 ::: g-col-8
