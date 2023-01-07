@@ -4,248 +4,202 @@ toc-location: left
 toc-title: "Yevgen Ryeznik, Ph.D."
 ---
 
-## {{< fa address-card >}} About 
+## {{< fa address-card >}} About
 
-_Mathematician/statistician_ with a strong interest in applications of mathematical and statistical methods (optimization, numerical methods, Monte Carlo simulations) to research problems in (bio)statistics, pharmacometrics, econometrics, machine learning, data science. 
+*Mathematician/statistician* with a strong interest in applications of mathematical and statistical methods (optimization, numerical methods, Monte Carlo simulations) to research problems in (bio)statistics, pharmacometrics, econometrics, machine learning, data science.
 
-15+ years of research experience in mathematical physics and biostatistics which is summarized by 25+ scientific [publications](./publications.html) in mathematical and statistical journals. 
+15+ years of research experience in mathematical physics and biostatistics which is summarized by 25+ scientific [publications](./publications.html) in mathematical and statistical journals.
 
-Personal web page:  <https://yevgenryeznik.github.io/personal-page>
-
+Personal web page: <https://yevgenryeznik.github.io/personal-page>
 
 ## {{< fa graduation-cap >}} Education
 
-::: {.grid}
-
-::: {.g-col-4}
-
-![](./logo/uu-logo.jpg){width=13%} **Sep. 2014 -- Apr. 2019**<br/> 
-{{< fa location-dot >}} _Uppsala, Sweden_  
-
+::: grid
+::: g-col-4
+![](./logo/uu-logo.jpg){width="13%"} **Sep. 2014 -- Apr. 2019**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **Uppsala University, Department of Mathematics**
 
-_**Ph.D. in Applied Mathematics and Statistics**_
-  
+***Ph.D. in Applied Mathematics and Statistics***
+
 Thesis: "Optimal adaptive designs and adaptive randomization techniques for clinical trials."
 
-Courses taken: Applied Mathematics, Analysis of Time Series, Uncertainty Quantification, Computational Python, Validated Numerics, Foundation of Machine Learning, Advanced Statistical Computing, Computer-Intensive Statistics, Introduction to Data Science, Foundation of Data Science. 
-
+Courses taken: Applied Mathematics, Analysis of Time Series, Uncertainty Quantification, Computational Python, Validated Numerics, Foundation of Machine Learning, Advanced Statistical Computing, Computer-Intensive Statistics, Introduction to Data Science, Foundation of Data Science.
 :::
 
-::: {.g-col-4}
-
-![](./logo/karazin.jpg){width=13%} **Sep. 1996 -- Jun. 2001**<br/>
-{{< fa location-dot >}} _Kharkiv, Ukraine_    
-
+::: g-col-4
+![](./logo/karazin.jpg){width="13%"} **Sep. 1996 -- Jun. 2001**<br/> {{< fa location-dot >}} *Kharkiv, Ukraine*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **Kharkiv National University, Department of Mechanics and Mathematics**
 
-_**Specialist/M.Sc. in Applied Mathematics**_
+***Specialist/M.Sc. in Applied Mathematics***
 
-Thesis: “Numerical analysis of a plane monochromatic wave scattering from a parabolic cylinder with a circular reflector.”
+Thesis: "Numerical analysis of a plane monochromatic wave scattering from a parabolic cylinder with a circular reflector."
 
 Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Differential Geometry, Linear and Abstract Algebra, Ordinary and Partial Differential Equations, Discrete Mathematics, Optimization, Probability, Mathematical Statistics, Random Processes, Game Theory, Numerical Analysis, Generalized Functions, Special Functions, Sobolev Spaces, Operator Theory, Diffraction Theory, Mechanics, Mathematical Physics.
-
 :::
-
-
 :::
-
 
 ## {{< fa briefcase >}} Work Experience
 
-::: {.grid}
-
-::: {.g-col-4}
-
-![](./logo/az.jpeg){width=13%} **Jun. 2020 -- present**<br/>
-{{< fa location-dot >}} _Gothenburg, Sweden_  
-  
+::: grid
+::: g-col-4
+![](./logo/janssen.png){width="20%"} **Jan. 2023 -- present**<br/> {{< fa location-dot >}} *Gothenburg, Sweden*
 :::
 
-::: {.g-col-8}
+::: g-col-8
+**The Janssen Pharmaceutical Companies of Johnson & Johnson, Statistical Modeling and Methodology**
 
+***Principal Statistician***
+
+:::
+
+::: g-col-4
+![](./logo/az.jpeg){width="13%"} **Jun. 2020 -- Dec. 2022**<br/> {{< fa location-dot >}} *Gothenburg, Sweden*
+:::
+
+::: g-col-8
 **AstraZeneca, Early Biometrics and Statistical Innovations**
 
-_**Senior Statistician**_
+***Senior Statistician***
 
-- Statistical support for desing and analysis of clinical trials.
-- Research on innovative statistical, pharmacometrics, and machine learning methods to improve clinical trials' efficiency.
-
+-   Statistical support for design and analysis of clinical trials.
+-   Research on innovative statistical, pharmacometrics, and machine learning methods to improve clinical trials' efficiency.
 :::
 
-::: {.g-col-4}
-
-![](./logo/uu-logo.jpg){width=13%} **Sep. 2019 -- May 2020**<br/> 
-{{< fa location-dot >}} _Uppsala, Sweden_  
-
+::: g-col-4
+![](./logo/uu-logo.jpg){width="13%"} **Sep. 2019 -- May 2020**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **Uppsala University, Department of Pharmaceutical Biosciences**
 
-_**Researcher in Pharmacometrics**_
-  
-- Working on the FDA project "_Evaluation and development of model-based bioequivalence analysis strategies_."
-- Developing `R` package to perform the analysis.
-     
+***Researcher in Pharmacometrics***
+
+-   Working on the FDA project "*Evaluation and development of model-based bioequivalence analysis strategies*."
+-   Developing `R` package to perform the analysis.
 :::
 
-::: {.g-col-4}
-
-![](./logo/uu-logo.jpg){width=13%} **Sep. 2014 -- Aug. 2019**<br/> 
-{{< fa location-dot >}} _Uppsala, Sweden_  
-
+::: g-col-4
+![](./logo/uu-logo.jpg){width="13%"} **Sep. 2014 -- Aug. 2019**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **Uppsala University, Department of Mathematics**
 
-_**PhD Student/Teacher of Mathematics \& Statistics **_
-  
-- Working on a Ph.D. thesis in biostatistics resulting in four scientific publications.
-- Teaching (20\%) mathematical and statistical courses for undergraduate, master, and Ph.D. students. _Some courses were developed from scratch_.
-     
+***PhD Student/Teacher of Mathematics & Statistics***
+
+-   Working on a Ph.D. thesis in biostatistics resulting in four scientific publications.
+-   Teaching (20%) mathematical and statistical courses for undergraduate, master, and Ph.D. students. *Some courses were developed from scratch*.
 :::
 
-::: {.g-col-4}
-
-![](./logo/cs.png){width=13%} **Jan. 2013 -- Aug. 2014**<br/> 
-{{< fa location-dot >}} _Kharkiv, Ukraine_  
-
+::: g-col-4
+![](./logo/cs.png){width="13%"} **Jan. 2013 -- Aug. 2014**<br/> {{< fa location-dot >}} *Kharkiv, Ukraine*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **CS Ltd. (A part of Quartesian LLC)**
 
-_**SAS Programmer/Clinical Data Analyst**_
-  
-- SAS programming and validating (QC) of SDTM and ADaM datasets, tables, listings, and figures for clinical study reports. 
-- Developing programming specifications according to CDISC standards.
-- Performing statistical analysis and modeling of clinical data.
-     
+***SAS Programmer/Clinical Data Analyst***
+
+-   SAS programming and validating (QC) of SDTM and ADaM datasets, tables, listings, and figures for clinical study reports.
+-   Developing programming specifications according to CDISC standards.
+-   Performing statistical analysis and modeling of clinical data.
 :::
 
-::: {.g-col-4}
-
-![](./logo/khneu.png){width=13%} **Sep. 2002 -- Dec. 2012**<br/> 
-{{< fa location-dot >}} _Kharkiv, Ukraine_  
-
+::: g-col-4
+![](./logo/khneu.png){width="13%"} **Sep. 2002 -- Dec. 2012**<br/> {{< fa location-dot >}} *Kharkiv, Ukraine*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **Kharkiv National University of Economics, Department of Mathematics**
 
-_**Teaching and Research Assistant**_
-  
-- Full time teaching of various mathematical and statistical courses for undergraduate students.
-- Conducting research on mathematical physics and biostatistics problems.
-     
+***Teaching and Research Assistant***
+
+-   Full time teaching of various mathematical and statistical courses for undergraduate students.
+-   Conducting research on mathematical physics and biostatistics problems.
 :::
 
-
-::: {.g-col-4}
-
-**Sep. 2001 -- Aug. 2002**<br/> 
-{{< fa location-dot >}} _Kharkiv, Ukraine_  
-
+::: g-col-4
+**Sep. 2001 -- Aug. 2002**<br/> {{< fa location-dot >}} *Kharkiv, Ukraine*
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 **Information Center of Trade**
 
-_**Software Developer**_
-  
-- Developing software for cash registers.
-- Maintenaning and supporting company's databases.
-     
-:::
+***Software Developer***
 
+-   Developing software for cash registers.
+-   Maintenaning and supporting company's databases.
 :::
-
+:::
 
 ## {{< fa certificate >}} Certificates
 
-::: {.grid}
-
-::: {.g-col-4}
-**2017**<br/>
-{{< fa location-dot >}} _Uppsala, Sweden_
+::: grid
+::: g-col-4
+**2017**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
 
-::: {.g-col-8}
+::: g-col-8
 **Center for Interdisciplinary Mathematics, Uppsala University**
 
-_**Introduction \& Fundamentals of Data Science**_
+***Introduction & Fundamentals of Data Science***
 :::
 
-::: {.g-col-4}
-**2016**<br/>
-{{< fa location-dot >}} _Uppsala, Sweden_
+::: g-col-4
+**2016**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
 
-::: {.g-col-8}
+::: g-col-8
 **Uppsala University**
 
-_**Academic Teacher Training**_
+***Academic Teacher Training***
 :::
 
-::: {.g-col-4}
-**2015**<br/>
-{{< fa location-dot >}} _Uppsala, Sweden_
+::: g-col-4
+**2015**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
 
-::: {.g-col-8}
+::: g-col-8
 **Center for Interdisciplinary Mathematics, Uppsala University**
 
-_**Advanced Statistical Computing in `R`**_
+***Advanced Statistical Computing in `R`***
 :::
-
 :::
 
 ## {{< fa cogs >}} Skills
 
-::: {.grid}
-
-::: {.g-col-4}
-{{< fa chart-line >}} **Quantitative**
+::: grid
+::: g-col-4
+{{< fa chart-line >}} Quantitative
 :::
 
-::: {.g-col-8}
-Automatic Differentiation, Bayesian Methods, Differential Equations, Experimental Designs, Interval Analysis, Machine Learning, Monte Carlo Methods, PK/PD Models, Probability \& Statistics, Randomization, Regression, Survival Analysis, Uncertainty Quantification.
+::: g-col-8
+Automatic Differentiation, Bayesian Methods, Differential Equations, Experimental Designs, Interval Analysis, Machine Learning, Monte Carlo Methods, PK/PD Models, Probability & Statistics, Randomization, Regression, Survival Analysis, Uncertainty Quantification.
 :::
 
-::: {.g-col-4}
-{{< fa laptop >}} **Programming**
+::: g-col-4
+{{< fa laptop >}} Programming
 :::
 
-::: {.g-col-8}
+::: g-col-8
 Apache Spark, Julia, MatLab, Python, R, SAS, Scala, SQL.
 :::
 
-::: {.g-col-4}
-{{< fa tools >}} **Tools**
+::: g-col-4
+{{< fa tools >}} Tools
 :::
 
-::: {.g-col-8}
+::: g-col-8
 Databricks, Git, Jupyter Notebook, LaTeX, Quarto, RMarkdown.
 :::
-
 :::
-
 
 ## {{< fa language >}} Languages
 
-_**English**_ (Fluent), _**Swedish**_ (Beginner), _**Ukrainian**_ (native), _**Russian**_ (native).
+***English*** (Fluent), ***Swedish*** (Beginner), ***Ukrainian*** (native), ***Russian*** (native).
