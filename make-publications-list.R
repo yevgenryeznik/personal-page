@@ -131,7 +131,10 @@ format_publication <- function(item, type_) {
 
   # getting chapter
   chapter <- item$chapter
-
+  if(is.null(chapter)) {
+    chapter <- ""
+  }
+  
   if (type_ == "thesis") {
     out <- authors %>%
       stringr::str_c(year, sep = " ") %>%

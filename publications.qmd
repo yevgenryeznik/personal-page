@@ -99,11 +99,13 @@ Tyzhnenko, A. G., **Ryeznik, Y.** (2004) "Convergent Galerkin MoM solution to th
 ### 2022
 Sverdlov, O., **Ryeznik, Y.**, Leonov, S., Fedorov, V. (2022) "Statistical approaches in the development of digital therapeutics" in _Digital Therapeutics: Strategic, Scientific, Developmental, and Regulatory Aspects_, chapter 6, Chapman and Hall/CRC. <a  target="_blank" href="https://www.taylorfrancis.com/books/edit/10.1201/9781003017288/digital-therapeutics-oleksandr-sverdlov-joris-van-dam"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
+Sverdlov, O., **Ryeznik, Y.**, Wong, W. K. (2022) "Imbalanced randomization (rationales for)." in _Wiley StatsRef: Statistics Reference Online_, chapter , Wiley Online Library. <a  target="_blank" href="https://doi.org/10.1002/9781118445112.stat08345"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2021
 Sverdlov, O., **Ryeznik, Y.** (2021) "Randomization, stratification, and outcome-adaptive allocation" in _Handbook of Statistical Methods for Randomized Clinical Trials_, chapter 11: 215-242, Chapman and Hall/CRC. <a  target="_blank" href="https://doi.org/10.1201/9781315119694"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781315119694-11/randomization-stratification-outcome-adaptive-allocation-oleksandr-sverdlov-yevgen-ryeznik?context=ubx&refId=41496c7c-cc8f-4536-9fc2-cddcbcdb7abd"><button class="ref-btn abstract-btn">abstract</button></a>
 
 ### 2018
+Kryvokhyzha, D., **Ryeznik, Y.** (2018) "Hail tutorial in Scala for population genomics ETL" in _SDS-2.2, Scalable Data Science._, chapter , GitBook. <a  target="_blank" href="https://lamastex.gitbooks.io/sds-2-2/content/sds-2-2/999_05_StudentProject_HailScalaGenomicsETLTutorial.html"><button class="ref-btn url-btn"><i class="fa fa-link" aria-hidden="true"></i> url</button></a>
 
 ## Conference presentations
 
