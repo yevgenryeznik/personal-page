@@ -462,7 +462,7 @@ books_tutorials:
       - Kryvokhyzha, D.
       - me
     year: 2018
-    book: SDS-2.2, Scalable Data Science.
+    book: SDS-2.2, Scalable Data Science
     publisher: GitBook
     url: https://lamastex.gitbooks.io/sds-2-2/content/sds-2-2/999_05_StudentProject_HailScalaGenomicsETLTutorial.html
 conference_presentations:

@@ -134,6 +134,9 @@ format_publication <- function(item, type_) {
   if(is.null(chapter)) {
     chapter <- ""
   }
+  else {
+    chapter <- stringr::str_glue(" chapter {chapter}")
+  }
   
   if (type_ == "thesis") {
     out <- authors %>%
@@ -187,7 +190,7 @@ format_publication <- function(item, type_) {
               stringr::str_c(year, sep = " ") %>%
               stringr::str_c(title, sep = " ") %>%
               stringr::str_c(stringr::str_glue('in _{book}_'), sep = " ") %>%
-              stringr::str_c(stringr::str_glue('chapter {chapter}'), sep = ", ") %>%
+              stringr::str_c(stringr::str_glue('{chapter}'), sep = "") %>%
               stringr::str_c(pages, sep = ": ") %>%
               stringr::str_c(publisher, sep = ", ") %>%
               stringr::str_c(button(item), sep = ". ")
