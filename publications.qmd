@@ -17,12 +17,14 @@ Tyzhnenko, A. G., **Ryeznik, Y.** (2023) "Hybrid Galerkin-Rayleigh: a new method
 ## Peer-reviewed publications
 
 ### 2024
+Sverdlov, O., **Ryeznik, Y.**, Anisimov, V., Kuznetsova, O. M., Knight, R., Carter, K., Drescher, S., Zhao, W. (2024) "Selecting a randomization method for a multi-center clinical trial with stochastic recruitment considerations." _BMC Medical Research Methodology_ **21 (168)**:1-24. <a  target="_blank" href="https://doi.org/10.1186/s12874-023-02131-z"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://link.springer.com/content/pdf/10.1186/s12874-023-02131-z.pdf"><button class="ref-btn pdf-btn"><i class="fas fa-file-pdf"></i> pdf</button></a>
+
 Zhao, W., Carter, K., Sverdlov, O., Scheffold, A., **Ryeznik, Y.**, Cassarly, C., Berger, V. W. (2024) "Steady-state statistical properties and implementation of randomization designs with maximum tolerated imbalance restriction for two-arm equal allocation clinical trials." _Statistics in Medicine_ **43 (6)**:1194-1212. <a  target="_blank" href="https://doi.org/10.1002/sim.10013"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2023
 Sverdlov, O., **Ryeznik, Y.** (2023) "Balancing the objectives of statistical efficiency and allocation randomness in randomized controlled trials." _Statistics in Biopharmaceutical Research_ . <a  target="_blank" href="https://doi.org/10.1080/19466315.2023.2261671"><button class="ref-btn doi-btn">doi</button></a>
 
-Sverdlov, O., Carter, K., Hilgers, R. D., Everett C. C,, Berger, V. W., Luo, Y. A., Chipman, J .J., **Ryeznik, Y.**, Ross, J., Knight, R., Yamada, K. (2023) "Which randomization methods are used most frequently in clinical trials? Results of a survey by the Randomization Working Group." _Statistics in Biopharmaceutical Research_ . <a  target="_blank" href="https://doi.org/10.1080/19466315.2023.2225451"><button class="ref-btn doi-btn">doi</button></a>
+Sverdlov, O., Carter, K., Hilgers, R. D., Everett C. C., Berger, V. W., Luo, Y. A., Chipman, J .J., **Ryeznik, Y.**, Ross, J., Knight, R., Yamada, K. (2023) "Which randomization methods are used most frequently in clinical trials? Results of a survey by the Randomization Working Group." _Statistics in Biopharmaceutical Research_ . <a  target="_blank" href="https://doi.org/10.1080/19466315.2023.2225451"><button class="ref-btn doi-btn">doi</button></a>
 
 ### 2022
 Fei, Z., **Ryeznik, Y.**, Sverdlov, O., Tan, Ch. W., Wong, W. K. (2022) "An overview of healthcare data analytics with applications to the COVID-19 pandemic." _IEEE Transactions on Big Data_ **8 (6)**:1463-1480. <a  target="_blank" href="https://doi.org/10.1109/TBDATA.2021.3103458"><button class="ref-btn doi-btn">doi</button></a> <a  target="_blank" href="https://arxiv.org/pdf/2111.14623.pdf"><button class="ref-btn arxiv-btn"><i class="ai ai-arxiv"></i> arxiv</button></a>

@@ -20,6 +20,24 @@ preprints:
     year: 2023
     pdf: https://www.researchgate.net/profile/Yevgen-Ryeznik/publication/373825751_Hybrid_Galerkin-Rayleigh_a_new_method_solution_for_scattering_from_1-D_roughness_on_a_PEC_Plane_at_grazing/links/64fef78868ca5847e3cf896f/Hybrid-Galerkin-Rayleigh-a-new-method-solution-for-scattering-from-1-D-roughness-on-a-PEC-Plane-at-grazing.pdf
 peer_reviewed:
+  sverdlov2024:
+    title: "Selecting a randomization method for a multi-center clinical trial with stochastic recruitment considerations."
+    authors:
+      - Sverdlov, O.
+      - me
+      - Anisimov, V.
+      - Kuznetsova, O. M.
+      - Knight, R.
+      - Carter, K.
+      - Drescher, S.
+      - Zhao, W. 
+    year: 2024
+    journal: BMC Medical Research Methodology
+    volume: 21
+    number: 168
+    pages: 1-24
+    doi: https://doi.org/10.1186/s12874-023-02131-z
+    pdf: https://link.springer.com/content/pdf/10.1186/s12874-023-02131-z.pdf
   zhao2024:
     title: "Steady-state statistical properties and implementation of randomization designs with maximum tolerated imbalance restriction for two-arm equal allocation clinical trials."
     authors: 
@@ -55,7 +73,7 @@ peer_reviewed:
       - Sverdlov, O.
       - Carter, K.
       - Hilgers, R. D.
-      - Everett C. C, 
+      - Everett C. C. 
       - Berger, V. W.
       - Luo, Y. A.
       - Chipman, J .J.
