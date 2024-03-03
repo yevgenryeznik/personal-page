@@ -1,0 +1,12 @@
+*.Rproj
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+/_site/
+/img/
+/logo/
+/_extensions/
+/_freeze/
