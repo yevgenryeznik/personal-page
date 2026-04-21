@@ -193,14 +193,14 @@
     "href": "index.html",
     "title": "Yevgen Ryeznik",
     "section": "",
-    "text": "My name is Yevgen Ryeznik (Ukrainian🇺🇦: Євген Рєзнік).\nI am a researcher in statistics and pharmacometrics at the Department of Pharmacy, Uppsala University.\nPrior to that, I worked as a statistician in the pharma industry, providing statistical support for the design and analysis of clinical trials.\nI obtained a PhD degree in applied mathematics and statistics at Uppsala University (Sweden) in 2019. The PhD project was a part of the Center for Interdisciplinary Mathematics (CIM) initiative. My supervisors were professor Warwick Tucker from the Department of Mathematics and professor Andrew Hooker from the Department of Pharmacy, Pharmacometrics Research Group.\nMy detailed CV is available here.\nI am interested in solving research problems in mathematics, (bio)statistics, pharmacometrics, and machine learning as well as in statistical programming and scientific computing, using R and Julia programming languages.\nHere, you can find information about several courses, that I teach/taught."
+    "text": "My name is Yevgen Ryeznik (Ukrainian🇺🇦: Євген Рєзнік).\nI am a Quantitative Scientist with 20+ years of working experience in academia & industry. I enjoy solving applied complex problems with mathematical and statistical modeling & simulation, using Julia, R, Python, and MatLab.\nIn 2019, I obtained a PhD degree in applied mathematics and statistics at Uppsala University (Sweden). The PhD project was a part of the Center for Interdisciplinary Mathematics (CIM) initiative. My supervisors were professor Warwick Tucker from the Department of Mathematics and professor Andrew Hooker from the Department of Pharmacy, Pharmacometrics Research Group.\nMy detailed CV is available here.\nHere, you can find information about several courses, that I teach/taught."
   },
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "Yevgen Ryeznik",
     "section": "",
-    "text": "My name is Yevgen Ryeznik (Ukrainian🇺🇦: Євген Рєзнік).\nI am a researcher in statistics and pharmacometrics at the Department of Pharmacy, Uppsala University.\nPrior to that, I worked as a statistician in the pharma industry, providing statistical support for the design and analysis of clinical trials.\nI obtained a PhD degree in applied mathematics and statistics at Uppsala University (Sweden) in 2019. The PhD project was a part of the Center for Interdisciplinary Mathematics (CIM) initiative. My supervisors were professor Warwick Tucker from the Department of Mathematics and professor Andrew Hooker from the Department of Pharmacy, Pharmacometrics Research Group.\nMy detailed CV is available here.\nI am interested in solving research problems in mathematics, (bio)statistics, pharmacometrics, and machine learning as well as in statistical programming and scientific computing, using R and Julia programming languages.\nHere, you can find information about several courses, that I teach/taught."
+    "text": "My name is Yevgen Ryeznik (Ukrainian🇺🇦: Євген Рєзнік).\nI am a Quantitative Scientist with 20+ years of working experience in academia & industry. I enjoy solving applied complex problems with mathematical and statistical modeling & simulation, using Julia, R, Python, and MatLab.\nIn 2019, I obtained a PhD degree in applied mathematics and statistics at Uppsala University (Sweden). The PhD project was a part of the Center for Interdisciplinary Mathematics (CIM) initiative. My supervisors were professor Warwick Tucker from the Department of Mathematics and professor Andrew Hooker from the Department of Pharmacy, Pharmacometrics Research Group.\nMy detailed CV is available here.\nHere, you can find information about several courses, that I teach/taught."
   },
   {
     "objectID": "cv.html",
@@ -247,6 +247,48 @@
   {
     "objectID": "cv.html#fa-language-languages",
     "href": "cv.html#fa-language-languages",
+    "title": "Yevgen Ryeznik",
+    "section": " Languages",
+    "text": "Languages\nEnglish (Fluent), Swedish (Beginner), Ukrainian (native), Russian (native)."
+  },
+  {
+    "objectID": "cv.html#about",
+    "href": "cv.html#about",
+    "title": "Yevgen Ryeznik",
+    "section": "",
+    "text": "Mathematician/statistician with a strong interest in applications of mathematical and statistical methods (optimization, numerical methods, Monte Carlo simulations) to research problems in (bio)statistics, pharmacometrics, econometrics, machine learning, data science.\n15+ years of research experience in mathematical physics and biostatistics which is summarized by 30+ scientific publications in mathematical and statistical journals.\nPersonal web page: https://yevgenryeznik.github.io/personal-page"
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Yevgen Ryeznik",
+    "section": " Education",
+    "text": "Education\n\n\n Sep. 2014 – Apr. 2019  Uppsala, Sweden\n\n\nUppsala University, Department of Mathematics\nPh.D. in Applied Mathematics and Statistics\nThesis: “Optimal adaptive designs and adaptive randomization techniques for clinical trials.”\nCourses taken: Applied Mathematics, Analysis of Time Series, Uncertainty Quantification, Computational Python, Validated Numerics, Foundation of Machine Learning, Advanced Statistical Computing, Computer-Intensive Statistics, Introduction to Data Science, Foundation of Data Science.\n\n\n Sep. 1996 – Jun. 2001  Kharkiv, Ukraine\n\n\nKharkiv National University, Department of Mechanics and Mathematics\nSpecialist/M.Sc. in Applied Mathematics\nThesis: “Numerical analysis of a plane monochromatic wave scattering from a parabolic cylinder with a circular reflector.”\nCoursework included: Mathematical Analysis, Functional Analysis, Analytic and Differential Geometry, Linear and Abstract Algebra, Ordinary and Partial Differential Equations, Discrete Mathematics, Optimization, Probability, Mathematical Statistics, Random Processes, Game Theory, Numerical Analysis, Generalized Functions, Special Functions, Sobolev Spaces, Operator Theory, Diffraction Theory, Mechanics, Mathematical Physics."
+  },
+  {
+    "objectID": "cv.html#work-experience",
+    "href": "cv.html#work-experience",
+    "title": "Yevgen Ryeznik",
+    "section": " Work Experience",
+    "text": "Work Experience\n\n\n Jan. 2024 – present  Uppsala, Sweden\n\n\nUppsala University, Department of Pharmacy\nResearcher in Statistics and Pharmacometrics\n\nResearching innovative statistical, pharmacometrics, and machine learning methods.\n\n\n\n Jan. 2023 – Jan. 2024  Gothenburg, Sweden\n\n\nThe Janssen Pharmaceutical Companies of Johnson & Johnson, Statistical Modeling and Methodology\nPrincipal Statistician\n\nApplying statistical modeling to support clinical trial designs.\nDeveloping new methodologies to improve clinical trials efficiency.\nResearching innovative statistical, pharmacometrics, and machine learning methods.\n\n\n\n Jun. 2020 – Dec. 2022  Gothenburg, Sweden\n\n\nAstraZeneca, Early Biometrics and Statistical Innovations\nSenior Statistician\n\nApplying statistical modeling to support early phases’ clinical trial designs.\nResearching innovative statistical, pharmacometrics, and machine learning methods to improve the efficiency of clinical trials.\n\n\n\n Sep. 2019 – May 2020  Uppsala, Sweden\n\n\nUppsala University, Department of Pharmaceutical Biosciences\nResearcher in Pharmacometrics\n\nWorking on the FDA project “Evaluation and development of model-based bioequivalence analysis strategies.”\nDeveloping R package to perform the analysis.\n\n\n\n Sep. 2014 – Aug. 2019  Uppsala, Sweden\n\n\nUppsala University, Department of Mathematics\nPhD Student/Teacher of Mathematics & Statistics\n\nWorking on a Ph.D. thesis in biostatistics resulting in four scientific publications.\nTeaching (20%) mathematical and statistical courses for undergraduate, master, and Ph.D. students. Some courses were developed from scratch.\n\n\n\n Jan. 2013 – Aug. 2014  Kharkiv, Ukraine\n\n\nCS Ltd. (A part of Quartesian LLC)\nSAS Programmer/Clinical Data Analyst\n\nProgramming and validating (QC) STDM/ADaM datasets, tables, listings, and figures for clinical study reports (in SAS).\nDeveloping programming specifications according to the CDISC standards.\nPerforming statistical analysis and modeling of clinical trial data.\n\n\n\n Sep. 2002 – Dec. 2012  Kharkiv, Ukraine\n\n\nKharkiv National University of Economics, Department of Mathematics\nTeaching and Research Assistant\n\nTeaching (full-time) various statistical and mathematical courses for undergraduate students.\nResearching the problems in mathematical physics and biostatistics.\n\n\n\nSep. 2001 – Aug. 2002  Kharkiv, Ukraine\n\n\nInformation Center of Trade\nSoftware Developer\n\nDeveloping software for cash registers.\nMaintenaning and supporting company’s databases."
+  },
+  {
+    "objectID": "cv.html#certificates",
+    "href": "cv.html#certificates",
+    "title": "Yevgen Ryeznik",
+    "section": " Certificates",
+    "text": "Certificates\n\n\n2017  Uppsala, Sweden\n\n\nCenter for Interdisciplinary Mathematics, Uppsala University\nIntroduction & Fundamentals of Data Science\n\n\n2016  Uppsala, Sweden\n\n\nUppsala University\nAcademic Teacher Training\n\n\n2015  Uppsala, Sweden\n\n\nCenter for Interdisciplinary Mathematics, Uppsala University\nAdvanced Statistical Computing in R"
+  },
+  {
+    "objectID": "cv.html#skills",
+    "href": "cv.html#skills",
+    "title": "Yevgen Ryeznik",
+    "section": " Skills",
+    "text": "Skills\n\n\n Quantitative\n\n\nAutomatic Differentiation, Bayesian Methods, Differential Equations, Experimental Designs, Interval Analysis, Machine Learning, Monte Carlo Methods, PK/PD Models, Probability & Statistics, Randomization, Regression, Survival Analysis, Uncertainty Quantification.\n\n\n Programming\n\n\nApache Spark, Julia, MatLab, Python, R, SAS, Scala, SQL.\n\n\n Tools\n\n\nDatabricks, Git, Jupyter Notebook, LaTeX, Quarto, RMarkdown."
+  },
+  {
+    "objectID": "cv.html#languages",
+    "href": "cv.html#languages",
     "title": "Yevgen Ryeznik",
     "section": " Languages",
     "text": "Languages\nEnglish (Fluent), Swedish (Beginner), Ukrainian (native), Russian (native)."
