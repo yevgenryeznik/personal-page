@@ -47,7 +47,6 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 ## {{< fa briefcase >}} Work Experience
 
 ::: grid
-
 ::: g-col-4
 ![](./logo/uu-logo.jpg){width="13%"} **Jan. 2024 -- present**<br/> {{< fa location-dot >}} *Uppsala, Sweden*
 :::
@@ -57,8 +56,7 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***Researcher in Statistics and Pharmacometrics***
 
-- Researching innovative statistical, pharmacometrics, and machine learning methods.
-
+-   Researching innovative statistical, pharmacometrics, and machine learning methods.
 :::
 
 ::: g-col-4
@@ -70,10 +68,9 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***Principal Statistician***
 
-- Applying statistical modeling to support clinical trial designs.
-- Developing new methodologies to improve clinical trials efficiency.
-- Researching innovative statistical, pharmacometrics, and machine learning methods.
-
+-   Applying statistical modeling to support clinical trial designs.
+-   Developing new methodologies to improve clinical trials efficiency.
+-   Researching innovative statistical, pharmacometrics, and machine learning methods.
 :::
 
 ::: g-col-4
@@ -85,9 +82,8 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***Senior Statistician***
 
-- Applying statistical modeling to support early phases' clinical trial designs.
-- Researching innovative statistical, pharmacometrics, and machine learning methods to improve the efficiency of clinical trials.
-
+-   Applying statistical modeling to support early phases' clinical trial designs.
+-   Researching innovative statistical, pharmacometrics, and machine learning methods to improve the efficiency of clinical trials.
 :::
 
 ::: g-col-4
@@ -99,9 +95,8 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***Researcher in Pharmacometrics***
 
-- Working on the FDA project "*Evaluation and development of model-based bioequivalence analysis strategies*."
-- Developing `R` package to perform the analysis.
-
+-   Working on the FDA project "*Evaluation and development of model-based bioequivalence analysis strategies*."
+-   Developing `R` package to perform the analysis.
 :::
 
 ::: g-col-4
@@ -113,8 +108,8 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***PhD Student/Teacher of Mathematics & Statistics***
 
-- Working on a Ph.D. thesis in biostatistics resulting in four scientific publications.
-- Teaching (20%) mathematical and statistical courses for undergraduate, master, and Ph.D. students. *Some courses were developed from scratch*.
+-   Working on a Ph.D. thesis in biostatistics resulting in four scientific publications.
+-   Teaching (20%) mathematical and statistical courses for undergraduate, master, and Ph.D. students. *Some courses were developed from scratch*.
 :::
 
 ::: g-col-4
@@ -126,10 +121,9 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***SAS Programmer/Clinical Data Analyst***
 
-- Programming and validating (QC) STDM/ADaM datasets, tables, listings, and figures for clinical study reports (in SAS).
-- Developing programming specifications according to the CDISC standards.
-- Performing statistical analysis and modeling of clinical trial data.
-
+-   Programming and validating (QC) STDM/ADaM datasets, tables, listings, and figures for clinical study reports (in SAS).
+-   Developing programming specifications according to the CDISC standards.
+-   Performing statistical analysis and modeling of clinical trial data.
 :::
 
 ::: g-col-4
@@ -141,9 +135,8 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***Teaching and Research Assistant***
 
-- Teaching (full-time) various statistical and mathematical courses for undergraduate students.
-- Researching the problems in mathematical physics and biostatistics.
-
+-   Teaching (full-time) various statistical and mathematical courses for undergraduate students.
+-   Researching the problems in mathematical physics and biostatistics.
 :::
 
 ::: g-col-4
@@ -155,9 +148,8 @@ Coursework included: Mathematical Analysis, Functional Analysis, Analytic and Di
 
 ***Software Developer***
 
-- Developing software for cash registers.
-- Maintenaning and supporting company's databases.
-
+-   Developing software for cash registers.
+-   Maintenaning and supporting company's databases.
 :::
 :::
 
